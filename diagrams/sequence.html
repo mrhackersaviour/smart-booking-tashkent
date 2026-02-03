@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Booking Tashkent - Sequence Diagram</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #e2e8f0;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 1.8rem;
+        }
+        .subtitle {
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        .mermaid {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 95vw;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sequence Diagram</h1>
+    <p class="subtitle">Smart Booking Tashkent - Complete Booking Flow (Search, Select, Book, Pay)</p>
+    <div class="mermaid">
+sequenceDiagram
+    actor User as User / Browser
+    participant FE as React Frontend<br/>(Vite :3000)
+    participant API as Express API<br/>(:5000)
+    participant Auth as Auth Middleware<br/>(JWT)
+    participant VC as venueController
+    participant BC as bookingController
+    participant PC as paymentController
+    participant NC as notificationController
+    participant DB as SQLite Database
+    participant WS as WebSocket Server
+    participant Stripe as Stripe API
+    participant AI as Claude AI API
+
+    Note over User, AI: Phase 1 - Authentication
+    User->>FE: Enter email & password
+    FE->>API: POST /api/auth/login
+    API->>DB: SELECT * FROM users WHERE email = ?
+    DB-->>API: User record
+    API->>API: bcrypt.compare(password, password_hash)
+    API->>API: generateTokens(userId) - JWT access (1h) + refresh (7d)
+    API-->>FE: { user, accessToken, refreshToken }
+    FE->>FE: Store tokens in localStorage
+
+    Note over User, AI: Phase 2 - Browse & Search Venues
+    User->>FE: Navigate to /venues, apply filters
+    FE->>API: GET /api/venues?type=restaurant&district=Yunusabad&sort=rating
+    API->>VC: getVenues(req, res)
+    VC->>DB: SELECT * FROM venues WHERE type=? AND district=? ORDER BY rating DESC
+    DB-->>VC: Venue list with pagination
+    VC-->>FE: { venues[], pagination }
+    FE->>User: Display venue cards
+
+    Note over User, AI: Phase 2b - AI Recommendations (Optional)
+    User->>FE: Ask AI for recommendations
+    FE->>API: POST /api/ai/recommendations { preferences, date, guests }
+    API->>Auth: optionalAuth - verify token if present
+    API->>AI: Claude claude-sonnet-4-20250514 - venue matching
+    AI-->>API: Recommended venue IDs + reasoning
+    API->>DB: SELECT * FROM venues WHERE id IN (...)
+    DB-->>API: Matching venues
+    API-->>FE: { recommendations[] with explanations }
+
+    Note over User, AI: Phase 3 - View Venue Details & Availability
+    User->>FE: Click on venue card
+    FE->>API: GET /api/venues/:id
+    API->>VC: getVenueById(req, res)
+    VC->>DB: SELECT from venues, venue_tables, reviews (3 queries)
+    DB-->>VC: Venue + tables + recent reviews
+    VC-->>FE: { venue, tables[], reviews[] }
+
+    User->>FE: Select date for booking
+    FE->>API: GET /api/venues/:id/availability?date=2026-03-10
+    API->>VC: getVenueAvailability(req, res)
+    VC->>DB: SELECT venue_tables LEFT JOIN bookings for date
+    DB-->>VC: Tables with booking status
+    VC-->>FE: { tables[] with is_available flags }
+    FE->>User: Show available tables (highlight available)
+
+    Note over User, AI: Phase 3b - 3D Venue View (Optional)
+    User->>FE: Click "View in 3D"
+    FE->>API: GET /api/venues/:id/3d-model
+    API->>VC: getVenue3DModel(req, res)
+    VC->>DB: SELECT tables with position_x, position_y, position_z
+    DB-->>VC: 3D layout data
+    VC-->>FE: { venue, tables[], scene config }
+    FE->>FE: Render with react-three-fiber
+
+    Note over User, AI: Phase 4 - Create Booking
+    User->>FE: Select table, date, time, guests
+    FE->>API: POST /api/bookings { venue_id, table_id, booking_date, start_time, end_time, guests_count }
+    API->>Auth: authenticateToken - verify JWT
+    Auth->>DB: SELECT user by id from token
+    DB-->>Auth: User record (with subscription_tier)
+    Auth-->>API: req.user attached
+    API->>BC: createBooking(req, res)
+    BC->>DB: SELECT venue (verify exists & active)
+    DB-->>BC: Venue record
+    BC->>DB: Check table availability for date/time
+    DB-->>BC: No conflict found
+
+    BC->>BC: Calculate loyalty points (tier multiplier)
+    Note right of BC: free=1x, basic=1.25x,<br/>premium=1.5x, vip=2x
+
+    BC->>DB: INSERT INTO bookings (status='pending')
+    DB-->>BC: New booking record
+    BC->>DB: UPDATE users SET loyalty_points += earned
+    BC->>DB: INSERT INTO loyalty_transactions (type='earned')
+    BC-->>FE: { booking with venue details }
+    FE->>User: Redirect to /checkout/:bookingId
+
+    Note over User, AI: Phase 5 - Payment
+    User->>FE: Proceed to payment
+    FE->>API: POST /api/payments/create-intent { booking_id }
+    API->>Auth: authenticateToken
+    API->>PC: createPaymentIntent(req, res)
+    PC->>DB: SELECT booking WHERE id=? AND user_id=?
+    DB-->>PC: Booking record (total_price in UZS)
+    PC->>Stripe: stripe.paymentIntents.create({ amount, currency: 'uzs' })
+    Stripe-->>PC: { clientSecret, paymentIntentId }
+    PC-->>FE: { clientSecret, amount }
+
+    FE->>Stripe: confirmCardPayment(clientSecret)
+    Stripe-->>FE: Payment result (success/failure)
+
+    FE->>API: POST /api/payments/confirm { booking_id, payment_intent_id }
+    API->>PC: confirmPayment(req, res)
+    PC->>DB: UPDATE bookings SET status='confirmed', payment_status='paid'
+    PC->>DB: INSERT INTO notifications (type='booking_confirmed')
+    PC-->>FE: { booking (confirmed) }
+
+    Note over User, AI: Phase 6 - Notification
+    WS->>User: Real-time notification: "Booking Confirmed!"
+
+    Note over User, AI: Phase 7 - Group Booking (Optional)
+    User->>FE: Invite friends to booking
+    FE->>API: POST /api/bookings/:id/invite { invited_emails, split_type }
+    API->>BC: inviteFriends(req, res)
+    BC->>DB: SELECT users by email
+    BC->>DB: INSERT INTO group_bookings
+    BC->>DB: UPDATE bookings SET is_group_booking=1
+    BC->>DB: INSERT notifications for each invitee
+    BC-->>FE: { groupBooking details }
+    WS->>User: Notify invited friends via WebSocket
+    </div>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            sequence: {
+                useMaxWidth: true,
+                showSequenceNumbers: true,
+                actorMargin: 40,
+                messageMargin: 30,
+                boxMargin: 8,
+                noteMargin: 10,
+                mirrorActors: true,
+                wrap: true,
+                width: 180
+            },
+            securityLevel: 'loose'
+        });
+    </script>
+</body>
+</html>

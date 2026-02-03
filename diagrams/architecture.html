@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Booking Tashkent - System Architecture Diagram</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #e2e8f0;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 1.8rem;
+        }
+        .subtitle {
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        .mermaid {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 95vw;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>System Architecture Diagram</h1>
+    <p class="subtitle">Smart Booking Tashkent - High-Level System Components and Communication</p>
+    <div class="mermaid">
+flowchart TB
+    subgraph ClientLayer["Client Layer"]
+        direction LR
+        Browser["Web Browser"]
+        subgraph ReactApp["React + Vite Frontend (:3000)"]
+            direction TB
+            Pages["Pages<br/>Home | Venues | VenueDetails<br/>BookingForm | MyBookings<br/>Login | Register<br/>LoyaltyDashboard | SubscriptionPlans<br/>Checkout"]
+            Components["Components<br/>Navbar | VenueCard<br/>AIChatWidget | NotificationBell<br/>VenueViewer3D (Three.js)"]
+            Services["API Service Layer<br/>(api.js - Axios HTTP Client)"]
+            Pages --> Components
+            Pages --> Services
+        end
+        Browser --> ReactApp
+    end
+
+    subgraph SecurityLayer["Security & Middleware Layer"]
+        direction LR
+        Helmet["Helmet<br/>(HTTP Headers)"]
+        CORS["CORS<br/>(Frontend Origin)"]
+        RateLimit["Rate Limiter<br/>(100 req/15min)"]
+        JWT["JWT Auth Middleware<br/>(authenticateToken /<br/>optionalAuth /<br/>requireSubscription)"]
+        Validator["Express Validator<br/>(Input Validation)"]
+    end
+
+    subgraph APILayer["Express.js API Server (:5000)"]
+        direction TB
+        subgraph Routes["API Routes (/api)"]
+            direction LR
+            AuthRoutes["/api/auth<br/>register | login<br/>refresh | me"]
+            VenueRoutes["/api/venues<br/>list | details<br/>availability | 3d-model<br/>districts"]
+            BookingRoutes["/api/bookings<br/>create | list | get<br/>update | cancel<br/>invite | split"]
+            LoyaltyRoutes["/api/loyalty<br/>transactions | summary<br/>redeem"]
+            SubRoutes["/api/subscriptions<br/>plans | current<br/>subscribe | cancel"]
+            PayRoutes["/api/payments<br/>create-intent | confirm<br/>refund | webhook"]
+            NotifRoutes["/api/notifications<br/>list | read<br/>mark-all-read | delete"]
+            AIRoutes["/api/ai<br/>recommendations<br/>chat | select-table"]
+        end
+
+        subgraph Controllers["Controllers (Business Logic)"]
+            direction LR
+            AuthCtrl["authController<br/>- Password hashing (bcrypt 12)<br/>- Token generation (JWT)"]
+            VenueCtrl["venueController<br/>- Filtering & pagination<br/>- Availability checking<br/>- 3D model data"]
+            BookingCtrl["bookingController<br/>- Conflict detection<br/>- Loyalty point calc<br/>- Group booking mgmt"]
+            LoyaltyCtrl["loyaltyController<br/>- Points balance<br/>- Tier multipliers<br/>- Redemption (1pt=1000 UZS)"]
+            SubCtrl["subscriptionController<br/>- Plan management<br/>- Bonus points award"]
+            PayCtrl["paymentController<br/>- Payment intents<br/>- Confirmation & refunds"]
+            NotifCtrl["notificationController<br/>- CRUD operations<br/>- Read status tracking"]
+            AICtrl["aiController<br/>- Claude AI integration<br/>- Context-aware responses"]
+        end
+
+        Routes --> Controllers
+    end
+
+    subgraph DataLayer["Data Layer"]
+        direction LR
+        DBWrapper["Database Wrapper<br/>(database.js)<br/>- PG-compatible interface<br/>- $1,$2 to ? conversion<br/>- RETURNING * emulation<br/>- Boolean conversion"]
+        SQLite[("SQLite Database<br/>(better-sqlite3 + WAL)<br/>---<br/>users | venues<br/>venue_tables | bookings<br/>group_bookings<br/>subscriptions<br/>loyalty_transactions<br/>reviews | notifications<br/>ai_chat_history")]
+        DBWrapper --> SQLite
+    end
+
+    subgraph RealTime["Real-Time Layer"]
+        WSServer["WebSocket Server<br/>(/ws endpoint)<br/>- User auth via token<br/>- sendToUser()<br/>- broadcast()<br/>- Connection tracking"]
+    end
+
+    subgraph ExternalServices["External Services"]
+        direction LR
+        StripeAPI["Stripe API<br/>- Payment Intents<br/>- Card Processing<br/>- Refunds<br/>- Webhooks"]
+        ClaudeAPI["Anthropic Claude API<br/>- claude-sonnet-4-20250514<br/>- Venue Recommendations<br/>- Chat Assistant<br/>- Table Selection"]
+    end
+
+    subgraph Utilities["Utilities"]
+        direction LR
+        Logger["Winston Logger<br/>- error.log<br/>- combined.log<br/>- Console output"]
+        Migrations["Migration Runner<br/>- 001_create_tables.sql<br/>- seed.js (sample data)"]
+    end
+
+    Services -->|"HTTP/REST<br/>(Proxy :3000 -> :5000)"| SecurityLayer
+    SecurityLayer --> APILayer
+    Controllers --> DBWrapper
+    Controllers --> WSServer
+    PayCtrl -->|"HTTPS"| StripeAPI
+    AICtrl -->|"HTTPS"| ClaudeAPI
+    StripeAPI -->|"Webhook POST<br/>/api/payments/webhook"| PayRoutes
+    WSServer -->|"ws:// Real-time<br/>notifications"| Browser
+    Controllers --> Logger
+    Migrations --> SQLite
+    </div>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 15,
+                nodeSpacing: 25,
+                rankSpacing: 40,
+                subGraphTitleMargin: { top: 10, bottom: 10 }
+            },
+            securityLevel: 'loose'
+        });
+    </script>
+</body>
+</html>

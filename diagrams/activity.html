@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Booking Tashkent - Activity Diagram</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #e2e8f0;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 1.8rem;
+        }
+        .subtitle {
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        .mermaid {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 95vw;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Activity Diagram</h1>
+    <p class="subtitle">Smart Booking Tashkent - Complete Booking Workflow with Decision Points</p>
+    <div class="mermaid">
+flowchart TD
+    Start(["START"])
+
+    Start --> VisitSite["Visit Smart Booking Tashkent"]
+    VisitSite --> BrowseVenues["Browse Venues<br/>(GET /api/venues)"]
+
+    BrowseVenues --> UseAI{"Use AI<br/>Assistant?"}
+    UseAI -->|Yes| AskAI["Get AI Recommendations<br/>(POST /api/ai/recommendations)<br/>Claude claude-sonnet-4-20250514"]
+    UseAI -->|No| ApplyFilters["Apply Filters<br/>type | district | price_range<br/>cuisine | search | sort"]
+    AskAI --> ViewResults["View Venue Results"]
+    ApplyFilters --> ViewResults
+
+    ViewResults --> SelectVenue["Select Venue<br/>(GET /api/venues/:id)"]
+    SelectVenue --> ViewDetails["View Venue Details<br/>+ Reviews + Tables"]
+
+    ViewDetails --> View3D{"View in 3D?"}
+    View3D -->|Yes| Load3D["Load 3D Venue Model<br/>(GET /api/venues/:id/3d-model)<br/>react-three-fiber rendering"]
+    View3D -->|No| CheckDate["Select Booking Date"]
+    Load3D --> CheckDate
+
+    CheckDate --> CheckAvailability["Check Table Availability<br/>(GET /api/venues/:id/availability?date=...)"]
+
+    CheckAvailability --> TablesAvailable{"Tables<br/>Available?"}
+    TablesAvailable -->|No| ChangeDate{"Change<br/>Date?"}
+    ChangeDate -->|Yes| CheckDate
+    ChangeDate -->|No| BrowseVenues
+
+    TablesAvailable -->|Yes| SelectTable["Select Table<br/>(Manual or AI-assisted)"]
+
+    SelectTable --> UseAITable{"Use AI Table<br/>Selection?"}
+    UseAITable -->|Yes| AISelectTable["AI Selects Best Table<br/>(POST /api/ai/select-table)<br/>Based on guests, preferences"]
+    UseAITable -->|No| ManualSelect["Manually Pick Table"]
+    AISelectTable --> SetBookingDetails
+    ManualSelect --> SetBookingDetails
+
+    SetBookingDetails["Set Booking Details<br/>date | start_time | end_time<br/>guests_count | special_requests"]
+
+    SetBookingDetails --> IsLoggedIn{"User<br/>Logged In?"}
+    IsLoggedIn -->|No| LoginOrRegister{"Have<br/>Account?"}
+    LoginOrRegister -->|No| Register["Register<br/>(POST /api/auth/register)<br/>+500 welcome loyalty points"]
+    LoginOrRegister -->|Yes| Login["Login<br/>(POST /api/auth/login)<br/>JWT access + refresh tokens"]
+    Register --> AuthSuccess["Authentication Success<br/>Tokens stored in localStorage"]
+    Login --> AuthSuccess
+    IsLoggedIn -->|Yes| SubmitBooking
+    AuthSuccess --> SubmitBooking
+
+    SubmitBooking["Submit Booking Request<br/>(POST /api/bookings)"]
+
+    SubmitBooking --> ValidateBooking{"Validation<br/>Passed?"}
+    ValidateBooking -->|No| ShowErrors["Show Validation Errors<br/>(400 - missing fields,<br/>invalid date/time)"]
+    ShowErrors --> SetBookingDetails
+
+    ValidateBooking -->|Yes| CheckConflict{"Table Still<br/>Available?<br/>(No time conflict)"}
+    CheckConflict -->|No| ConflictError["409 Conflict Error<br/>Table already booked"]
+    ConflictError --> SelectTable
+
+    CheckConflict -->|Yes| CreateBooking["Create Booking Record<br/>(status: pending)<br/>Calculate Loyalty Points"]
+
+    CreateBooking --> CalcPoints["Calculate Loyalty Points<br/>Tier Multiplier Applied<br/>free:1x | basic:1.25x<br/>premium:1.5x | vip:2x"]
+
+    CalcPoints --> AwardPoints["Award Loyalty Points<br/>UPDATE users.loyalty_points<br/>INSERT loyalty_transactions"]
+
+    AwardPoints --> IsGroupBooking{"Group<br/>Booking?"}
+    IsGroupBooking -->|Yes| InviteFriends["Invite Friends<br/>(POST /api/bookings/:id/invite)<br/>Send notifications to invitees"]
+    IsGroupBooking -->|No| ProceedPayment
+    InviteFriends --> SplitCalc["Calculate Payment Split<br/>(equal | custom | inviter_pays)"]
+    SplitCalc --> ProceedPayment
+
+    ProceedPayment["Proceed to Payment<br/>(Navigate to /checkout/:bookingId)"]
+
+    ProceedPayment --> RedeemPoints{"Redeem<br/>Loyalty Points?"}
+    RedeemPoints -->|Yes| ApplyDiscount["Redeem Points for Discount<br/>(POST /api/loyalty/redeem)<br/>1 point = 1,000 UZS"]
+    RedeemPoints -->|No| CreateIntent
+    ApplyDiscount --> CreateIntent
+
+    CreateIntent["Create Stripe Payment Intent<br/>(POST /api/payments/create-intent)<br/>Amount in UZS"]
+
+    CreateIntent --> ProcessPayment["Process Card Payment<br/>(Stripe.js confirmCardPayment)"]
+
+    ProcessPayment --> PaymentResult{"Payment<br/>Successful?"}
+    PaymentResult -->|No| PaymentFailed["Payment Failed<br/>Show error message"]
+    PaymentFailed --> RetryPayment{"Retry<br/>Payment?"}
+    RetryPayment -->|Yes| ProcessPayment
+    RetryPayment -->|No| CancelFlow["Cancel Booking<br/>(POST /api/bookings/:id/cancel)<br/>Reverse loyalty points"]
+
+    PaymentResult -->|Yes| ConfirmPayment["Confirm Payment<br/>(POST /api/payments/confirm)<br/>status: confirmed<br/>payment_status: paid"]
+
+    ConfirmPayment --> SendNotification["Send Confirmation Notification<br/>INSERT INTO notifications<br/>WebSocket real-time push"]
+
+    SendNotification --> BookingComplete["Booking Complete!<br/>View in My Bookings"]
+
+    CancelFlow --> BookingCancelled["Booking Cancelled<br/>Points reversed"]
+
+    BookingComplete --> PostActions{"Post-Booking<br/>Actions"}
+    PostActions --> ViewBookings["View My Bookings<br/>(GET /api/bookings)"]
+    PostActions --> UpdateBooking["Update Booking<br/>(PUT /api/bookings/:id)<br/>Change date/time/guests"]
+    PostActions --> CancelBooking["Cancel Booking<br/>(POST /api/bookings/:id/cancel)<br/>Process refund if paid"]
+    PostActions --> WriteReview["Write Review<br/>(After completion)"]
+
+    BookingComplete --> End(["END"])
+    BookingCancelled --> End
+
+    style Start fill:#22c55e,stroke:#16a34a,color:#fff
+    style End fill:#ef4444,stroke:#dc2626,color:#fff
+    style CreateBooking fill:#3b82f6,stroke:#2563eb,color:#fff
+    style ConfirmPayment fill:#22c55e,stroke:#16a34a,color:#fff
+    style BookingComplete fill:#22c55e,stroke:#16a34a,color:#fff
+    style PaymentFailed fill:#f59e0b,stroke:#d97706,color:#fff
+    style ConflictError fill:#ef4444,stroke:#dc2626,color:#fff
+    style ShowErrors fill:#f59e0b,stroke:#d97706,color:#fff
+    style BookingCancelled fill:#ef4444,stroke:#dc2626,color:#fff
+    style CancelFlow fill:#ef4444,stroke:#dc2626,color:#fff
+    style AskAI fill:#8b5cf6,stroke:#7c3aed,color:#fff
+    style AISelectTable fill:#8b5cf6,stroke:#7c3aed,color:#fff
+    style CalcPoints fill:#f59e0b,stroke:#d97706,color:#fff
+    style AwardPoints fill:#f59e0b,stroke:#d97706,color:#fff
+    style SendNotification fill:#06b6d4,stroke:#0891b2,color:#fff
+    </div>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 15,
+                nodeSpacing: 30,
+                rankSpacing: 35
+            },
+            securityLevel: 'loose'
+        });
+    </script>
+</body>
+</html>

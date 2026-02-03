@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Booking Tashkent - UML Use Case Diagram</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #e2e8f0;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 1.8rem;
+        }
+        .subtitle {
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        .mermaid {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 95vw;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>UML Use Case Diagram</h1>
+    <p class="subtitle">Smart Booking Tashkent - Actors and System Use Cases</p>
+    <div class="mermaid">
+flowchart LR
+    subgraph Actors
+        Guest(("fa:fa-user Guest"))
+        User(("fa:fa-user-check Registered User"))
+        Admin(("fa:fa-user-shield Admin"))
+        System(("fa:fa-server System"))
+    end
+
+    subgraph AuthModule["Authentication Module"]
+        UC1["Register Account"]
+        UC2["Login"]
+        UC3["Refresh Token"]
+        UC4["View Profile"]
+    end
+
+    subgraph VenueModule["Venue Browsing Module"]
+        UC5["Browse Venues"]
+        UC6["Filter by Type/District/Price"]
+        UC7["Search Venues"]
+        UC8["View Venue Details"]
+        UC9["Check Table Availability"]
+        UC10["View 3D Venue Model"]
+        UC11["View Districts"]
+    end
+
+    subgraph BookingModule["Booking Module"]
+        UC12["Create Booking"]
+        UC13["View My Bookings"]
+        UC14["Update Booking"]
+        UC15["Cancel Booking"]
+        UC16["Invite Friends to Group Booking"]
+        UC17["Calculate Split Payment"]
+    end
+
+    subgraph LoyaltyModule["Loyalty Module"]
+        UC18["View Loyalty Transactions"]
+        UC19["View Loyalty Summary"]
+        UC20["Redeem Points"]
+    end
+
+    subgraph SubscriptionModule["Subscription Module"]
+        UC21["View Subscription Plans"]
+        UC22["Subscribe to Plan"]
+        UC23["View Current Subscription"]
+        UC24["Cancel Subscription"]
+    end
+
+    subgraph PaymentModule["Payment Module"]
+        UC25["Create Payment Intent"]
+        UC26["Confirm Payment"]
+        UC27["Request Refund"]
+        UC28["Handle Webhook"]
+    end
+
+    subgraph NotificationModule["Notification Module"]
+        UC29["View Notifications"]
+        UC30["Mark Notification as Read"]
+        UC31["Mark All as Read"]
+        UC32["Delete Notification"]
+    end
+
+    subgraph AIModule["AI Assistant Module"]
+        UC33["Get AI Recommendations"]
+        UC34["Chat with AI Assistant"]
+        UC35["AI Table Selection"]
+    end
+
+    subgraph SystemActions["System Actions"]
+        UC36["Award Loyalty Points"]
+        UC37["Send Real-time Notification via WebSocket"]
+        UC38["Validate JWT Token"]
+        UC39["Process Stripe Webhook"]
+    end
+
+    Guest --> UC1
+    Guest --> UC2
+    Guest --> UC5
+    Guest --> UC6
+    Guest --> UC7
+    Guest --> UC8
+    Guest --> UC11
+    Guest --> UC21
+    Guest --> UC33
+    Guest --> UC34
+
+    User --> UC3
+    User --> UC4
+    User --> UC9
+    User --> UC10
+    User --> UC12
+    User --> UC13
+    User --> UC14
+    User --> UC15
+    User --> UC16
+    User --> UC17
+    User --> UC18
+    User --> UC19
+    User --> UC20
+    User --> UC22
+    User --> UC23
+    User --> UC24
+    User --> UC25
+    User --> UC26
+    User --> UC27
+    User --> UC29
+    User --> UC30
+    User --> UC31
+    User --> UC32
+    User --> UC35
+
+    System --> UC36
+    System --> UC37
+    System --> UC38
+    System --> UC39
+
+    UC12 -.->|includes| UC38
+    UC12 -.->|includes| UC9
+    UC12 -.->|includes| UC36
+    UC15 -.->|includes| UC36
+    UC22 -.->|includes| UC36
+    UC26 -.->|includes| UC37
+    UC16 -.->|extends| UC12
+    UC17 -.->|extends| UC16
+    UC20 -.->|extends| UC12
+    UC27 -.->|extends| UC15
+    </div>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 15,
+                nodeSpacing: 30,
+                rankSpacing: 40
+            },
+            securityLevel: 'loose'
+        });
+    </script>
+</body>
+</html>

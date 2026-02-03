@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Booking Tashkent - ER Diagram</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #e2e8f0;
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 1.8rem;
+        }
+        .subtitle {
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        .mermaid {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 95vw;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Entity Relationship Diagram</h1>
+    <p class="subtitle">Smart Booking Tashkent - Database Schema and Relationships</p>
+    <div class="mermaid">
+erDiagram
+    USERS {
+        UUID id PK
+        TEXT email UK
+        TEXT password_hash
+        TEXT full_name
+        TEXT phone
+        TEXT avatar_url
+        INT loyalty_points
+        TEXT subscription_tier
+        TEXT preferred_language
+        JSON preferences
+        INT is_active
+        DATETIME created_at
+        DATETIME updated_at
+    }
+
+    VENUES {
+        UUID id PK
+        TEXT name
+        TEXT type
+        TEXT address
+        TEXT city
+        TEXT district
+        REAL latitude
+        REAL longitude
+        TEXT description
+        TEXT cuisine_type
+        INT price_range
+        REAL rating
+        INT total_reviews
+        JSON amenities
+        JSON opening_hours
+        JSON images
+        TEXT three_d_model_url
+        TEXT phone
+        TEXT website
+        INT is_active
+        DATETIME created_at
+        DATETIME updated_at
+    }
+
+    VENUE_TABLES {
+        UUID id PK
+        UUID venue_id FK
+        INT table_number
+        TEXT label
+        INT capacity
+        TEXT shape
+        REAL position_x
+        REAL position_y
+        REAL position_z
+        INT is_available
+        INT is_vip
+        REAL price_multiplier
+        JSON features
+        DATETIME created_at
+    }
+
+    BOOKINGS {
+        UUID id PK
+        UUID user_id FK
+        UUID venue_id FK
+        UUID table_id FK
+        DATE booking_date
+        TIME start_time
+        TIME end_time
+        INT guests_count
+        TEXT status
+        REAL total_price
+        TEXT currency
+        INT loyalty_points_earned
+        TEXT special_requests
+        INT is_group_booking
+        TEXT payment_status
+        TEXT payment_intent_id
+        DATETIME created_at
+        DATETIME updated_at
+    }
+
+    GROUP_BOOKINGS {
+        UUID id PK
+        UUID booking_id FK
+        UUID inviter_user_id FK
+        JSON invited_users
+        TEXT split_type
+        JSON split_payment_status
+        DATETIME created_at
+        DATETIME updated_at
+    }
+
+    SUBSCRIPTIONS {
+        UUID id PK
+        UUID user_id FK
+        TEXT plan_type
+        DATE start_date
+        DATE end_date
+        TEXT status
+        REAL price
+        TEXT currency
+        JSON benefits
+        TEXT stripe_subscription_id
+        DATETIME created_at
+        DATETIME updated_at
+    }
+
+    LOYALTY_TRANSACTIONS {
+        UUID id PK
+        UUID user_id FK
+        UUID booking_id FK
+        INT points
+        TEXT transaction_type
+        TEXT description
+        DATETIME created_at
+    }
+
+    REVIEWS {
+        UUID id PK
+        UUID user_id FK
+        UUID venue_id FK
+        UUID booking_id FK
+        INT rating
+        TEXT comment
+        JSON images
+        INT is_verified
+        DATETIME created_at
+        DATETIME updated_at
+    }
+
+    NOTIFICATIONS {
+        UUID id PK
+        UUID user_id FK
+        TEXT type
+        TEXT title
+        TEXT message
+        JSON data
+        INT is_read
+        DATETIME created_at
+    }
+
+    AI_CHAT_HISTORY {
+        UUID id PK
+        UUID user_id FK
+        TEXT role
+        TEXT content
+        JSON metadata
+        DATETIME created_at
+    }
+
+    USERS ||--o{ BOOKINGS : "makes"
+    USERS ||--o{ SUBSCRIPTIONS : "subscribes to"
+    USERS ||--o{ LOYALTY_TRANSACTIONS : "earns/redeems"
+    USERS ||--o{ REVIEWS : "writes"
+    USERS ||--o{ NOTIFICATIONS : "receives"
+    USERS ||--o{ AI_CHAT_HISTORY : "chats"
+    USERS ||--o{ GROUP_BOOKINGS : "invites via"
+
+    VENUES ||--o{ VENUE_TABLES : "contains"
+    VENUES ||--o{ BOOKINGS : "booked at"
+    VENUES ||--o{ REVIEWS : "reviewed at"
+
+    VENUE_TABLES ||--o{ BOOKINGS : "reserved for"
+
+    BOOKINGS ||--o| GROUP_BOOKINGS : "extends to"
+    BOOKINGS ||--o{ LOYALTY_TRANSACTIONS : "generates"
+    BOOKINGS ||--o{ REVIEWS : "reviewed via"
+    </div>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            er: {
+                useMaxWidth: true,
+                layoutDirection: 'TB',
+                minEntityWidth: 100,
+                minEntityHeight: 75,
+                entityPadding: 15,
+                fontSize: 13
+            },
+            securityLevel: 'loose'
+        });
+    </script>
+</body>
+</html>
