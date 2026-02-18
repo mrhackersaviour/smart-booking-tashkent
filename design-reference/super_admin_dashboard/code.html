@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Central - Platform Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c4c5d7",
+                        "inverse-surface": "#2e3132",
+                        "inverse-primary": "#bac3ff",
+                        "on-secondary-fixed-variant": "#45455b",
+                        "tertiary": "#933c00",
+                        "surface-container-low": "#f3f4f5",
+                        "on-tertiary-fixed-variant": "#793000",
+                        "on-tertiary-fixed": "#341100",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "outline": "#747686",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#ba4e00",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#bac3ff",
+                        "on-secondary-container": "#63627a",
+                        "primary-container": "#4361ee",
+                        "on-primary-fixed-variant": "#0031c4",
+                        "error": "#ba1a1a",
+                        "secondary": "#5d5c74",
+                        "on-primary-fixed": "#001159",
+                        "surface-dim": "#d9dadb",
+                        "on-secondary-fixed": "#1a1a2e",
+                        "on-tertiary-container": "#fff1eb",
+                        "tertiary-fixed": "#ffdbcb",
+                        "secondary-fixed-dim": "#c6c4df",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-surface-variant": "#444655",
+                        "on-surface": "#191c1d",
+                        "primary": "#2346d5",
+                        "secondary-container": "#e2e0fc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#191c1d",
+                        "primary-fixed": "#dee1ff",
+                        "on-error": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "surface": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "on-primary-container": "#f4f2ff",
+                        "secondary-fixed": "#e2e0fc",
+                        "background": "#f8f9fa",
+                        "surface-tint": "#2e4edc",
+                        "inverse-on-surface": "#f0f1f2",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb692"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- SideNavBar -->
+<aside class="bg-slate-900 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 shadow-2xl dark:shadow-none z-50 flex flex-col py-6">
+<div class="px-6 mb-10">
+<h1 class="text-2xl font-bold text-white tracking-tight">Admin Central</h1>
+<p class="text-xs text-slate-400 mt-1 uppercase tracking-widest font-semibold">Platform Management</p>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-lg mx-2 scale-95 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="label-md font-semibold tracking-wider uppercase text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-all duration-300 hover:bg-slate-800 rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="label-md font-semibold tracking-wider uppercase text-sm">Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-all duration-300 hover:bg-slate-800 rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="person_celebrate">person_celebrate</span>
+<span class="label-md font-semibold tracking-wider uppercase text-sm">Owners</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-all duration-300 hover:bg-slate-800 rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="label-md font-semibold tracking-wider uppercase text-sm">Venues</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-all duration-300 hover:bg-slate-800 rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="label-md font-semibold tracking-wider uppercase text-sm">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-all duration-300 hover:bg-slate-800 rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="stars">stars</span>
+<span class="label-md font-semibold tracking-wider uppercase text-sm">Loyalty</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-all duration-300 hover:bg-slate-800 rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="card_membership">card_membership</span>
+<span class="label-md font-semibold tracking-wider uppercase text-sm">Subscriptions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-all duration-300 hover:bg-slate-800 rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span class="label-md font-semibold tracking-wider uppercase text-sm">Content</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-all duration-300 hover:bg-slate-800 rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="label-md font-semibold tracking-wider uppercase text-sm">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-all duration-300 hover:bg-slate-800 rounded-lg mx-2" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="label-md font-semibold tracking-wider uppercase text-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-6 pt-6 border-t border-slate-800">
+<div class="flex items-center gap-3">
+<img alt="Super Admin Avatar" class="w-10 h-10 rounded-full object-cover ring-2 ring-blue-500" data-alt="portrait of a professional male administrator in his 40s wearing a crisp white shirt against a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACOdseMP06e623-FlLkAN6OivYrAjDBSpZi9LGwIz_D_dbvJAXlAYy-cCJCggavpfVzE4WJXpW6exXXe6aOFW_PluVP4uvTIKYLzkPnBwYoqZRNuIvuW9b5Hv1HLZCpY2OoMmId9A8LtARWjODMsnlUn6HCRI7wtiEck8WwsqYDRLVM1eohUzXY2GyMbCpTHnrXcc3A8adTN4k4d4FNySs3gPdXfd9jRpg2RC6S5tB5bGrRRiZ2-_eUJkVfakwgcq0Zz0zhYSO_1g"/>
+<div>
+<p class="text-sm font-semibold text-white">Alex Rivers</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Super Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-64 h-16 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex items-center justify-between px-8 w-full border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full focus-within:ring-2 focus-within:ring-blue-500 transition-all rounded-full bg-surface-container-low px-4 py-1.5 flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface-variant body-lg w-full outline-none py-1" placeholder="Search platform data..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full p-2 relative">
+<span class="material-symbols-outlined text-slate-500" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-blue-600 rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<button class="hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full p-2">
+<span class="material-symbols-outlined text-slate-500" data-icon="help_outline">help_outline</span>
+</button>
+<button class="text-sm font-semibold text-blue-600 px-4 py-2 hover:bg-blue-50 rounded-lg transition-colors">Support</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-8 min-h-screen">
+<!-- Header Section -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight">System Overview</h2>
+<p class="text-on-surface-variant font-medium mt-1">Live platform performance and operational metrics.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-5 py-2.5 bg-surface-container-highest text-on-surface font-semibold rounded-lg hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span> Filter
+                </button>
+<button class="px-5 py-2.5 bg-primary text-white font-bold rounded-lg hover:shadow-lg transition-all flex items-center gap-2 bg-gradient-to-r from-primary to-primary-container">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span> New Venue
+                </button>
+</div>
+</div>
+<!-- KPI Row -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-slate-50 transition-all hover:scale-[1.02] duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+</div>
+<span class="text-emerald-600 text-xs font-bold bg-emerald-50 px-2 py-1 rounded-full flex items-center gap-1">
+                        +12% <span class="material-symbols-outlined text-[10px]" data-icon="trending_up">trending_up</span>
+</span>
+</div>
+<p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Total Users</p>
+<h3 class="text-2xl font-black text-slate-900 mt-1">124.5k</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-slate-50 transition-all hover:scale-[1.02] duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-purple-50 text-purple-600 rounded-lg">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</div>
+<span class="text-emerald-600 text-xs font-bold bg-emerald-50 px-2 py-1 rounded-full flex items-center gap-1">
+                        +5% <span class="material-symbols-outlined text-[10px]" data-icon="trending_up">trending_up</span>
+</span>
+</div>
+<p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Active Venues</p>
+<h3 class="text-2xl font-black text-slate-900 mt-1">8.2k</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-slate-50 transition-all hover:scale-[1.02] duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-orange-50 text-orange-600 rounded-lg">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+</div>
+<span class="text-orange-600 text-xs font-bold bg-orange-50 px-2 py-1 rounded-full flex items-center gap-1">
+                        -2% <span class="material-symbols-outlined text-[10px]" data-icon="trending_down">trending_down</span>
+</span>
+</div>
+<p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Today's Bookings</p>
+<h3 class="text-2xl font-black text-slate-900 mt-1">1,450</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-slate-50 transition-all hover:scale-[1.02] duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<span class="text-emerald-600 text-xs font-bold bg-emerald-50 px-2 py-1 rounded-full flex items-center gap-1">
+                        +18% <span class="material-symbols-outlined text-[10px]" data-icon="trending_up">trending_up</span>
+</span>
+</div>
+<p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Monthly Revenue</p>
+<h3 class="text-2xl font-black text-slate-900 mt-1">$842k</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-slate-50 transition-all hover:scale-[1.02] duration-300">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-red-50 text-red-600 rounded-lg">
+<span class="material-symbols-outlined" data-icon="pending_actions">pending_actions</span>
+</div>
+<span class="text-slate-400 text-xs font-bold bg-slate-100 px-2 py-1 rounded-full flex items-center gap-1">
+                        High <span class="material-symbols-outlined text-[10px]" data-icon="warning">warning</span>
+</span>
+</div>
+<p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Pending Approv.</p>
+<h3 class="text-2xl font-black text-slate-900 mt-1">14</h3>
+</div>
+</div>
+<!-- Charts Row -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+<!-- Line Chart Mock -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-2xl">
+<div class="flex justify-between items-center mb-10">
+<h4 class="text-lg font-bold text-slate-900">User Growth Trends</h4>
+<select class="bg-surface-container-low border-none rounded-lg text-xs font-bold py-1.5 pl-3 pr-8 focus:ring-1 focus:ring-primary">
+<option>Last 6 Months</option>
+<option>Last Year</option>
+</select>
+</div>
+<div class="h-64 flex items-end justify-between gap-2 relative">
+<!-- Fake Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+<div class="border-b border-slate-100 w-full h-0"></div>
+<div class="border-b border-slate-100 w-full h-0"></div>
+<div class="border-b border-slate-100 w-full h-0"></div>
+<div class="border-b border-slate-100 w-full h-0"></div>
+</div>
+<!-- Chart Bars -->
+<div class="relative group flex-1">
+<div class="bg-blue-100 group-hover:bg-blue-600 transition-colors w-full rounded-t-lg h-1/4"></div>
+<p class="text-[10px] text-slate-400 text-center mt-3 font-bold">JAN</p>
+</div>
+<div class="relative group flex-1">
+<div class="bg-blue-100 group-hover:bg-blue-600 transition-colors w-full rounded-t-lg h-2/5"></div>
+<p class="text-[10px] text-slate-400 text-center mt-3 font-bold">FEB</p>
+</div>
+<div class="relative group flex-1">
+<div class="bg-blue-200 group-hover:bg-blue-600 transition-colors w-full rounded-t-lg h-1/2"></div>
+<p class="text-[10px] text-slate-400 text-center mt-3 font-bold">MAR</p>
+</div>
+<div class="relative group flex-1">
+<div class="bg-blue-400 group-hover:bg-blue-600 transition-colors w-full rounded-t-lg h-3/5"></div>
+<p class="text-[10px] text-slate-400 text-center mt-3 font-bold">APR</p>
+</div>
+<div class="relative group flex-1">
+<div class="bg-blue-500 group-hover:bg-blue-600 transition-colors w-full rounded-t-lg h-3/4"></div>
+<p class="text-[10px] text-slate-400 text-center mt-3 font-bold">MAY</p>
+</div>
+<div class="relative group flex-1">
+<div class="bg-primary group-hover:bg-blue-700 transition-colors w-full rounded-t-lg h-full"></div>
+<p class="text-[10px] text-slate-900 text-center mt-3 font-black">JUN</p>
+</div>
+</div>
+</div>
+<!-- Pie Chart Mock -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl">
+<h4 class="text-lg font-bold text-slate-900 mb-8">Venue Distribution</h4>
+<div class="flex flex-col items-center">
+<div class="relative w-48 h-48 mb-8">
+<svg class="w-full h-full rotate-[-90deg]" viewbox="0 0 36 36">
+<path class="text-blue-600" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="45, 100" stroke-width="6"></path>
+<path class="text-orange-400" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="25, 100" stroke-dashoffset="-45" stroke-width="6"></path>
+<path class="text-purple-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="20, 100" stroke-dashoffset="-70" stroke-width="6"></path>
+<path class="text-slate-200" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="10, 100" stroke-dashoffset="-90" stroke-width="6"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-black">8.2k</span>
+<span class="text-[10px] text-slate-400 font-bold uppercase tracking-tighter">Total</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-x-6 gap-y-3 w-full">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-blue-600"></span>
+<span class="text-xs font-bold text-slate-600">Cafes (45%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-orange-400"></span>
+<span class="text-xs font-bold text-slate-600">Restau. (25%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-purple-500"></span>
+<span class="text-xs font-bold text-slate-600">Stadiums (20%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-slate-200"></span>
+<span class="text-xs font-bold text-slate-600">Other (10%)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Row -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Activity Feed -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-slate-50">
+<div class="flex justify-between items-center mb-6">
+<h4 class="text-lg font-bold text-slate-900">Recent Activity</h4>
+<button class="text-xs font-bold text-blue-600 hover:underline">View All History</button>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-blue-50 text-blue-600 flex-shrink-0">
+<span class="material-symbols-outlined text-sm" data-icon="person_add">person_add</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-slate-900">New Host Registration</p>
+<p class="text-xs text-slate-500 mt-0.5">"The Rooftop Bar" submitted their documents for verification.</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-bold">2 mins ago</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-emerald-50 text-emerald-600 flex-shrink-0">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-slate-900">Booking Confirmed</p>
+<p class="text-xs text-slate-500 mt-0.5">VIP Lounge reservation #8421 confirmed by automated system.</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-bold">14 mins ago</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-orange-50 text-orange-600 flex-shrink-0">
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-slate-900">High Impact Review</p>
+<p class="text-xs text-slate-500 mt-0.5">Sarah J. left a 5-star review for "Lumina Park" with 12 photos.</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-bold">45 mins ago</p>
+</div>
+</div>
+</div>
+</div>
+<!-- System Health -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 border border-slate-50">
+<div class="flex justify-between items-center mb-10">
+<h4 class="text-lg font-bold text-slate-900">System Health</h4>
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+</span>
+<span class="text-xs font-bold text-emerald-600">LIVE</span>
+</div>
+</div>
+<div class="space-y-8">
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Server Status</span>
+<span class="text-sm font-bold text-emerald-600">Operational</span>
+</div>
+<div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 rounded-full w-[99.9%]"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">API Response Time</p>
+<p class="text-2xl font-black text-slate-900">42ms</p>
+<p class="text-[10px] text-emerald-600 font-bold mt-1">▲ 1.2% faster</p>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Error Rate</p>
+<p class="text-2xl font-black text-slate-900">0.04%</p>
+<p class="text-[10px] text-slate-400 font-bold mt-1">Healthy threshold</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-600" data-icon="cloud_done">cloud_done</span>
+<span class="text-xs font-semibold text-slate-700">Backup Status: Completed</span>
+</div>
+<span class="text-[10px] text-slate-400 font-bold uppercase">4h ago</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

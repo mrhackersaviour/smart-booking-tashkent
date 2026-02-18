@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CURATOR | Book Any Venue, Anytime</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#2e4edc",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#933c00",
+                    "primary-fixed-dim": "#bac3ff",
+                    "on-surface": "#191c1d",
+                    "outline": "#747686",
+                    "on-primary-container": "#f4f2ff",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#d9dadb",
+                    "primary-container": "#4361ee",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#fff1eb",
+                    "secondary": "#5d5c74",
+                    "on-tertiary-fixed-variant": "#793000",
+                    "surface": "#f8f9fa",
+                    "tertiary-fixed": "#ffdbcb",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-fixed-dim": "#ffb692",
+                    "on-primary-fixed": "#001159",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#c6c4df",
+                    "on-surface-variant": "#444655",
+                    "primary": "#2346d5",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-secondary-fixed-variant": "#45455b",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#edeeef",
+                    "on-background": "#191c1d",
+                    "secondary-container": "#e2e0fc",
+                    "secondary-fixed": "#e2e0fc",
+                    "surface-bright": "#f8f9fa",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#bac3ff",
+                    "on-primary-fixed-variant": "#0031c4",
+                    "on-secondary-fixed": "#1a1a2e",
+                    "background": "#f8f9fa",
+                    "surface-variant": "#e1e3e4",
+                    "on-secondary-container": "#63627a",
+                    "surface-container-high": "#e7e8e9",
+                    "on-tertiary-fixed": "#341100",
+                    "surface-container-highest": "#e1e3e4",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#ba4e00",
+                    "primary-fixed": "#dee1ff",
+                    "outline-variant": "#c4c5d7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg shadow-[0px_4px_20px_rgba(26,26,46,0.04)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white">CURATOR</div>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-blue-600 dark:text-blue-400 font-bold border-b-2 border-blue-600 font-['Inter'] text-sm tracking-wide transition-transform scale-95 active:scale-100" href="#">Explore</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium font-['Inter'] text-sm tracking-wide hover:text-blue-500 transition-colors duration-300 transition-transform scale-95 active:scale-100" href="#">Venues</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium font-['Inter'] text-sm tracking-wide hover:text-blue-500 transition-colors duration-300 transition-transform scale-95 active:scale-100" href="#">For Partners</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-xl font-medium text-sm transition-transform scale-95 active:scale-100">Sign In</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-[921px] flex items-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-on-secondary-fixed/90 via-on-secondary-fixed/40 to-transparent z-10"></div>
+<img class="w-full h-full object-cover grayscale-[20%] brightness-75 scale-105" data-alt="Modern high-end restaurant interior with moody warm lighting, velvet seating, and architectural brass fixtures in a blurred cinematic style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPMMVnl0dmgi33UcMwO5CEXhTu2pSq6Gmp45D4kKVGPL9F-vA60m2BWnw9_khVWx3mN6k_Jm0PL2W3MWdZmdQnn3ROVKLeDPOSz0upD8PJ22U-hTF3d_q4wrzMqxHfRAvBtFu9FJyDxbosmZIxroZx7bz8ObVKZZdFTfsQcgzLLYx6SjXd12xt8mP4ZkCgqtfZyxRf8y4ZZmBXA4skmGOLrQdg5QHqrdqFMYCCXsJ_IjXg3HVb0lus3lAeqyDA6IvJIHSEVyxWpgU"/>
+</div>
+<div class="relative z-20 max-w-7xl mx-auto px-8 w-full">
+<div class="max-w-2xl">
+<h1 class="text-white text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-8">
+                    Book Any <span class="text-primary-container">Venue</span>, <br/>Anytime.
+                </h1>
+<p class="text-white/80 text-xl font-light mb-12 max-w-lg leading-relaxed">
+                    Access the world's most exclusive spaces. From Michelin-starred rooftops to private fitness sanctuaries, curated just for you.
+                </p>
+</div>
+<!-- Smart Search Bar -->
+<div class="bg-surface-container-lowest p-2 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-2 max-w-5xl">
+<div class="flex-1 flex items-center px-4 py-3 gap-3 border-r-0 md:border-r border-outline-variant/30">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<div class="flex flex-col flex-1">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Venue Type</label>
+<select class="bg-transparent border-none p-0 text-sm focus:ring-0 font-medium">
+<option>Restaurants &amp; Cafes</option>
+<option>Stadiums &amp; Arena</option>
+<option>Fitness &amp; Wellness</option>
+<option>Barbershops</option>
+<option>Car Wash Premium</option>
+</select>
+</div>
+</div>
+<div class="flex-1 flex items-center px-4 py-3 gap-3 border-r-0 md:border-r border-outline-variant/30">
+<span class="material-symbols-outlined text-primary" data-icon="calendar_today">calendar_today</span>
+<div class="flex flex-col flex-1">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Date</label>
+<input class="bg-transparent border-none p-0 text-sm focus:ring-0 font-medium placeholder:text-on-surface" placeholder="Select Date" type="text"/>
+</div>
+</div>
+<div class="flex-1 flex items-center px-4 py-3 gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="groups">groups</span>
+<div class="flex flex-col flex-1">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Guests</label>
+<input class="bg-transparent border-none p-0 text-sm focus:ring-0 font-medium" type="number" value="2"/>
+</div>
+</div>
+<button class="bg-primary text-white px-10 py-4 rounded-xl font-bold hover:bg-surface-tint transition-all flex items-center justify-center gap-2">
+<span>Search</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Category Scroller -->
+<section class="py-12 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex overflow-x-auto gap-6 hide-scrollbar pb-4 -mx-8 px-8">
+<!-- Cafe -->
+<div class="flex-shrink-0 group cursor-pointer">
+<div class="w-40 h-48 bg-surface-container-lowest rounded-2xl p-6 flex flex-col justify-between transition-all hover:bg-primary hover:-translate-y-2">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white" data-icon="coffee">coffee</span>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-white/60">Cafe</p>
+<p class="font-bold group-hover:text-white">124 Spots</p>
+</div>
+</div>
+</div>
+<!-- Restaurant -->
+<div class="flex-shrink-0 group cursor-pointer">
+<div class="w-40 h-48 bg-surface-container-lowest rounded-2xl p-6 flex flex-col justify-between transition-all hover:bg-primary hover:-translate-y-2">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white" data-icon="restaurant">restaurant</span>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-white/60">Dining</p>
+<p class="font-bold group-hover:text-white">482 Spots</p>
+</div>
+</div>
+</div>
+<!-- Stadium -->
+<div class="flex-shrink-0 group cursor-pointer">
+<div class="w-40 h-48 bg-surface-container-lowest rounded-2xl p-6 flex flex-col justify-between transition-all hover:bg-primary hover:-translate-y-2">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white" data-icon="stadium">stadium</span>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-white/60">Stadium</p>
+<p class="font-bold group-hover:text-white">12 Venues</p>
+</div>
+</div>
+</div>
+<!-- Fitness -->
+<div class="flex-shrink-0 group cursor-pointer">
+<div class="w-40 h-48 bg-surface-container-lowest rounded-2xl p-6 flex flex-col justify-between transition-all hover:bg-primary hover:-translate-y-2">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white" data-icon="fitness_center">fitness_center</span>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-white/60">Fitness</p>
+<p class="font-bold group-hover:text-white">88 Studios</p>
+</div>
+</div>
+</div>
+<!-- Barbershop -->
+<div class="flex-shrink-0 group cursor-pointer">
+<div class="w-40 h-48 bg-surface-container-lowest rounded-2xl p-6 flex flex-col justify-between transition-all hover:bg-primary hover:-translate-y-2">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white" data-icon="content_cut">content_cut</span>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-white/60">Barber</p>
+<p class="font-bold group-hover:text-white">65 Chairs</p>
+</div>
+</div>
+</div>
+<!-- Car Wash -->
+<div class="flex-shrink-0 group cursor-pointer">
+<div class="w-40 h-48 bg-surface-container-lowest rounded-2xl p-6 flex flex-col justify-between transition-all hover:bg-primary hover:-translate-y-2">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:text-white" data-icon="local_car_wash">local_car_wash</span>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-white/60">Auto</p>
+<p class="font-bold group-hover:text-white">32 Detailers</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Highlights -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-20">
+<h2 class="text-4xl md:text-5xl font-black tracking-tight text-on-secondary-fixed mb-4">The Next Generation of Booking</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Experience a platform that understands your lifestyle through intelligent curation and spatial technology.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-12">
+<!-- AI Feature -->
+<div class="bg-surface-container-lowest p-10 rounded-[2rem] shadow-sm transition-transform hover:-translate-y-1">
+<div class="w-14 h-14 bg-primary-container/20 rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="psychology">psychology</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">AI-Powered Recommendations</h3>
+<p class="text-on-surface-variant leading-relaxed">Our neural engine learns your preferences to suggest the perfect table or training slot before you even ask.</p>
+</div>
+<!-- 3D Feature -->
+<div class="bg-surface-container-lowest p-10 rounded-[2rem] shadow-sm transition-transform hover:-translate-y-1">
+<div class="w-14 h-14 bg-primary-container/20 rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="view_in_ar">view_in_ar</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">3D Venue Preview</h3>
+<p class="text-on-surface-variant leading-relaxed">Walk through any venue virtually. See the exact lighting, atmosphere, and table placement from your device.</p>
+</div>
+<!-- Social Feature -->
+<div class="bg-surface-container-lowest p-10 rounded-[2rem] shadow-sm transition-transform hover:-translate-y-1">
+<div class="w-14 h-14 bg-primary-container/20 rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="group_add">group_add</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Social Booking</h3>
+<p class="text-on-surface-variant leading-relaxed">Split bills, invite friends, and coordinate arrivals seamlessly through our integrated social hub.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-24 bg-surface overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 relative">
+<div class="flex items-end justify-between mb-16">
+<div class="max-w-md">
+<h2 class="text-4xl font-black tracking-tighter">Curated by <br/>Our Community</h2>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-on-secondary-fixed text-white p-10 rounded-[2rem] flex flex-col justify-between h-full">
+<span class="material-symbols-outlined text-4xl text-primary-container" data-icon="format_quote">format_quote</span>
+<p class="text-xl italic font-light my-8">"The only platform that actually understands premium service. The 3D tour saved me from a bad table choice."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a professional man in a tailored suit, blurred city background, high-end photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu8z8moseHC7FmXbZ4i0pS2xno4-uUuif8XdIITkGYlj35bKgkeY1K4WAXrPyQoLoH6np8P3Qy7_KDXfvqo1m0zfG5q4E37vWu-Z5-wmn4frb3YAFkeLC6umSj0QDEXi66mPDTejB5DCb6dF5dwvarGeoQJimzdCwtQhgnCZZsXjJDmXUmtp68ZOK9_ZfimiEKgZ2g9nYdiOBkFIJ4SwU6Wu8QwqWhzv1OzeFvW6H4GW93A--Mb3RbBd3PFPTBk0E-2cnXq0zTqSQ"/>
+</div>
+<div>
+<p class="font-bold">Marcus Chen</p>
+<p class="text-xs text-white/60">Creative Director</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-surface-container-lowest p-10 rounded-[2rem] border border-outline-variant/20 flex flex-col justify-between h-full">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="format_quote">format_quote</span>
+<p class="text-xl italic font-light my-8 text-on-surface">"Booking venues for our corporate events has never been this streamlined. CURATOR is a game changer."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Studio portrait of a smiling woman with warm studio lighting and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3jlzUjCl0z03lRDhFAJJmq9GBcAauZjqzPKA_1GXQRwl3Gy57sZ_koWHuwBXZU03SpT-bMjl4pzgCSwoZ2MfWHujekspS-Ye6eXdLkksA7dALvwZUUnaeMSIEgWCrs72XFuu26EHVjfoBkjHKwjx12SLgEEYF-4oK_KxHtYFkRauYizNetu8sKWoOHOpO21lXoDQBsimdBOfTKoJhTrvXrt7Y_7hgdb_CoaX6R50sryOQMZ5xBFtolIkfFMKv0GFRVXpsjVnFIEE"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Elena Rodriguez</p>
+<p class="text-xs text-on-surface-variant">VP of Operations</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-primary text-white p-10 rounded-[2rem] flex flex-col justify-between h-full">
+<span class="material-symbols-outlined text-4xl text-white/30" data-icon="format_quote">format_quote</span>
+<p class="text-xl italic font-light my-8">"The AI recommendations are scary accurate. Found my new favorite barbershop within minutes."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Headshot of a man with casual style, natural outdoor lighting, soft green background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFWuxlP8eY21k85TaPq1m3mcCKRdvZUBh0qWAZz5cOjO72t_MyezvgwR7hMq3BrmlbxC43g8R4djCki12LuYcFcVKpsGFmTzuzEToMwM9ruaP4TDh7JVymtjw5WF3FNdRqK2f4Q6cu0T2aT0DDZ85n3FuQSwoiXrLN5oGrWRJk4QlAtYohnxzihc2LsQ4FjwRDt1tsGbK4dB9tjaLI_sdhA5eD09UZ8uPRIMNIIoFJzOmKdc_TKH77c_r_w2wICtw81zbUfkc5uxo"/>
+</div>
+<div>
+<p class="font-bold">James Wilson</p>
+<p class="text-xs text-white/60">Tech Entrepreneur</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-900 w-full py-16 px-8">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
+<!-- Brand & Newsletter -->
+<div class="col-span-2">
+<div class="text-xl font-bold text-slate-900 dark:text-white mb-6">CURATOR</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-8 max-w-xs leading-relaxed">
+                    Elevating every outing with precision booking and curated experiences across the globe.
+                </p>
+<div class="relative max-w-xs">
+<input class="w-full bg-surface-container-low border-none rounded-xl py-3 pl-4 pr-12 text-sm focus:ring-2 focus:ring-primary transition-all" placeholder="Join our newsletter" type="email"/>
+<button class="absolute right-2 top-2 p-1.5 bg-primary text-white rounded-lg hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Links Column 1 -->
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold text-sm mb-6">Venues</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Hotels</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Villas</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Resorts</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold text-sm mb-6">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">About Us</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Careers</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Press</a></li>
+</ul>
+</div>
+<!-- Links Column 3 -->
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold text-sm mb-6">Support</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Help Center</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Safety</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Terms</a></li>
+</ul>
+</div>
+</div>
+<!-- Socials & Bottom Bar -->
+<div class="max-w-7xl mx-auto pt-16 mt-16 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-8">
+<p class="text-slate-500 dark:text-slate-400 text-sm">© 2024 Kinetic Curator. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="share">share</span></a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="alternate_email">alternate_email</span></a>
+</div>
+</div>
+</footer>
+</body></html>

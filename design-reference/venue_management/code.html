@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Venue Manager Admin Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f8f9fa",
+                        "primary": "#2346d5",
+                        "secondary-fixed-dim": "#c6c4df",
+                        "primary-container": "#4361ee",
+                        "on-secondary-container": "#63627a",
+                        "on-primary-fixed": "#001159",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcb",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-bright": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed-variant": "#0031c4",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#45455b",
+                        "on-secondary-fixed": "#1a1a2e",
+                        "secondary-fixed": "#e2e0fc",
+                        "tertiary": "#933c00",
+                        "secondary": "#5d5c74",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#dee1ff",
+                        "on-tertiary-container": "#fff1eb",
+                        "on-primary-container": "#f4f2ff",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary-fixed-dim": "#bac3ff",
+                        "surface-container": "#edeeef",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "on-surface-variant": "#444655",
+                        "inverse-surface": "#2e3132",
+                        "secondary-container": "#e2e0fc",
+                        "outline-variant": "#c4c5d7",
+                        "tertiary-container": "#ba4e00",
+                        "inverse-primary": "#bac3ff",
+                        "on-tertiary-fixed": "#341100",
+                        "on-background": "#191c1d",
+                        "surface-tint": "#2e4edc",
+                        "inverse-on-surface": "#f0f1f2",
+                        "background": "#f8f9fa",
+                        "tertiary-fixed-dim": "#ffb692",
+                        "outline": "#747686",
+                        "on-tertiary-fixed-variant": "#793000",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e7e8e9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift { transition: background-color 0.3s ease; }
+        .glass-nav { backdrop-filter: blur(20px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 h-full w-64 bg-slate-50 dark:bg-slate-900 flex flex-col py-6 px-4 z-50">
+<div class="mb-10 px-2">
+<span class="text-2xl font-black text-slate-900 dark:text-white">Venue Manager</span>
+<p class="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">Admin Console</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-md font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-blue-600 dark:text-blue-400 font-bold border-r-2 border-blue-600 bg-slate-100 dark:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="text-md font-semibold">My Venues</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-md font-semibold">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="text-md font-semibold">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-md font-semibold">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full flex items-center justify-center gap-2 bg-primary-container text-white py-3 rounded-xl font-bold shadow-lg hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Add New Venue
+            </button>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-white/80 backdrop-blur-xl z-40 flex justify-between items-center px-8 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-slate-900">VenuePro</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-blue-600 border-b-2 border-blue-600 pb-1 font-medium" href="#">Venues</a>
+<a class="text-slate-600 hover:text-blue-500 transition-all" href="#">Staff</a>
+<a class="text-slate-600 hover:text-blue-500 transition-all" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-600 cursor-pointer" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-slate-600 cursor-pointer" data-icon="help_outline">help_outline</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-slate-200">
+<img alt="Owner Avatar" class="w-full h-full object-cover" data-alt="Professional portrait of a male venue administrator in a clean modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdJhnl9Zdtk09XHcwX9T8RNCpRa4VDqxUYwTfSdA7-qumjYQIP6nVawD6WHU777wGEC4v7DXr4LG71SJvAp_fjZD1MtVfqJkWUa4oTVPnavr363pY8UL_z61JQkj98pEArKU0K6NcOXRtywMsoVZ2cnN51Voao9GnzGbOl07LidJYTpXRmiFqQmHYQwJuY4gU5AK7sY9PaEVnAR-o6Xm9TAOn29wV3fgsTDXtVh6hJP42AklLoy5HI1KfkSLwhsumAtBpb2ZTfTaI"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-32 px-8 max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<nav class="flex items-center gap-2 text-label-sm text-on-surface-variant mb-2">
+<span>Venues</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-medium">The Glass Pavilion</span>
+</nav>
+<h1 class="text-3xl font-black text-on-surface tracking-tight">Manage Venue</h1>
+</div>
+<div class="flex gap-3">
+<button class="px-5 py-2.5 rounded-xl text-on-surface-variant bg-surface-container-high font-semibold hover:bg-surface-container-highest transition-colors">Preview Live</button>
+</div>
+</div>
+<!-- Horizontal Tabbed Navigation -->
+<div class="flex gap-8 border-b border-outline-variant/30 mb-8 overflow-x-auto no-scrollbar">
+<button class="pb-4 text-primary border-b-2 border-primary font-bold whitespace-nowrap">General Info</button>
+<button class="pb-4 text-on-surface-variant hover:text-on-surface font-medium whitespace-nowrap transition-colors">Photos &amp; Media</button>
+<button class="pb-4 text-on-surface-variant hover:text-on-surface font-medium whitespace-nowrap transition-colors">3D Model</button>
+<button class="pb-4 text-on-surface-variant hover:text-on-surface font-medium whitespace-nowrap transition-colors">Pricing</button>
+<button class="pb-4 text-on-surface-variant hover:text-on-surface font-medium whitespace-nowrap transition-colors">Amenities</button>
+<button class="pb-4 text-on-surface-variant hover:text-on-surface font-medium whitespace-nowrap transition-colors">Hours</button>
+</div>
+<!-- Bento Layout Form Content -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Basic Details Card -->
+<div class="col-span-12 lg:col-span-7 space-y-8">
+<section class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm">
+<h3 class="text-title-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="edit_note">edit_note</span>
+                        Core Details
+                    </h3>
+<div class="space-y-6">
+<div>
+<label class="block text-label-md font-bold text-on-surface-variant uppercase tracking-widest mb-2">Venue Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" type="text" value="The Glass Pavilion"/>
+</div>
+<div>
+<label class="block text-label-md font-bold text-on-surface-variant uppercase tracking-widest mb-2">Description</label>
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<div class="flex gap-4 p-3 border-b border-outline-variant/20 bg-surface-container-high/30">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary" data-icon="format_bold">format_bold</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary" data-icon="format_italic">format_italic</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary" data-icon="format_list_bulleted">format_list_bulleted</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary" data-icon="link">link</span>
+</div>
+<textarea class="w-full bg-transparent border-none focus:ring-0 p-5 text-on-surface-variant leading-relaxed" rows="6">Nestled in the heart of the tech district, The Glass Pavilion offers a stunning 360-degree view of the city skyline. With its floor-to-ceiling glass walls and minimalist industrial design, it is the perfect venue for high-end corporate events, product launches, and exclusive networking galas.</textarea>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm">
+<h3 class="text-title-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="contact_mail">contact_mail</span>
+                        Contact Information
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-label-md font-bold text-on-surface-variant uppercase tracking-widest mb-2">Email Address</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5" type="email" value="hello@glasspavilion.com"/>
+</div>
+<div>
+<label class="block text-label-md font-bold text-on-surface-variant uppercase tracking-widest mb-2">Phone Number</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5" type="tel" value="+1 (555) 098-4432"/>
+</div>
+</div>
+</section>
+</div>
+<!-- Location & Map Card -->
+<div class="col-span-12 lg:col-span-5 space-y-8">
+<section class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm flex flex-col h-full">
+<div class="p-8 pb-4">
+<h3 class="text-title-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="map">map</span>
+                            Location
+                        </h3>
+<div class="mb-4">
+<label class="block text-label-md font-bold text-on-surface-variant uppercase tracking-widest mb-2">Physical Address</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-sm" type="text" value="782 Innovation Way, Penthouse Suite, New York, NY 10013"/>
+</div>
+</div>
+<div class="flex-1 min-h-[350px] relative bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Modern interactive map interface showing a pinpoint in downtown New York with clean minimalist styling" data-location="New York" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGjXDI6qc_039duFWEHxFPxVkBkKT5CX3J0nkApQfJKXjhFgL7WeHQKU0_J-T47KuN-ZZtNeY_u5EtR3HVm2TQ_f6Cwv7AugvL_uu8uLFm3b0pBbmAT2WR0FmJFuGYU4Fog7vIPJfqj4ft6GSTGyIJwIRn6Wt2LNSIMu03FDEpn3BqoI25MSFQU9--nVneewiMnl7E0xRqEtZIkVsue43k-_X27lkk38UuaYH4rLv3f4x3RVf2i7fes72OOAIwBucjRSZ7KI0d1E4"/>
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+<div class="absolute bottom-6 right-6 flex flex-col gap-2">
+<button class="p-2 bg-white rounded-lg shadow-lg text-on-surface"><span class="material-symbols-outlined" data-icon="add">add</span></button>
+<button class="p-2 bg-white rounded-lg shadow-lg text-on-surface"><span class="material-symbols-outlined" data-icon="remove">remove</span></button>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Section: Photos Gallery (Preview Mockup) -->
+<div class="mt-12">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-2xl font-black tracking-tight">Photos &amp; Media</h3>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="upload">upload</span>
+                    Add Photos
+                </button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+<div class="relative aspect-square rounded-2xl overflow-hidden group cursor-move shadow-md ring-4 ring-primary">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Interior of a luxury glass ballroom with white furniture and floral arrangements during bright daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQRNZ3uZ1MwXbNZHHVnKoc7tM_NXBs7Fr9fCOABLT4-3K9cbDrCGRXL9FGV7uO2Lc46_GhomKJllVg8SjKsZGWxqf8K-Er7lXoXxJvpogLBHXEZLPhNo_5tn1lYRoNuQtCSVXqsd1zLkI3uUIvVlgBvl04lKaIlxl-NhZBwYb_Nig59nu5rKRFTojije34NfijJMoM-qRVX9mS-yhAJHD7JNcsdz_e9gOncj_wYVLF-wN61mGXwwxqVfawGDRobA8Ffa1q_-U04Q4"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+<span class="material-symbols-outlined text-white cursor-pointer" data-icon="delete">delete</span>
+</div>
+<div class="absolute top-3 left-3 bg-primary text-white p-1 rounded-lg">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+</div>
+</div>
+<!-- Other Placeholders -->
+<div class="relative aspect-square rounded-2xl overflow-hidden group cursor-move bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:opacity-80" data-alt="City skyline view from a high penthouse balcony at twilight with soft purple and orange sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkYtq_tkdnSNpbREFHQr9Wd9r_HCpLL-VQ4nP0tZGTgvy560QDonC8O0LvxArHSo9jiAsOZ8LFpKccVgyTEsZuoVsKXn-O0iF52J6BynSUVQSWRCrOensBzs6XCLFV3VmTL1t1HUKZwmRQ7uCvJJY55YbX7Pgw564PYKi82w5pGSPPsW0D--v60KRH7OOQaVABA5k4AzAQNBpw5iRkZPmoAUvpvlO2NDjK7t8yHRg8FyeLgFCFIG8fsh0Tmc8W08zpLBHLguIx-vQ"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white cursor-pointer" data-icon="delete">delete</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-2xl overflow-hidden group cursor-move bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:opacity-80" data-alt="Close-up of a professionally set event table with crystal glassware and silver cutlery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVkTtqRIvP_mk9BF60nlt8xEnofLgN2zOFs3Hi4V7282U6vW2_JWlIorOwzUQoXnXlWu_WNxE9cd_e3BCGxG7D-amFfYuzOMQUxukJ1-BgGnvZSqE-nqHsYuYpegebAmSYA42vBnu83X2bGnum14jFvIwSJZXRF4LavSVRkrjFj3IJsDnkcfPhXZd7FmE12lEM7ZU6a3oEg5tqQNgnSTS2-c-eYCyfyRZ7fM7Lsqc7MrCV18uMtL7kl9NrN_RgxbvSNd6vCJdbe7k"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white cursor-pointer" data-icon="delete">delete</span>
+</div>
+</div>
+<div class="border-2 border-dashed border-outline-variant rounded-2xl flex flex-col items-center justify-center aspect-square text-on-surface-variant hover:border-primary hover:text-primary transition-all cursor-pointer bg-surface-container-low/50">
+<span class="material-symbols-outlined text-4xl mb-2" data-icon="add_photo_alternate">add_photo_alternate</span>
+<span class="text-sm font-bold uppercase tracking-tighter">New Image</span>
+</div>
+</div>
+</div>
+<!-- Section: 3D Model -->
+<div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-2 bg-surface-container-lowest rounded-3xl p-4 shadow-sm border border-outline-variant/10">
+<div class="relative rounded-2xl overflow-hidden aspect-video bg-slate-900 group">
+<img class="w-full h-full object-cover opacity-60" data-alt="3D wireframe architectural model of a modern building interior with glowing blue lines against dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBESvYpa10x339KO4AHWQDfRFn-CClsxG_uPtYp6LlTE65u6iiSgz50ditaQldv_w7f-Uc2f1UTMAhCAuqeQDpfHft_SKlzzc2axT_kCBch3TGMwzjN84JdMe3EQ_xDKDLBoFK-6qVfENfl5LUyVRyfQWYHnyUMlQzc2wQCR9l6bKVJ9V_GayQekcWhLWO-01rGHWqJv_dyTA4r47v0Q1MWprSWPyGYiCA_fq1AMxL13GVDvFLRaxRdO5XgDEr2YCohbqWuqxawIM"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white/10 backdrop-blur-md p-6 rounded-full border border-white/20">
+<span class="material-symbols-outlined text-5xl text-white" data-icon="3d_rotation">3d_rotation</span>
+</div>
+</div>
+<div class="absolute bottom-6 left-6 text-white bg-black/40 px-4 py-2 rounded-xl backdrop-blur-md flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="mouse">mouse</span>
+<span class="text-xs font-medium">Use mouse to orbit</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col justify-center space-y-6">
+<div>
+<h3 class="text-2xl font-black mb-2">3D Experience</h3>
+<p class="text-on-surface-variant leading-relaxed">Provide an immersive walkthrough for your potential clients by uploading a digital twin of your venue.</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-3 p-4 bg-surface-container-high/50 rounded-2xl">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<div>
+<p class="text-sm font-bold uppercase tracking-tight">Format Guidelines</p>
+<p class="text-xs text-on-surface-variant">Supports .glb and .gltf files. Maximum file size 50MB.</p>
+</div>
+</div>
+<button class="w-full py-4 rounded-2xl bg-white border-2 border-primary text-primary font-bold hover:bg-primary-fixed transition-all">Upload New Model</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar -->
+<footer class="fixed bottom-0 left-64 right-0 h-24 bg-white/90 backdrop-blur-2xl border-t border-outline-variant/20 px-12 flex items-center justify-between z-50">
+<div class="flex items-center gap-4">
+<span class="flex h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
+<div>
+<p class="text-sm font-bold text-on-surface">Auto-saved</p>
+<p class="text-xs text-on-surface-variant">Last change: 2 minutes ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="px-8 py-3 rounded-xl font-bold text-on-surface-variant hover:text-on-surface transition-colors">Discard Changes</button>
+<button class="bg-primary text-white px-10 py-3 rounded-xl font-bold shadow-[0_8px_30px_rgb(35,70,213,0.3)] hover:scale-105 active:scale-95 transition-all">Save &amp; Publish</button>
+</div>
+</footer>
+</body></html>

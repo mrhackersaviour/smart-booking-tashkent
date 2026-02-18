@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e2e0fc",
+                        "surface-container-low": "#f3f4f5",
+                        "primary": "#2346d5",
+                        "on-tertiary-fixed-variant": "#793000",
+                        "secondary-fixed-dim": "#c6c4df",
+                        "tertiary": "#933c00",
+                        "outline": "#747686",
+                        "on-error": "#ffffff",
+                        "secondary": "#5d5c74",
+                        "primary-fixed": "#dee1ff",
+                        "primary-container": "#4361ee",
+                        "background": "#f8f9fa",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1a1a2e",
+                        "surface-container": "#edeeef",
+                        "secondary-container": "#e2e0fc",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#45455b",
+                        "tertiary-fixed-dim": "#ffb692",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001159",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-container": "#fff1eb",
+                        "on-secondary-container": "#63627a",
+                        "outline-variant": "#c4c5d7",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed": "#ffdbcb",
+                        "inverse-primary": "#bac3ff",
+                        "surface-bright": "#f8f9fa",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-container": "#f4f2ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#0031c4",
+                        "on-tertiary-fixed": "#341100",
+                        "surface-tint": "#2e4edc",
+                        "surface-container-high": "#e7e8e9",
+                        "primary-fixed-dim": "#bac3ff",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#ba4e00",
+                        "on-surface-variant": "#444655",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none docked full-width top-0 z-50 sticky flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-8">
+<h1 class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">Luxe Horizon</h1>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1 font-inter tracking-tight headline-lg on_surface hover:text-blue-700 dark:hover:text-blue-300 transition-colors" href="#">Explore</a>
+<a class="text-slate-500 dark:text-slate-400 font-inter tracking-tight headline-lg on_surface hover:text-blue-700 dark:hover:text-blue-300 transition-colors" href="#">Bookmarks</a>
+<a class="text-slate-500 dark:text-slate-400 font-inter tracking-tight headline-lg on_surface hover:text-blue-700 dark:hover:text-blue-300 transition-colors" href="#">Concierge</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary w-64 transition-all" placeholder="Search destinations..." type="text"/>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container transition-colors rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="User profile" data-alt="professional male profile portrait with friendly expression and clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbr_BaxvOcTKZL1aOczJQyDyN8OZEMpL7XpW7JfkijRMCP6vfxcVnZl4m_grj8KyT0FPhF7EJcOplkC_b6inb6Vd2NdOd_gaaw1kHS8FUHYo65bjWIcKkZowOx0R-5Rq-89Lh-Y0GF4mUpfvTxwP6Wq38rjdImNdgeuWU9AwJoLUArONUk3NkXbOmqL1Uys7AwRgGParW0NzwJNMDeIhN_HgjS0RlLYtPpno6XgVc5vqrUClw8dbirRjW1cg6XzbxTq2dDn2l1jRI"/>
+</div>
+</div>
+</header>
+<main class="flex h-[calc(100vh-72px)] overflow-hidden">
+<!-- Left Panel: Content (60%) -->
+<section class="w-full lg:w-[60%] flex flex-col bg-surface overflow-y-auto no-scrollbar">
+<!-- Filters Header -->
+<div class="sticky top-0 z-40 bg-surface px-6 pt-6 pb-4 space-y-6">
+<!-- Category Pills -->
+<div class="flex items-center gap-3 overflow-x-auto no-scrollbar pb-2">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary text-sm font-medium whitespace-nowrap shadow-sm">All</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">Cafes</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">Restaurants</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">Stadiums</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">Fitness</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">Barbershops</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-medium whitespace-nowrap hover:bg-surface-container transition-colors">Car Wash</button>
+</div>
+<!-- Secondary Filters -->
+<div class="flex flex-wrap items-center justify-between gap-4 py-4 bg-surface-container-low rounded-xl px-4">
+<div class="flex items-center gap-6">
+<!-- Price Range -->
+<div class="flex flex-col gap-1">
+<span class="text-[10px] uppercase tracking-wider font-bold text-outline">Price Range</span>
+<div class="flex gap-1">
+<button class="w-8 h-8 rounded bg-surface-container-lowest text-xs font-semibold hover:bg-primary-container hover:text-white transition-colors">$$</button>
+<button class="w-8 h-8 rounded bg-primary text-white text-xs font-semibold">$$$</button>
+<button class="w-8 h-8 rounded bg-surface-container-lowest text-xs font-semibold hover:bg-primary-container hover:text-white transition-colors">$$$$</button>
+</div>
+</div>
+<!-- Rating -->
+<div class="flex flex-col gap-1">
+<span class="text-[10px] uppercase tracking-wider font-bold text-outline">Minimum Rating</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg text-outline-variant">star</span>
+<span class="ml-2 text-xs font-medium text-on-surface-variant">4.0+</span>
+</div>
+</div>
+</div>
+<!-- Sorting -->
+<div class="flex flex-col gap-1">
+<span class="text-[10px] uppercase tracking-wider font-bold text-outline">Sort By</span>
+<select class="bg-transparent border-none text-sm font-semibold text-on-surface focus:ring-0 p-0 pr-8">
+<option>Relevance</option>
+<option>Highest Rating</option>
+<option>Distance</option>
+<option>Price: Low to High</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Venue Grid -->
+<div class="px-6 grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="interior of a luxury modern cocktail bar with ambient warm lighting and velvet seating" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClgdrBGGz8q3FZ_62YxstbgH9aR69LyD379PDtLw-VwNzYIRRQaUugbvZ4jkPxCdV6_kalDKEHp0OM5HZcsxr_BZD3UcNoErqy-ySAVxap2lqWxR4iWjP98OdQYoQ2e3yMA0oSRG8kReXery2ywCQ92DgUr2XAjroUUwRs4stmejWedCm-a29NxECa9hFnp5NrfxQPGVBEwb0oVl5bx8UkPfGPH6xkK-sfM5X4_kEbbOJtbKXXCsyh3RJfhRu7R-muFm7lRlGpwI0"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-500 transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4 bg-primary px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-wider">Restaurant</div>
+</div>
+<div class="p-5 space-y-2">
+<div class="flex justify-between items-start">
+<h3 class="text-title-lg font-bold text-on-surface">The Gilded Fork</h3>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-0.5 rounded text-xs font-bold text-on-surface">
+<span class="material-symbols-outlined text-sm text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.9
+                            </div>
+</div>
+<p class="text-sm text-on-surface-variant">Exceptional European fusion cuisine with panoramic views of the skyline.</p>
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/15">
+<span class="text-xs font-medium text-outline">$$$ • Fine Dining</span>
+<span class="text-xs font-semibold text-primary">0.3 miles away</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="vibrant minimalist cafe interior with marble tables and large windows letting in bright natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx12_eclCv48c2UnkT3X9gEixZIqNY_0pp0UdeZAGU60PyG9qXUypvQpIvd1c4eDeA9P6eWHDy0IZ4RxiLJ9GV5e630tlLcJn2NiIJIEqpIqjnpZ2pEsW2JIdNbmejJ0Y8G-RQU_G3_avO2jF78-nPYDxauQCMJUWor9JzwGu3v0TFYhVV9aFHWfawr-jucE6wEJdJchEjzghzQHZCxi3sJUE53peSiQseeOwkH0PHUq6MdubGOwgm46lKN5xx2x6Avp-6eVJpYb8"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-500 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; color: #ef4444;">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4 bg-primary px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-wider">Cafe</div>
+</div>
+<div class="p-5 space-y-2">
+<div class="flex justify-between items-start">
+<h3 class="text-title-lg font-bold text-on-surface">Onyx Brew</h3>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-0.5 rounded text-xs font-bold text-on-surface">
+<span class="material-symbols-outlined text-sm text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.7
+                            </div>
+</div>
+<p class="text-sm text-on-surface-variant">Artisan coffee and small-batch pastries in a minimalist marble-clad setting.</p>
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/15">
+<span class="text-xs font-medium text-outline">$$ • Specialty Coffee</span>
+<span class="text-xs font-semibold text-primary">0.8 miles away</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="sleek high-end gym with professional weightlifting equipment and modern industrial design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeBEvt6ZWaQKpWqLHT0LDQgzmixxl0arFnMXDr3RPc84cRa9Zg0lxBezsJpWk5XkLcW7lKBVSIIGJSCGb3nOPafb_reMlGij14nwhE6fCHP1LrQMziXxlTaOyLDXdwF0bJuPzHHGCsulGEMTT3MfukD4AH0QVOY8sUPrnldJwSmEnte0wNOKe7zdATnC2omgAlAfDT-iFsN36b9D1UvAt89S558q_8KC5SWXoaI4Gy2V5Y7LEx8-9YFEIcg0NZmy1XMX0C0GZLh2M"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-500 transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4 bg-primary px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-wider">Fitness</div>
+</div>
+<div class="p-5 space-y-2">
+<div class="flex justify-between items-start">
+<h3 class="text-title-lg font-bold text-on-surface">Core Elite Gym</h3>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-0.5 rounded text-xs font-bold text-on-surface">
+<span class="material-symbols-outlined text-sm text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.8
+                            </div>
+</div>
+<p class="text-sm text-on-surface-variant">Private training facility with top-tier equipment and luxury amenities.</p>
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/15">
+<span class="text-xs font-medium text-outline">$$$ • Members Only</span>
+<span class="text-xs font-semibold text-primary">1.2 miles away</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="classic upscale barbershop with vintage leather chairs and wood paneling walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyJTdH6VlH5o024ddqA8pmVM9QZ4UHlarokQH70u65_lH3evkoYjrm6_nJdpGtABGL14xepNhWt0cO52pJcHXDUtpPoMLqTUKD4YpuCQPEdhc5WNMnCrxVsNoNcypXjHVim9z08g1jo-TymKn_6CaItcnQFGulhmvuNNQs0S2xslMT34mbLiNHOntrQgZhT578fZQLLg7rUgOnGcuuLBmHdc9RY5-myOcGKwDlWQ_ZhEQtxw2z8z2dBz6nxusVtnlxLq_i57K85Wo"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-500 transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4 bg-primary px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-wider">Barbershops</div>
+</div>
+<div class="p-5 space-y-2">
+<div class="flex justify-between items-start">
+<h3 class="text-title-lg font-bold text-on-surface">The Grooming Room</h3>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-0.5 rounded text-xs font-bold text-on-surface">
+<span class="material-symbols-outlined text-sm text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.6
+                            </div>
+</div>
+<p class="text-sm text-on-surface-variant">Master barbers providing precision cuts and traditional straight-razor shaves.</p>
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/15">
+<span class="text-xs font-medium text-outline">$$ • Grooming</span>
+<span class="text-xs font-semibold text-primary">0.5 miles away</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-auto px-6 py-8 border-t border-outline-variant/15 flex items-center justify-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-outline hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors font-medium">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors font-medium">3</button>
+<span class="px-2 text-outline">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors font-medium">12</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-outline hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Right Panel: Map (40%) -->
+<section class="hidden lg:block w-[40%] relative bg-surface-container overflow-hidden">
+<!-- Map Placeholder -->
+<div class="absolute inset-0 grayscale-[0.5] opacity-90" data-location="London" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMlaGRNbAcivZ2D1pyhTKLFkdXi_a2esBRB6bwb7DNuIAU3PKWKQ3MGn5u2zP8xXew42mqMjU6wGz6mhpbzdNZe-2toeonHpKQ8SbusUvuq1KzdJqQTY-a2rVoOUkdsIEcZ1LPw5Mu80RWui91SSVL_e52FvkU6p8qJ75se_cKdgNE5v7_5orv2RyL5XURg60y3g-JL17FAeVrHwpdb9QeeWdFNf2DJR8Owum5yCxQ758y7tmmVYwJ_elVzI53lkLkM_g0laCpjWM'); background-size: cover; background-position: center;">
+<!-- Custom Pins Layer -->
+<div class="absolute top-1/4 left-1/3 group cursor-pointer">
+<div class="bg-primary text-white w-10 h-10 rounded-full rounded-bl-none rotate-45 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined -rotate-45 text-lg">restaurant</span>
+</div>
+</div>
+<div class="absolute top-1/2 left-1/2 group cursor-pointer">
+<div class="bg-amber-500 text-white w-10 h-10 rounded-full rounded-bl-none rotate-45 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined -rotate-45 text-lg">coffee</span>
+</div>
+</div>
+<div class="absolute bottom-1/3 left-1/4 group cursor-pointer">
+<div class="bg-indigo-600 text-white w-10 h-10 rounded-full rounded-bl-none rotate-45 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined -rotate-45 text-lg">fitness_center</span>
+</div>
+</div>
+<div class="absolute top-1/3 right-1/4 group cursor-pointer">
+<div class="bg-emerald-600 text-white w-10 h-10 rounded-full rounded-bl-none rotate-45 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined -rotate-45 text-lg">local_car_wash</span>
+</div>
+</div>
+</div>
+<!-- Map Controls Overlays -->
+<div class="absolute top-4 right-4 flex flex-col gap-2">
+<button class="w-10 h-10 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-on-surface">add</span>
+</button>
+<button class="w-10 h-10 bg-white shadow-md rounded-lg flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-on-surface">remove</span>
+</button>
+<button class="w-10 h-10 bg-white shadow-md rounded-lg mt-4 flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-on-surface">my_location</span>
+</button>
+</div>
+</section>
+<!-- Floating Toggle Button (Visible on all, intended for mobile layout) -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+<button class="bg-on-secondary-fixed text-on-primary-container px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined">map</span>
+<span class="text-sm font-bold tracking-tight">Show Map</span>
+</button>
+</div>
+</main>
+</body></html>

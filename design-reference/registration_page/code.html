@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Join Curator | Premium Venue Booking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#d9dadb",
+                    "on-background": "#191c1d",
+                    "background": "#f8f9fa",
+                    "inverse-primary": "#bac3ff",
+                    "on-primary-fixed-variant": "#0031c4",
+                    "on-error-container": "#93000a",
+                    "secondary": "#5d5c74",
+                    "on-secondary-container": "#63627a",
+                    "outline": "#747686",
+                    "surface-container-low": "#f3f4f5",
+                    "on-surface-variant": "#444655",
+                    "tertiary-container": "#ba4e00",
+                    "surface-variant": "#e1e3e4",
+                    "on-secondary-fixed": "#1a1a2e",
+                    "surface": "#f8f9fa",
+                    "secondary-container": "#e2e0fc",
+                    "on-tertiary-container": "#fff1eb",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-primary-fixed": "#001159",
+                    "surface-container": "#edeeef",
+                    "tertiary-fixed": "#ffdbcb",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-secondary-fixed-variant": "#45455b",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c4c5d7",
+                    "tertiary-fixed-dim": "#ffb692",
+                    "primary": "#2346d5",
+                    "tertiary": "#933c00",
+                    "primary-fixed": "#dee1ff",
+                    "on-tertiary-fixed": "#341100",
+                    "on-tertiary-fixed-variant": "#793000",
+                    "surface-container-high": "#e7e8e9",
+                    "surface-tint": "#2e4edc",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#e2e0fc",
+                    "primary-fixed-dim": "#bac3ff",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#f4f2ff",
+                    "secondary-fixed-dim": "#c6c4df",
+                    "on-surface": "#191c1d",
+                    "primary-container": "#4361ee",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f8f9fa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        input:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-x-hidden">
+<!-- Split Screen Container -->
+<main class="min-h-screen flex flex-col md:flex-row">
+<!-- Left Side: Visual Anchor -->
+<section class="relative w-full md:w-1/2 lg:w-[55%] min-h-[409px] md:min-h-screen overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Candid shot of diverse elegant friends laughing and dining at a high-end restaurant with warm ambient lighting and soft bokeh background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA8WqW177YJ3SIY9uaf8AyFECvL8x8UjMwMqN7KEF5uAhni5enSEYIPyVCtT6B91tJd_V6UHK0qlAhFNWEwLYNgSuxUnVZW5boe0goXIWbVWvWRl6KOVgCHX8OwN2IfI8JnGXCmkEGxNN5ZyCcL2aNkt931zYA3Krw4ZbRH7AtuzH7ARNz4wgJmccCHdDDaXkct5PWV27UeX1bI5oYNnBiZR8-8Xo-HbRYQbnIYdYx13CuUZafvsBMQQWklpJ_ssgwpQMFaimXxnMk');">
+</div>
+<!-- Deep Navy Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-on-secondary-fixed via-on-secondary-fixed/40 to-transparent"></div>
+<!-- Brand Identity -->
+<div class="absolute inset-0 p-12 flex flex-col justify-between">
+<div>
+<h1 class="text-3xl font-black tracking-tighter text-white">CURATOR</h1>
+</div>
+<div class="max-w-md">
+<h2 class="text-white text-4xl lg:text-5xl font-headline font-bold leading-tight tracking-tight mb-4">
+                        Access the world's most exclusive spaces.
+                    </h2>
+<p class="text-white/80 text-lg leading-relaxed">
+                        Join an elite community of venue owners and connoisseurs seeking extraordinary experiences.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Right Side: Form Canvas -->
+<section class="w-full md:w-1/2 lg:w-[45%] bg-surface flex items-center justify-center py-16 px-6 md:px-12 lg:px-24">
+<div class="w-full max-w-md">
+<header class="mb-10">
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-2 tracking-tight">Create your account</h3>
+<p class="text-on-surface-variant leading-relaxed">Enter your details to begin your curated journey.</p>
+</header>
+<!-- Registration Form -->
+<form class="space-y-6">
+<!-- Role Toggle -->
+<div class="flex p-1 bg-surface-container-low rounded-xl mb-8">
+<label class="flex-1 cursor-pointer">
+<input checked="" class="sr-only peer" name="role" type="radio" value="user"/>
+<div class="text-center py-2 text-sm font-medium rounded-lg transition-all peer-checked:bg-white peer-checked:text-primary peer-checked:shadow-sm text-on-surface-variant">
+                                I want to book
+                            </div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="sr-only peer" name="role" type="radio" value="owner"/>
+<div class="text-center py-2 text-sm font-medium rounded-lg transition-all peer-checked:bg-white peer-checked:text-primary peer-checked:shadow-sm text-on-surface-variant">
+                                I own a venue
+                            </div>
+</label>
+</div>
+<!-- Fields -->
+<div class="space-y-5">
+<div class="group">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2" for="full_name">Full Name</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline/50 transition-all focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/20" id="full_name" name="full_name" placeholder="Evelyn Harper" type="text"/>
+</div>
+<div class="group">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2" for="email">Email Address</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline/50 transition-all focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/20" id="email" name="email" placeholder="evelyn@example.com" type="email"/>
+</div>
+<div class="group">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2" for="phone">Phone Number</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline/50 transition-all focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/20" id="phone" name="phone" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="group">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2" for="password">Password</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline/50 transition-all focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/20" id="password" name="password" placeholder="••••••••" type="password"/>
+</div>
+<div class="group">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2" for="confirm_password">Confirm</label>
+<input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline/50 transition-all focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary/20" id="confirm_password" name="confirm_password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<!-- T&C -->
+<div class="flex items-start gap-3 mt-4">
+<div class="flex items-center h-5">
+<input class="h-5 w-5 rounded-md border-outline-variant text-primary focus:ring-primary/20 bg-surface-container-low transition-colors" id="terms" name="terms" type="checkbox"/>
+</div>
+<label class="text-sm text-on-surface-variant leading-tight" for="terms">
+                            I agree to the <a class="text-primary font-medium hover:underline underline-offset-4" href="#">Terms of Service</a> and <a class="text-primary font-medium hover:underline underline-offset-4" href="#">Privacy Policy</a>.
+                        </label>
+</div>
+<!-- CTA -->
+<button class="w-full py-4 bg-primary-container text-on-primary-container font-bold rounded-xl shadow-[0px_4px_20px_rgba(35,70,213,0.2)] hover:shadow-[0px_8px_40px_rgba(35,70,213,0.3)] transition-all transform active:scale-[0.98]" type="submit">
+                        Create Account
+                    </button>
+<!-- Divider -->
+<div class="relative py-4 flex items-center">
+<div class="flex-grow border-t border-outline-variant/30"></div>
+<span class="flex-shrink mx-4 text-xs font-bold uppercase tracking-[0.2em] text-outline/60">OR SIGN UP WITH</span>
+<div class="flex-grow border-t border-outline-variant/30"></div>
+</div>
+<!-- Social Login -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-3 px-4 bg-surface-container-low hover:bg-surface-container-high rounded-xl transition-colors border border-outline-variant/10" type="button">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="text-sm font-semibold">Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-3 px-4 bg-surface-container-low hover:bg-surface-container-high rounded-xl transition-colors border border-outline-variant/10" type="button">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M17.05 20.28c-.96.95-2.21 1.72-3.72 1.72-2.12 0-3.32-1.28-4.76-1.28-1.46 0-2.81 1.25-4.55 1.25-2.05 0-4.02-1.89-5.18-4.13-1.63-3.14-1.23-7.55 1.11-10.42.94-1.15 2.21-1.89 3.65-1.89 1.48 0 2.3.89 3.61.89 1.23 0 1.94-.89 3.66-.89 1.34 0 2.51.65 3.33 1.63-3.32 1.98-2.77 6.46.7 8.01-.73 1.84-1.84 3.92-2.85 5.11zm-4.32-15.6c.99-1.23.94-2.78.82-3.68-.82.04-2.3.56-3.17 1.63-1.02 1.22-1 2.82-.82 3.65 1.01 0 2.16-.39 3.17-1.6z"></path>
+</svg>
+<span class="text-sm font-semibold">Apple</span>
+</button>
+</div>
+</form>
+<!-- Footer Link -->
+<footer class="mt-10 text-center">
+<p class="text-on-surface-variant text-sm">
+                        Already have an account? 
+                        <a class="text-primary font-bold hover:underline underline-offset-4 ml-1" href="#">Sign in</a>
+</p>
+</footer>
+</div>
+</section>
+</main>
+</body></html>

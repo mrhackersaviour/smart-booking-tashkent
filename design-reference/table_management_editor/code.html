@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VenueMaster Pro | Floor Plan Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#444655",
+                    "tertiary-container": "#ba4e00",
+                    "primary-fixed-dim": "#bac3ff",
+                    "surface": "#f8f9fa",
+                    "on-tertiary-fixed": "#341100",
+                    "surface-tint": "#2e4edc",
+                    "surface-container-high": "#e7e8e9",
+                    "on-primary-container": "#f4f2ff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#0031c4",
+                    "inverse-on-surface": "#f0f1f2",
+                    "surface-variant": "#e1e3e4",
+                    "tertiary-fixed": "#ffdbcb",
+                    "inverse-primary": "#bac3ff",
+                    "surface-bright": "#f8f9fa",
+                    "outline-variant": "#c4c5d7",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2e3132",
+                    "surface-dim": "#d9dadb",
+                    "on-tertiary-container": "#fff1eb",
+                    "on-secondary-container": "#63627a",
+                    "on-background": "#191c1d",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#001159",
+                    "tertiary-fixed-dim": "#ffb692",
+                    "on-secondary-fixed-variant": "#45455b",
+                    "surface-container": "#edeeef",
+                    "secondary-container": "#e2e0fc",
+                    "on-surface": "#191c1d",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#1a1a2e",
+                    "surface-container-highest": "#e1e3e4",
+                    "background": "#f8f9fa",
+                    "primary-container": "#4361ee",
+                    "secondary": "#5d5c74",
+                    "primary-fixed": "#dee1ff",
+                    "outline": "#747686",
+                    "on-error": "#ffffff",
+                    "tertiary": "#933c00",
+                    "secondary-fixed-dim": "#c6c4df",
+                    "on-tertiary-fixed-variant": "#793000",
+                    "primary": "#2346d5",
+                    "surface-container-low": "#f3f4f5",
+                    "secondary-fixed": "#e2e0fc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .canvas-grid {
+            background-size: 40px 40px;
+            background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/20 overflow-hidden">
+<!-- TopNavBar Implementation from JSON -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none border-b border-slate-200/15 dark:border-slate-800/15">
+<div class="flex items-center gap-8">
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50">VenueMaster Pro</h1>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors text-sm font-medium" href="#">Dashboard</a>
+<a class="text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 pb-1 text-sm font-medium" href="#">Floor Plans</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors text-sm font-medium" href="#">Reservations</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors text-sm font-medium" href="#">Staff</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 transition-all rounded-lg">Save Draft</button>
+<button class="px-4 py-2 text-sm font-semibold bg-primary-container text-on-primary-container rounded-lg shadow-sm hover:scale-[0.98] transition-all duration-200">Publish Layout</button>
+<div class="h-6 w-px bg-slate-200 mx-2"></div>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-primary transition-colors">settings</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-primary transition-colors">help</span>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden border border-slate-200">
+<img alt="Manager Profile" data-alt="close-up portrait of a professional male venue manager in a modern office setting, soft corporate lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArlwpqeotnnF0UTq2WZSHcalKzr0uZxhsfBp5GjMHvYaeGraLmf5ijLBHygQggpyHUuZ7xwaD0T3gb18NVKoqdVtymAElDeiL465JqOOTqwRJMkNFAkcvGW1CNJMGGzrIdwSxUtZRtb23bu8_MznagvLCNKTH7OA49G0dEBHHgvbHSCyaITxVhtAjqJEBleu81B_LD5UjBTOeGOp4KV6OhPNdWdOL2hEzMBiwTV3sYM77MAaUDNj4CfpsO37SL3l8nQ9BQGmd--N4"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar Implementation from JSON -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-4 z-40 bg-slate-50 dark:bg-slate-900 border-r border-slate-200/15 dark:border-slate-800/15">
+<div class="mb-6 px-2">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">layers</span>
+<span class="text-lg font-semibold text-slate-900 dark:text-slate-50">Editor Tools</span>
+</div>
+<p class="text-xs text-slate-500 font-medium tracking-wide">Drag &amp; Drop Elements</p>
+</div>
+<nav class="flex flex-col gap-1 flex-1">
+<div class="bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 rounded-lg shadow-sm font-semibold p-3 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined">table_restaurant</span>
+<span class="text-xs tracking-[0.05em] uppercase">Tables</span>
+</div>
+<div class="text-slate-500 dark:text-slate-400 p-3 flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all cursor-pointer rounded-lg">
+<span class="material-symbols-outlined">chair</span>
+<span class="text-xs tracking-[0.05em] uppercase">Seating</span>
+</div>
+<div class="text-slate-500 dark:text-slate-400 p-3 flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all cursor-pointer rounded-lg">
+<span class="material-symbols-outlined">straighten</span>
+<span class="text-xs tracking-[0.05em] uppercase">Walls</span>
+</div>
+<div class="text-slate-500 dark:text-slate-400 p-3 flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all cursor-pointer rounded-lg">
+<span class="material-symbols-outlined">theater_comedy</span>
+<span class="text-xs tracking-[0.05em] uppercase">Stages</span>
+</div>
+<div class="text-slate-500 dark:text-slate-400 p-3 flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all cursor-pointer rounded-lg">
+<span class="material-symbols-outlined">filter_vintage</span>
+<span class="text-xs tracking-[0.05em] uppercase">Decor</span>
+</div>
+</nav>
+<button class="mt-4 w-full py-3 bg-primary text-white rounded-xl font-medium shadow-lg shadow-primary/20 flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+            Add New Zone
+        </button>
+<div class="mt-auto flex items-center justify-between px-2 py-4 border-t border-slate-200/30">
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-center gap-1 cursor-pointer group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">undo</span>
+<span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Undo</span>
+</div>
+<div class="flex flex-col items-center gap-1 cursor-pointer group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">redo</span>
+<span class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Redo</span>
+</div>
+</div>
+<div class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2 py-1 rounded">V2.4.1</div>
+</div>
+</aside>
+<!-- Main Workspace Container -->
+<main class="ml-64 pt-16 h-screen flex flex-col relative">
+<!-- Canvas Toolbar -->
+<div class="h-14 flex items-center justify-between px-6 bg-surface border-b border-outline-variant/15">
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-lowest text-on-surface rounded-lg text-sm font-semibold border border-outline-variant/30 hover:border-primary transition-all">
+<span class="material-symbols-outlined text-lg">add_box</span>
+                    Add Table
+                </button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-lowest text-on-surface rounded-lg text-sm font-semibold border border-outline-variant/30 hover:border-primary transition-all">
+<span class="material-symbols-outlined text-lg">person_add</span>
+                    Add Seat
+                </button>
+<div class="h-4 w-px bg-outline-variant/30 mx-2"></div>
+<div class="flex items-center gap-2 bg-surface-container-low px-2 py-1 rounded-lg">
+<span class="text-xs font-bold text-on-surface-variant tracking-wider uppercase">Edit Mode</span>
+<button class="w-10 h-5 bg-primary rounded-full relative transition-all">
+<div class="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow-sm"></div>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors text-on-surface-variant" title="Toggle Grid">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_on</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors text-on-surface-variant" title="Snap to Objects">
+<span class="material-symbols-outlined">nest_cam_magnet_mount</span>
+</button>
+<div class="h-4 w-px bg-outline-variant/30"></div>
+<button class="flex items-center gap-2 px-3 py-1.5 text-error font-semibold text-sm hover:bg-error/5 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">refresh</span>
+                    Reset
+                </button>
+</div>
+</div>
+<!-- Layout Editor Area -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Canvas -->
+<div class="flex-1 bg-surface-container-low relative overflow-auto cursor-crosshair canvas-grid p-20">
+<div class="w-[1200px] h-[800px] bg-surface-container-lowest rounded-2xl shadow-2xl relative border border-outline-variant/10">
+<!-- Entrance Indicator -->
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-on-secondary-fixed text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full z-10">Main Entrance</div>
+<!-- Draggable Element: Table T-12 (Selected) -->
+<div class="absolute top-24 left-32 w-48 h-32 bg-surface-container-low border-2 border-primary rounded-xl flex flex-col items-center justify-center cursor-move shadow-xl">
+<div class="absolute -top-3 -right-3 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ring-4 ring-surface-container-lowest">T-12</div>
+<span class="material-symbols-outlined text-3xl text-primary/40">table_restaurant</span>
+<div class="mt-2 px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded uppercase">Available</div>
+<div class="mt-1 text-[10px] text-on-surface-variant font-medium">Capacity: 4</div>
+<!-- Selection Handles -->
+<div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-white border-2 border-primary rounded-sm"></div>
+<div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-white border-2 border-primary rounded-sm"></div>
+</div>
+<!-- Draggable Element: Table T-08 (Booked) -->
+<div class="absolute top-24 left-[400px] w-32 h-32 bg-surface-container-low border border-outline-variant/20 rounded-full flex flex-col items-center justify-center cursor-move opacity-80">
+<div class="absolute -top-1 -right-1 bg-on-surface text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold">T-08</div>
+<span class="material-symbols-outlined text-3xl text-on-surface-variant/40">circle</span>
+<div class="mt-2 px-2 py-0.5 bg-red-100 text-red-700 text-[10px] font-bold rounded uppercase">Booked</div>
+<div class="mt-1 text-[10px] text-on-surface-variant font-medium">Capacity: 2</div>
+</div>
+<!-- Draggable Element: VIP Booth (Selected) -->
+<div class="absolute top-[300px] right-24 w-64 h-24 bg-surface-container-low border border-outline-variant/20 rounded-xl flex items-center px-6 gap-4 cursor-move overflow-hidden">
+<div class="absolute top-0 left-0 w-2 h-full bg-tertiary"></div>
+<div class="flex-1">
+<div class="text-xs font-bold text-on-surface">VIP BOOTH 1</div>
+<div class="text-[10px] text-on-surface-variant">Premium Seating Zone</div>
+</div>
+<div class="px-2 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold rounded uppercase">Maintenance</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</div>
+</div>
+<!-- Floor Decoration: Plant -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 opacity-20 pointer-events-none">
+<span class="material-symbols-outlined text-7xl text-green-800">filter_vintage</span>
+</div>
+<!-- Bottom Navigational Legend -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-8">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-green-500"></div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Available</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-red-500"></div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Booked</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Maintenance</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Properties Sidebar -->
+<aside class="w-80 bg-surface-container-lowest border-l border-outline-variant/15 flex flex-col">
+<div class="p-6 border-b border-outline-variant/10">
+<h2 class="text-sm font-bold uppercase tracking-widest text-on-surface mb-1">Properties</h2>
+<p class="text-xs text-on-surface-variant">Selected: <span class="text-primary font-bold">Table T-12</span></p>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- Table ID -->
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-2">Table Number</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg text-sm font-medium focus:ring-1 focus:ring-primary h-10 px-3" type="text" value="T-12"/>
+</div>
+<!-- Type -->
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-2">Element Type</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border-none rounded-lg text-sm font-medium focus:ring-1 focus:ring-primary h-10 px-3 appearance-none">
+<option>Table</option>
+<option>Booth</option>
+<option>Single</option>
+<option selected="">VIP</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-sm">expand_more</span>
+</div>
+</div>
+<!-- Capacity -->
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-2">Capacity</label>
+<div class="flex items-center bg-surface-container-low rounded-lg h-10 overflow-hidden">
+<button class="w-10 h-full flex items-center justify-center hover:bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<input class="flex-1 bg-transparent border-none text-center text-sm font-bold focus:ring-0" type="number" value="4"/>
+<button class="w-10 h-full flex items-center justify-center hover:bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<!-- Coordinates -->
+<div class="grid grid-cols-3 gap-3">
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">X-Pos</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg text-xs text-center h-8 focus:ring-1 focus:ring-primary" type="text" value="128"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Y-Pos</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg text-xs text-center h-8 focus:ring-1 focus:ring-primary" type="text" value="96"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">Z-Idx</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg text-xs text-center h-8 focus:ring-1 focus:ring-primary" type="text" value="2"/>
+</div>
+</div>
+<!-- Status -->
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-2">Status</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-2 p-2 bg-green-50 text-green-700 rounded-lg border border-green-200">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-[10px] font-bold">AVAIL</span>
+</button>
+<button class="flex items-center justify-center gap-2 p-2 bg-surface-container-low text-on-surface-variant rounded-lg border border-outline-variant/20 opacity-50">
+<div class="w-2 h-2 rounded-full bg-red-500"></div>
+<span class="text-[10px] font-bold">BOOKED</span>
+</button>
+</div>
+</div>
+<!-- Maintenance Date -->
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-2">Maintenance Date</label>
+<div class="flex items-center bg-surface-container-low rounded-lg h-10 px-3 gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">calendar_month</span>
+<span class="text-sm font-medium">Oct 24, 2023</span>
+</div>
+</div>
+<!-- Delete Button -->
+<button class="w-full py-2 bg-error/5 text-error rounded-lg text-xs font-bold uppercase tracking-widest border border-error/20 hover:bg-error/10 transition-all flex items-center justify-center gap-2 mt-4">
+<span class="material-symbols-outlined text-sm">delete</span>
+                        Remove Element
+                    </button>
+</div>
+</aside>
+</div>
+<!-- Real-time Stats Bottom Panel -->
+<footer class="h-20 bg-on-secondary-fixed text-white flex items-center px-8 gap-12 z-40">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">Total Capacity</span>
+<span class="text-2xl font-extrabold tracking-tight">120</span>
+</div>
+<div class="h-8 w-px bg-white/10"></div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">Available Seats</span>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold tracking-tight text-green-400">45</span>
+<span class="text-xs text-white/40">37.5%</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">Booked Today</span>
+<span class="text-2xl font-extrabold tracking-tight">75</span>
+</div>
+<div class="flex-1"></div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">Utilization</span>
+<span class="text-2xl font-extrabold tracking-tight text-primary-fixed-dim">62%</span>
+</div>
+<div class="w-32 h-2 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 62%;"></div>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

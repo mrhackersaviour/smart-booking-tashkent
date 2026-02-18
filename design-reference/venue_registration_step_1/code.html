@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdbcb",
+                        "background": "#f8f9fa",
+                        "tertiary-fixed-dim": "#ffb692",
+                        "on-primary-fixed-variant": "#0031c4",
+                        "on-primary-fixed": "#001159",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#ba4e00",
+                        "outline": "#747686",
+                        "primary-fixed": "#dee1ff",
+                        "on-secondary-container": "#63627a",
+                        "surface-bright": "#f8f9fa",
+                        "on-tertiary-fixed-variant": "#793000",
+                        "on-primary-container": "#f4f2ff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-fixed": "#e2e0fc",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#4361ee",
+                        "on-secondary-fixed": "#1a1a2e",
+                        "primary": "#2346d5",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#bac3ff",
+                        "surface-tint": "#2e4edc",
+                        "surface-container-low": "#f3f4f5",
+                        "on-surface": "#191c1d",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#45455b",
+                        "on-background": "#191c1d",
+                        "inverse-surface": "#2e3132",
+                        "tertiary": "#933c00",
+                        "surface-container-high": "#e7e8e9",
+                        "on-surface-variant": "#444655",
+                        "secondary-container": "#e2e0fc",
+                        "on-tertiary-container": "#fff1eb",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "secondary": "#5d5c74",
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#bac3ff",
+                        "outline-variant": "#c4c5d7",
+                        "on-tertiary-fixed": "#341100",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c6c4df"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(26,26,46,0.04)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">VenuePro</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors font-inter tracking-tight" href="#">Dashboard</a>
+<a class="text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 pb-1 font-inter tracking-tight" href="#">Listings</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors font-inter tracking-tight" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors text-sm font-medium">Support</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-500 p-2 cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-500 p-2 cursor-pointer" data-icon="settings">settings</span>
+<img alt="Business Owner Avatar" class="w-8 h-8 rounded-full border border-surface-variant" data-alt="close-up portrait of a professional male entrepreneur in a navy blazer against a minimalist studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA7BFTeDhPxGkn9jyX7phd8DwJ4EHmnMjN25fUDK1JSWDiGpIyK6z1tJRQyiYivgMPJdmRUs6PoFAAVWKSsj_m0aHL9eHIJbZPrNEyAFFDOyAa6ZOhzpak3QJ5YtSWB11cwDm373H5htGucNUeM0NC0IRRSi7EYaoHpCCBDELpxXPRWcq_A1VsFQUXhXjJVxnBXkcKhnVWcKqNqzHu-WikUMsOg53bCFsKZjY-chRZ7kkMCRuTEKTdrNFM6afQKx2bVGbiq5Atm3c"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Sidebar Navigation (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-20 bg-slate-50 dark:bg-slate-950 flex flex-col p-4 border-r border-slate-100 dark:border-slate-800 transition-transform duration-200">
+<div class="mb-8 px-2">
+<h2 class="text-lg font-semibold text-slate-900 dark:text-white font-inter">Registration</h2>
+<p class="text-slate-500 text-xs font-inter uppercase tracking-widest mt-1">Step 1 of 4</p>
+</div>
+<nav class="flex-grow space-y-1">
+<div class="flex items-center gap-3 bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 font-bold rounded-lg p-3 shadow-sm">
+<span class="material-symbols-outlined" data-icon="business">business</span>
+<span class="font-inter text-sm">Business Info</span>
+</div>
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400 p-3 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="font-inter text-sm">Venue Details</span>
+</div>
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400 p-3 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined" data-icon="perm_media">perm_media</span>
+<span class="font-inter text-sm">Media</span>
+</div>
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400 p-3 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="font-inter text-sm">Review</span>
+</div>
+</nav>
+<div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400 p-3 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-inter text-sm">Help Center</span>
+</div>
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400 p-3 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-inter text-sm">Logout</span>
+</div>
+<button class="mt-4 w-full bg-surface-container-high text-on-surface py-2 rounded-lg font-semibold text-sm hover:bg-slate-200 transition-colors">Save Draft</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-8 min-h-screen">
+<div class="max-w-4xl mx-auto">
+<!-- Progress Bar -->
+<div class="mb-12">
+<div class="relative flex justify-between items-center w-full">
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-surface-container-high -z-10"></div>
+<div class="absolute top-1/2 left-0 w-1/4 h-[2px] bg-primary-container -z-10"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm" data-icon="check" data-weight="fill">check</span>
+</div>
+<span class="text-xs font-bold text-on-surface tracking-tight">Business Info</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-surface-container-high text-slate-400 flex items-center justify-center">
+<span class="text-sm font-bold">2</span>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Venue Details</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-surface-container-high text-slate-400 flex items-center justify-center">
+<span class="text-sm font-bold">3</span>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Upload Media</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-surface-container-high text-slate-400 flex items-center justify-center">
+<span class="text-sm font-bold">4</span>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Review</span>
+</div>
+</div>
+</div>
+<!-- Header Section -->
+<div class="mb-10 text-center md:text-left">
+<h1 class="text-4xl font-extrabold text-on-surface tracking-tight mb-2">Kickstart your partnership</h1>
+<p class="text-on-surface-variant text-lg">Provide your business essentials to begin listing premium venues on VenuePro.</p>
+</div>
+<!-- Bento Form Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Main Form Card -->
+<div class="md:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-[0_8px_40px_rgba(26,26,46,0.08)]">
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Business Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="Legal entity name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Registration Number</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="Tax ID or Business ID" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Owner/Point of Contact</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg" data-icon="person">person</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 pl-12 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="Full legal name" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Professional Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg" data-icon="mail">mail</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 pl-12 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="contact@business.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Phone Number</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg" data-icon="phone">phone</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 pl-12 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+</div>
+<div class="pt-4 flex justify-between items-center">
+<button class="text-on-surface-variant font-semibold hover:text-on-surface transition-colors" type="button">Clear all</button>
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-10 py-4 rounded-xl font-bold shadow-lg shadow-primary/25 hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                                Continue to Venue Details
+                            </button>
+</div>
+</form>
+</div>
+<!-- Secondary Info Cards -->
+<div class="md:col-span-4 space-y-6">
+<!-- Trust Card -->
+<div class="bg-on-secondary-fixed text-white p-8 rounded-xl relative overflow-hidden h-fit">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-tertiary-fixed text-4xl mb-4" data-icon="verified_user">verified_user</span>
+<h3 class="text-xl font-bold mb-2">Bank-Grade Security</h3>
+<p class="text-secondary-fixed-dim text-sm leading-relaxed">Your business registration data is encrypted and handled with the highest security standards. We only use this for verification purposes.</p>
+</div>
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Helpful Tip Card -->
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/15">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary" data-icon="lightbulb">lightbulb</span>
+<h4 class="font-bold text-on-surface">Pro Tip</h4>
+</div>
+<p class="text-on-surface-variant text-sm italic">"High-quality media and precise registration details increase your venue's trust score, leading to 3x more corporate bookings."</p>
+</div>
+<!-- Visual Context Card -->
+<div class="relative h-48 rounded-xl overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-t from-on-secondary-fixed/80 to-transparent z-10"></div>
+<img alt="Modern Architecture" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="architectural shot of a modern glass office building facade with sharp geometric shadows and blue sky reflection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDR20luD3ZT76YsHREMXrTJ_NFPYaGERpNrbE6JF8-fUrZ56H8Lg9T8EYcy2AChF4zvUoI_oYr0LLA_mZfWTPWKQSusm9L77PBkZSb5Y6M4v-LyvntlrRzHEmP_xJF88t91Gfu50jm5XBt_09opKcfN2nVC00cYf4wjOFIehfhMczN5pt6jbEkTrka1sdqWSMDthtpi50AlssL_mVKcFgSAXGC7-519I7AIgNc1XNrzBi-jCQCYQL06mNq-wGePGqugluH3F9En_k"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="text-xs text-secondary-fixed font-bold tracking-widest uppercase">Coming Next</span>
+<p class="text-white font-bold">Venue Gallery Setup</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Stats -->
+<div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 pb-12">
+<div class="text-center p-4">
+<p class="text-3xl font-extrabold text-on-surface tracking-tighter">12k+</p>
+<p class="text-xs uppercase tracking-widest text-on-surface-variant font-medium">Venues Managed</p>
+</div>
+<div class="text-center p-4 border-l border-surface-container">
+<p class="text-3xl font-extrabold text-on-surface tracking-tighter">98%</p>
+<p class="text-xs uppercase tracking-widest text-on-surface-variant font-medium">Safety Score</p>
+</div>
+<div class="text-center p-4 border-l border-surface-container">
+<p class="text-3xl font-extrabold text-on-surface tracking-tighter">15m</p>
+<p class="text-xs uppercase tracking-widest text-on-surface-variant font-medium">Avg Setup Time</p>
+</div>
+<div class="text-center p-4 border-l border-surface-container">
+<p class="text-3xl font-extrabold text-on-surface tracking-tighter">24/7</p>
+<p class="text-xs uppercase tracking-widest text-on-surface-variant font-medium">Partner Support</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

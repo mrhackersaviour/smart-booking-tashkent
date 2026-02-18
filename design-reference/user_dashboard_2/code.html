@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Curator | Premium Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#ba4e00",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#341100",
+                        "surface": "#f8f9fa",
+                        "primary-fixed": "#dee1ff",
+                        "inverse-surface": "#2e3132",
+                        "on-surface-variant": "#444655",
+                        "outline-variant": "#c4c5d7",
+                        "on-secondary-container": "#63627a",
+                        "surface-dim": "#d9dadb",
+                        "background": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "outline": "#747686",
+                        "secondary": "#5d5c74",
+                        "on-tertiary-container": "#fff1eb",
+                        "on-primary-fixed-variant": "#0031c4",
+                        "surface-container": "#edeeef",
+                        "primary": "#2346d5",
+                        "on-secondary-fixed-variant": "#45455b",
+                        "secondary-fixed": "#e2e0fc",
+                        "surface-bright": "#f8f9fa",
+                        "on-primary-fixed": "#001159",
+                        "on-background": "#191c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-fixed": "#1a1a2e",
+                        "tertiary": "#933c00",
+                        "on-surface": "#191c1d",
+                        "surface-tint": "#2e4edc",
+                        "tertiary-fixed-dim": "#ffb692",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#bac3ff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary-container": "#4361ee",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcb",
+                        "on-tertiary-fixed-variant": "#793000",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#bac3ff",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary-container": "#f4f2ff",
+                        "secondary-container": "#e2e0fc",
+                        "secondary-fixed-dim": "#c6c4df"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="fixed h-full w-72 left-0 top-0 z-50 bg-[#1a1a2e] dark:bg-slate-950 flex flex-col h-full py-8 px-6 shadow-2xl dark:shadow-none">
+<div class="mb-10 px-4">
+<h1 class="text-xl font-black text-white tracking-[-0.02em]">The Curator</h1>
+<p class="text-xs text-slate-400 font-medium tracking-widest mt-1">PREMIUM CONCIERGE</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-white font-bold border-l-4 border-[#4361ee] bg-white/5 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 font-medium hover:text-white transition-colors hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span>My Bookings</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 font-medium hover:text-white transition-colors hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span>Favorites</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 font-medium hover:text-white transition-colors hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+<span>Loyalty</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 font-medium hover:text-white transition-colors hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span>AI Assistant</span>
+</a>
+</nav>
+<div class="mt-auto space-y-2">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 font-medium hover:text-white transition-colors hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span>Profile</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 font-medium hover:text-white transition-colors hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-18rem)] h-20 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex justify-between items-center px-12">
+<div class="relative w-96">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-outline material-symbols-outlined" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full pl-12 pr-4 py-2 text-body-md focus:ring-1 focus:ring-primary transition-all duration-300" placeholder="Search experiences..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<button class="p-2 text-slate-500 hover:bg-slate-100/50 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100/50 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User profile" data-alt="professional portrait of a smiling woman with brunette hair in a modern corporate setting with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJXj6tclyLwkztM086DiaHgbsoo1R3R4byj6DD386FIM6ikR_dJN-FIwzShXJ-X7mIOvOa7qYVTRl3xWa6g9vrecZWZRt7JeFdongonVeyD9R8OIkIn0aoBH3DTs7malnN2mq18VukY2yz7BbnEcDByjiKC1zQL-VOZNaU4gevF-wBNENhyaHjo-5sJi26c5I82RtakEv4J3l5wsS6P677AuW5RFIg8Mhp7zf5VUzhlSdAB7c9ibQWfuLi_mAJXLkHdkg2vle9Dfg"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-72 pt-28 pb-12 px-12">
+<!-- Welcome Banner (Bento Style) -->
+<section class="grid grid-cols-12 gap-6 mb-10">
+<div class="col-span-8 bg-primary-container rounded-xl p-10 text-on-primary-container relative overflow-hidden shadow-lg">
+<div class="relative z-10">
+<h2 class="text-4xl font-black tracking-tight mb-2">Welcome back, Evelyn Harper</h2>
+<p class="text-primary-fixed opacity-90 max-w-md text-lg">Your next curated adventure awaits. Explore our newest rooftop dining collection in the city.</p>
+<div class="mt-8 flex gap-4">
+<button class="bg-surface-container-lowest text-primary font-bold px-6 py-3 rounded-lg text-sm hover:bg-primary-fixed transition-colors">Book New Venue</button>
+<button class="border border-primary-fixed/30 text-white font-medium px-6 py-3 rounded-lg text-sm hover:bg-white/10 transition-colors">View Itinerary</button>
+</div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute right-10 top-10 flex flex-col items-end">
+<div class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-yellow-400" data-icon="military_tech" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-bold tracking-tight">Platinum Tier</span>
+</div>
+</div>
+</div>
+<!-- Quick Stats Panel -->
+<div class="col-span-4 bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/10 shadow-sm flex flex-col justify-between">
+<h3 class="text-on-surface font-bold text-lg mb-4">Membership Overview</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined text-xl" data-icon="book_online">book_online</span>
+</div>
+<span class="text-on-surface-variant font-medium">Total Bookings</span>
+</div>
+<span class="text-2xl font-black text-on-surface">12</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-tertiary-fixed-dim/20 text-tertiary rounded-lg">
+<span class="material-symbols-outlined text-xl" data-icon="loyalty">loyalty</span>
+</div>
+<span class="text-on-surface-variant font-medium">Loyalty Points</span>
+</div>
+<span class="text-2xl font-black text-on-surface">2,500</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-secondary-container text-secondary rounded-lg">
+<span class="material-symbols-outlined text-xl" data-icon="rate_review">rate_review</span>
+</div>
+<span class="text-on-surface-variant font-medium">Reviews Given</span>
+</div>
+<span class="text-2xl font-black text-on-surface">8</span>
+</div>
+</div>
+<button class="w-full mt-6 py-3 text-primary text-sm font-bold border border-primary/20 rounded-lg hover:bg-primary/5 transition-all">View Details</button>
+</div>
+</section>
+<!-- Upcoming Bookings -->
+<section class="mb-12">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="text-2xl font-black tracking-tight text-on-surface">Upcoming Bookings</h3>
+<p class="text-on-surface-variant text-sm mt-1">Your confirmed and pending reservations</p>
+</div>
+<a class="text-primary font-bold text-sm hover:underline" href="#">See All Activity</a>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<!-- Confirmed Card -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden flex items-stretch border border-outline-variant/10 hover:shadow-xl transition-all duration-300">
+<div class="w-1/3 relative">
+<img alt="Restaurant interior" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="upscale restaurant interior with dimly lit elegant tables, crystal glassware, and dark wood accents in a Parisian style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdeCOlzYjOqhyK_h4dSAVUMKCJPM6Ncl-tHHp5lhu0zSEf7sVWYLWVyIi4kyei7n1xYnLUrDejodPCXn2yLSUmyKFj8eG6cX8nOtMPu5mcjG8yVdeYb5Oc5LJmtk2Vz8e7SEVMwPhQyT7iqYF5sv3jWfWOv2UrYgS7IW4elJG-aZF5rwjhm-svM12ExmdLwsBsl3uTJOSW7Cmkd-qqvEyebeXmkGid2ClETXR7WGdxRCUUPViLCmwCRl8PAevggVej3j1gShdUKdE"/>
+<div class="absolute top-3 left-3 bg-green-500 text-white text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded">Confirmed</div>
+</div>
+<div class="w-2/3 p-6 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="text-xl font-bold text-on-surface">L'Avenue</h4>
+<span class="text-primary material-symbols-outlined" data-icon="restaurant">restaurant</span>
+</div>
+<p class="text-on-surface-variant text-sm mt-1">High-end Contemporary Dining</p>
+</div>
+<div class="grid grid-cols-3 gap-4 mt-4">
+<div>
+<span class="block text-[10px] text-outline font-bold uppercase tracking-widest">Date</span>
+<span class="text-sm font-bold text-on-surface">Oct 24, 2023</span>
+</div>
+<div>
+<span class="block text-[10px] text-outline font-bold uppercase tracking-widest">Time</span>
+<span class="text-sm font-bold text-on-surface">08:00 PM</span>
+</div>
+<div>
+<span class="block text-[10px] text-outline font-bold uppercase tracking-widest">Guests</span>
+<span class="text-sm font-bold text-on-surface">2 People</span>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="flex-1 py-2 bg-surface-container-low text-on-surface font-bold text-xs rounded-lg hover:bg-surface-container-high transition-colors">Modify</button>
+<button class="px-4 py-2 border border-outline-variant/30 text-error font-bold text-xs rounded-lg hover:bg-error-container/20 transition-colors">Cancel</button>
+</div>
+</div>
+</div>
+<!-- Pending Card -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden flex items-stretch border border-outline-variant/10 hover:shadow-xl transition-all duration-300">
+<div class="w-1/3 relative">
+<img alt="Rooftop bar" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="modern rooftop garden bar with lush plants, neon lighting, and a panoramic city skyline view at twilight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0ae454ESV_6GlZ_QliHHlOpRS-U1esP2RI2QjrfVPredRgxhEvdStka_5BE9UQEMQis4iFCr41D4Vjg570ab3EJJflyYHbD3CElxyKUsNbb_X09FABf7WLXI4lpjlX7iDTxGmnGxGtl4shSYTkre6rNUW05tEsjM9YM6fnZJclIqmdrS_zD1ULMdVpWkWEQ2ObrhDfaaNyHczXop-42xLKrdlAGY6UwIy1IYlfWtfdpPFngdWpYHIOmJOrS6ZhpxGTjdS6Fe_-h8"/>
+<div class="absolute top-3 left-3 bg-tertiary text-white text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded">Pending</div>
+</div>
+<div class="w-2/3 p-6 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="text-xl font-bold text-on-surface">Sky Garden</h4>
+<span class="text-tertiary material-symbols-outlined" data-icon="rooftop">roofing</span>
+</div>
+<p class="text-on-surface-variant text-sm mt-1">Panoramic City Views &amp; Cocktails</p>
+</div>
+<div class="grid grid-cols-3 gap-4 mt-4">
+<div>
+<span class="block text-[10px] text-outline font-bold uppercase tracking-widest">Date</span>
+<span class="text-sm font-bold text-on-surface">Oct 28, 2023</span>
+</div>
+<div>
+<span class="block text-[10px] text-outline font-bold uppercase tracking-widest">Time</span>
+<span class="text-sm font-bold text-on-surface">10:30 PM</span>
+</div>
+<div>
+<span class="block text-[10px] text-outline font-bold uppercase tracking-widest">Guests</span>
+<span class="text-sm font-bold text-on-surface">4 People</span>
+</div>
+</div>
+<div class="mt-6">
+<div class="w-full h-1 bg-surface-container-low rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-tertiary rounded-full"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant font-medium mt-2 italic">Awaiting confirmation from venue host...</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommended for You -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="text-2xl font-black tracking-tight text-on-surface">Recommended for You</h3>
+<p class="text-on-surface-variant text-sm mt-1">Based on your preference for artisanal experiences</p>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto no-scrollbar pb-6 -mx-2 px-2">
+<!-- Venue Card 1 -->
+<div class="min-w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-outline-variant/10">
+<div class="h-48 relative">
+<img alt="Artisan workshop" class="w-full h-full object-cover" data-alt="sunlit pottery studio with shelves of handmade ceramic vessels and an artisan working at a wheel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLLlZgyT_Fkesp5FDmcNzn-FwCu6nglyXkI-XkuLHxTHnCzW0GUdCInMSNArHZAARO0osCtvnN2qNOppx1egetcZP_eecg-3RRX6hc7TJNuC7zQH_6qwbUftEkTSRSeh2DQsK-GzyqJMVXgZp3g6An45QbPrjM9cAOd3x6-00yNCjjzbL8i7fUBwhiCj_H6aogUgJwd3aFyhhwIEHaQiW_8r4-GgRlBFRVGDw7rARf87qbMKz8GvMXFfniQ1ZCy3Za_zLVUzrmVKk"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h5 class="font-bold text-on-surface text-lg">The Clay Collective</h5>
+<div class="flex items-center gap-1 bg-primary/5 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-black text-primary">4.9</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-4">Immersive ceramics &amp; wine tasting</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-black text-on-surface">$85<span class="text-xs font-normal text-outline">/person</span></span>
+<span class="text-xs text-outline-variant font-bold uppercase tracking-tighter">128 Reviews</span>
+</div>
+</div>
+</div>
+<!-- Venue Card 2 -->
+<div class="min-w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-outline-variant/10">
+<div class="h-48 relative">
+<img alt="Cocktail lounge" class="w-full h-full object-cover" data-alt="sleek modern cocktail lounge with velvet chairs, marble bar top, and glowing amber backlighting behind premium glass bottles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBryYXcf-b8X-wQZx8ub3a2hGH5wMk8r8xwY_cz9AjwEq9kBQBafVzvo79pOSFg47utM2MeqU4m8BGN_gJvn4nwTQq25XBImUs4VkLY6PlTfnwJIe6t1IChknXoXZeWPZzmM690FpY8QqoKkifvvqBQvmSxCFkcG-0fLPLLeLkYc7VqmHrSrv0VfFIgWkCRtKTHkofb-sN_LHpJ2ssmLXjA9MXETu7J5ruizlhhoKWICXB6s0dkzrzE6VJ3JpBP07z_oU9k_RSpiUw"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h5 class="font-bold text-on-surface text-lg">Amber &amp; Ash</h5>
+<div class="flex items-center gap-1 bg-primary/5 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-black text-primary">4.7</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-4">Speakeasy-style mixology bar</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-black text-on-surface">$45<span class="text-xs font-normal text-outline">/person</span></span>
+<span class="text-xs text-outline-variant font-bold uppercase tracking-tighter">254 Reviews</span>
+</div>
+</div>
+</div>
+<!-- Venue Card 3 -->
+<div class="min-w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-outline-variant/10">
+<div class="h-48 relative">
+<img alt="Fusion kitchen" class="w-full h-full object-cover" data-alt="vibrant gourmet kitchen with chefs preparing colorful fusion dishes featuring fresh greens and exotic spices" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdAJVSn2wyDQmY57U1kp8aLCZ4KT8HKAO5gMlCuzqMOLFKrEo9cCR2YW5KF5J4oTffLmD4Y-S9fXCN0bDgucaSTyRuVAFqOQ-JmP8-3_k4NyyUdrJgNBvDLEiOrwfHYTW6TaoqwKCQH01FkLayE0w0ghlOnv3-grEjRLytbztfcr5npx9rNpxtwY5iCexPnfqzl9QIMmIxfSStlRbgOeYHbQnpzaNPtw5GcOZM6cRCB1v2uR0zqtYvuvIB8BAbH_gaKQPBDHZjTVA"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h5 class="font-bold text-on-surface text-lg">Nora's Table</h5>
+<div class="flex items-center gap-1 bg-primary/5 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-black text-primary">4.8</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-4">Farm-to-table seasonal kitchen</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-black text-on-surface">$110<span class="text-xs font-normal text-outline">/person</span></span>
+<span class="text-xs text-outline-variant font-bold uppercase tracking-tighter">92 Reviews</span>
+</div>
+</div>
+</div>
+<!-- Venue Card 4 -->
+<div class="min-w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-outline-variant/10">
+<div class="h-48 relative">
+<img alt="Classic jazz club" class="w-full h-full object-cover" data-alt="dimly lit classic jazz club with a vintage microphone on stage and silhouettes of musicians playing in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSlR_dMZq_RZi2JNZlfI-D_tzvh9JB-E8Dxw4-bZ2Qr6vOsfq66Y--WmV160JpazZb9YGn1MMIrfFjkEX4Dxsw2sNhCJ7mqCxzMf0AdoW0dXQd8mSSgnKBawD1ZeMggwQhgMc3qDEcOR_97D8hjV8I3ytw1hk_vfxCWVFgsDsPoJzhButxJOV0oIFw4piqWp7essbhweM2dGUZ_4aVMlv4-m7_LUnHVBBSLQfGjZB0_nWyUt8Syq8iGgmRttYQszMTxcvfoDT9YZo"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h5 class="font-bold text-on-surface text-lg">Midnight Note</h5>
+<div class="flex items-center gap-1 bg-primary/5 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-black text-primary">4.9</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-4">Historical jazz bar with live shows</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-black text-on-surface">$60<span class="text-xs font-normal text-outline">/person</span></span>
+<span class="text-xs text-outline-variant font-bold uppercase tracking-tighter">310 Reviews</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

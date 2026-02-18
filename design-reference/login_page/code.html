@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c4c5d7",
+                        "on-tertiary-fixed": "#341100",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#bac3ff",
+                        "secondary-fixed-dim": "#c6c4df",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#444655",
+                        "tertiary": "#933c00",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-dim": "#d9dadb",
+                        "secondary": "#5d5c74",
+                        "secondary-container": "#e2e0fc",
+                        "on-tertiary-container": "#fff1eb",
+                        "on-error": "#ffffff",
+                        "primary-container": "#4361ee",
+                        "on-primary-container": "#f4f2ff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-fixed": "#e2e0fc",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#793000",
+                        "on-secondary-fixed-variant": "#45455b",
+                        "on-background": "#191c1d",
+                        "inverse-surface": "#2e3132",
+                        "surface-tint": "#2e4edc",
+                        "surface-container-low": "#f3f4f5",
+                        "on-surface": "#191c1d",
+                        "error": "#ba1a1a",
+                        "primary": "#2346d5",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#bac3ff",
+                        "on-secondary-fixed": "#1a1a2e",
+                        "tertiary-fixed-dim": "#ffb692",
+                        "on-primary-fixed-variant": "#0031c4",
+                        "on-primary-fixed": "#001159",
+                        "background": "#f8f9fa",
+                        "tertiary-fixed": "#ffdbcb",
+                        "primary-fixed": "#dee1ff",
+                        "on-secondary-container": "#63627a",
+                        "surface-bright": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#ba4e00",
+                        "outline": "#747686",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .floating-label-input:placeholder-shown + label {
+            transform: translateY(0.75rem);
+            font-size: 1rem;
+        }
+        .floating-label-input:focus + label,
+        .floating-label-input:not(:placeholder-shown) + label {
+            transform: translateY(-0.5rem);
+            font-size: 0.75rem;
+            color: #2346d5;
+        }
+        .transition-all-custom {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed">
+<main class="min-h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- Left Side: Visual Anchor -->
+<section class="relative w-full md:w-1/2 lg:w-3/5 h-64 md:h-auto overflow-hidden">
+<div class="absolute inset-0 z-0 bg-on-secondary-fixed">
+<img class="w-full h-full object-cover mix-blend-overlay opacity-60 scale-105 hover:scale-110 transition-transform duration-[10s]" data-alt="Luxurious dark moody restaurant interior with golden ambient lighting, velvet seating, and elegant table settings at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdLmqx320XFLfhOja-TNKJu80bOMjLyoAznox_u8G9aoQsKTKwSi8kevzS9-niz_WICw-yn6sQfNrlVFOBmZsv0iDkX5uQ_eB0q9l_NGcJvyEL3evytGrHpBi3LE-AgeF8jI3H_OmyXPJ0ePpsYLALlutP3B-slle2Z89xL9AtzFgMJRC7kZ9mMCGHcY1TQPNcsbPMFmHQOcQGYQmyZxFY5vPX1vRA-Fz-gKXicT8y9VpLpSe_FwwnDVoFXrhnDei1jT3eyoC_1Yk"/>
+</div>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-tr from-on-secondary-fixed via-on-secondary-fixed/40 to-transparent z-10"></div>
+<div class="relative z-20 h-full flex flex-col justify-between p-12 md:p-16 lg:p-24">
+<!-- Brand Anchor from JSON style -->
+<div>
+<h1 class="text-3xl font-black tracking-tighter text-white">CURATOR</h1>
+</div>
+<div class="max-w-md">
+<h2 class="text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-6">
+                        Welcome back to your favorite venues
+                    </h2>
+<div class="w-16 h-1 bg-primary-container rounded-full"></div>
+</div>
+<div class="hidden md:block">
+<p class="text-on-primary-container/60 text-sm font-medium tracking-widest uppercase">
+                        The Kinetic Curator © 2024
+                    </p>
+</div>
+</div>
+</section>
+<!-- Right Side: Interaction Canvas -->
+<section class="w-full md:w-1/2 lg:w-2/5 flex flex-col justify-center items-center bg-surface p-8 md:p-16 lg:p-24">
+<div class="w-full max-w-sm">
+<header class="mb-10">
+<h3 class="text-2xl font-bold text-on-surface mb-2">Sign In</h3>
+<p class="text-on-surface-variant">Enter your credentials to access your concierge dashboard.</p>
+</header>
+<form class="space-y-6">
+<!-- Email Field -->
+<div class="relative group">
+<input class="floating-label-input w-full px-0 py-3 bg-transparent border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all-custom outline-none text-on-surface font-medium peer" id="email" name="email" placeholder=" " type="email"/>
+<label class="absolute left-0 top-0 transition-all-custom pointer-events-none text-on-surface-variant origin-left" for="email">
+                            Email Address
+                        </label>
+</div>
+<!-- Password Field -->
+<div class="relative group">
+<input class="floating-label-input w-full px-0 py-3 bg-transparent border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all-custom outline-none text-on-surface font-medium peer" id="password" name="password" placeholder=" " type="password"/>
+<label class="absolute left-0 top-0 transition-all-custom pointer-events-none text-on-surface-variant origin-left" for="password">
+                            Password
+                        </label>
+<button class="absolute right-0 top-3 text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2">
+<label class="flex items-center space-x-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary focus:ring-offset-0 transition-all" type="checkbox"/>
+<span class="text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Remember me</span>
+</label>
+<a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Forgot password?</a>
+</div>
+<!-- Primary Action -->
+<button class="w-full py-4 bg-primary-container text-on-primary-container font-bold text-base rounded-xl shadow-[0px_8px_40px_rgba(35,70,213,0.15)] hover:shadow-[0px_12px_45px_rgba(35,70,213,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300" type="submit">
+                        Sign In
+                    </button>
+</form>
+<!-- Divider -->
+<div class="relative my-10">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-surface-container-highest"></div>
+</div>
+<div class="relative flex justify-center text-xs uppercase tracking-widest font-bold">
+<span class="px-4 bg-surface text-on-surface-variant">or continue with</span>
+</div>
+</div>
+<!-- Social Logins -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center space-x-3 py-3 px-4 border border-outline-variant/30 bg-surface-container-lowest rounded-xl hover:bg-surface-container-low hover:border-outline-variant transition-all duration-300 group">
+<img alt="Google" class="w-5 h-5 group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJAvZgVA9G9I25AikUAoyTsl5-fKQvwJCwaXm5qrzP2lw1G9-wBBrG6mPGfEzZdRCw7ENH7jwSgA6F4WkTXtY7tbdB2N_D5r0kzChpJARMLp0Q4KaGCtMh7oBmnJZ6kZ8waWSdr8n5wv9xyKER8BZDZV3JCDjFYa8TAJ4iWo8h-z-WWt8VMHTSMa4eQzcXq2En_l-i--V4gggG59DBmmd9aYUJedt15liPRVgoBxUpncmHfjZVDkzpWNZzbyv5Wo_b1Vy1ogM0hVs"/>
+<span class="text-sm font-semibold text-on-surface">Google</span>
+</button>
+<button class="flex items-center justify-center space-x-3 py-3 px-4 border border-outline-variant/30 bg-surface-container-lowest rounded-xl hover:bg-surface-container-low hover:border-outline-variant transition-all duration-300 group">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">ios</span>
+<span class="text-sm font-semibold text-on-surface">Apple</span>
+</button>
+</div>
+<!-- Footer Link -->
+<footer class="mt-12 text-center">
+<p class="text-on-surface-variant text-sm">
+                        New to Curator? 
+                        <a class="text-primary font-bold hover:underline underline-offset-4 decoration-2 transition-all ml-1" href="#">Create account</a>
+</p>
+</footer>
+</div>
+</section>
+</main>
+<!-- Support Help FAB - Following Kinetic Curator strategy -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="flex items-center justify-center w-14 h-14 bg-on-secondary-fixed text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all group">
+<span class="material-symbols-outlined text-2xl">help_outline</span>
+<span class="absolute right-16 bg-on-secondary-fixed text-white px-4 py-2 rounded-lg text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Concierge Help</span>
+</button>
+</div>
+</body></html>

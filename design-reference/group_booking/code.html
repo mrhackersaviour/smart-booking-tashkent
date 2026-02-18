@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book Together | CURATOR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#ffb692",
+                    "tertiary-container": "#ba4e00",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-secondary-container": "#63627a",
+                    "secondary-fixed": "#e2e0fc",
+                    "on-tertiary-fixed": "#341100",
+                    "on-surface": "#191c1d",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#bac3ff",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c1d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#0031c4",
+                    "on-primary-container": "#f4f2ff",
+                    "surface-container": "#edeeef",
+                    "surface-bright": "#f8f9fa",
+                    "secondary": "#5d5c74",
+                    "on-tertiary-fixed-variant": "#793000",
+                    "primary": "#2346d5",
+                    "surface-tint": "#2e4edc",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-fixed-dim": "#bac3ff",
+                    "secondary-fixed-dim": "#c6c4df",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface": "#f8f9fa",
+                    "primary-fixed": "#dee1ff",
+                    "on-surface-variant": "#444655",
+                    "on-primary-fixed": "#001159",
+                    "error": "#ba1a1a",
+                    "primary-container": "#4361ee",
+                    "tertiary-fixed": "#ffdbcb",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container-low": "#f3f4f5",
+                    "outline": "#747686",
+                    "on-tertiary-container": "#fff1eb",
+                    "on-secondary-fixed": "#1a1a2e",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#d9dadb",
+                    "secondary-container": "#e2e0fc",
+                    "outline-variant": "#c4c5d7",
+                    "on-secondary-fixed-variant": "#45455b",
+                    "inverse-surface": "#2e3132",
+                    "background": "#f8f9fa",
+                    "tertiary": "#933c00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg shadow-[0px_4px_20px_rgba(26,26,46,0.04)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white">CURATOR</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 font-['Inter'] text-sm tracking-wide" href="#">Explore</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 font-['Inter'] text-sm tracking-wide" href="#">Venues</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 font-['Inter'] text-sm tracking-wide" href="#">For Partners</a>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-xl font-bold scale-95 active:scale-100 transition-transform">Sign In</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-16 px-4 md:px-8 max-w-7xl mx-auto">
+<!-- Hero Header -->
+<header class="mb-12 relative overflow-hidden rounded-3xl bg-primary-container p-8 md:p-12 lg:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="z-10 max-w-xl">
+<h1 class="text-4xl md:text-6xl font-black text-on-primary-container tracking-tight mb-4">Book Together</h1>
+<p class="text-lg text-on-primary-container/80 font-medium leading-relaxed">Planning a group event should be as fun as the event itself. Curate your evening, invite your circle, and let us handle the logistics.</p>
+</div>
+<div class="relative w-full md:w-1/2 h-64 md:h-80">
+<img class="w-full h-full object-cover rounded-2xl shadow-2xl transform rotate-1 md:rotate-3" data-alt="A diverse group of friends laughing and sharing food at a sunlit outdoor dining table with warm golden hour lighting and lush greenery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9tAtjICpHTOQTanLX39Re89gxN3702fCvqh9aQCknEwSgGz9qckyycMOaEJ-e0w6PThXyV1QVY4aemKSYr-e2VJ2lcjjpPGbweodKZavXcnqd1t2L0VtEk7RoGriGHMowou83OtbHilCu9OtD96zeXvavJ-IFOP_vRtctYnCQewCeAVl_PsdjneT-8QhJfICUVTdNH8K9_-XgliUXHhUsCVLoE4BTad6DoPEgeLkCtJFo-Q5ALOjA8E1vyDIbYJdpUYmjcl3-x94"/>
+<div class="absolute -top-4 -left-4 w-24 h-24 bg-tertiary-fixed-dim rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+<div class="absolute -bottom-4 -right-4 w-32 h-32 bg-primary-fixed-dim rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+</div>
+</header>
+<!-- Stepper Navigation -->
+<div class="mb-12 flex justify-between items-center px-4 max-w-3xl mx-auto relative">
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-surface-container-high -translate-y-1/2 z-0"></div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">1</div>
+<span class="text-xs font-bold text-primary">Create Group</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">2</div>
+<span class="text-xs font-bold text-primary">Invite Friends</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold">3</div>
+<span class="text-xs font-medium text-on-surface-variant">Choose Venue</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold">4</div>
+<span class="text-xs font-medium text-on-surface-variant">Split Bill</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Panel: Configuration -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Form Area -->
+<section class="bg-surface-container-low p-6 rounded-2xl">
+<h3 class="text-lg font-bold mb-6 text-on-surface">Event Details</h3>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">Name Your Event</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-xl focus:ring-2 focus:ring-primary py-3 px-4 transition-all" placeholder="e.g. Birthday Soirée" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">Date</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-xl focus:ring-2 focus:ring-primary py-3 px-4" type="date"/>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">Time</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-xl focus:ring-2 focus:ring-primary py-3 px-4" type="time"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2">Guest Count</label>
+<div class="flex items-center justify-between bg-surface-container-lowest p-1 rounded-xl">
+<button class="w-10 h-10 flex items-center justify-center text-primary hover:bg-primary-fixed rounded-lg transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="font-bold text-lg">08</span>
+<button class="w-10 h-10 flex items-center justify-center text-primary hover:bg-primary-fixed rounded-lg transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Invite Friends Area -->
+<section class="bg-surface-container-low p-6 rounded-2xl">
+<h3 class="text-lg font-bold mb-6 text-on-surface">Find Friends</h3>
+<div class="relative mb-6">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest border-none pl-10 pr-4 py-3 rounded-xl focus:ring-2 focus:ring-primary" placeholder="Search names or email" type="text"/>
+</div>
+<div class="space-y-4 max-h-64 overflow-y-auto no-scrollbar">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a smiling man with a beard and clear glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXoX_J8m81UcY9Vx8xjXv3S_lu1h4vz5o72_mVulthJVDgjCsW6Sf0Gnu1Gj1krD66CoyeqEvM4uwDVwuJ2lCn4IZ3o5zayuud_OHllWNUjsD6Z-M8y2AlsMskT4DGShDPI4mggsX2YRt7b8ZwAk870vtzzRkkoMPCzZ1jvqwMqcdDCnV3J5VJ8B8CX76zMITpZx2bQxYl_8YfIBL2qUNtZOtI98b4-POawmWFyOiTbaV0-x3rtxRFM7alYzfdgq4HanV0asYXUXE"/>
+<div>
+<p class="text-sm font-bold">Marcus Chen</p>
+<p class="text-xs text-on-surface-variant">@mchen</p>
+</div>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed text-xs font-bold py-1.5 px-3 rounded-lg hover:bg-primary hover:text-on-primary transition-all">+ Invite</button>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Close up portrait of a woman with curly hair and a joyful expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRjx-vON54k81GpPjac5m27Qjnpm9W7Kowmbseh525XXp1o5QKNfqfZve8ifLd3pR03FPlcQ007m9wquHD_ZRnBkBL5Jv_t_u8VVt9sYRQ2XAS4sVkCoERkRhzML_25Fq2Etb_kH_GJT00KXZAenvQ73Y7l7fUtI7bNcu7c8LnGQ6Ccj0CO8bK7uoJ5P-eXFCRQGAeVb0JpdVYfDwzBrZaxuWybYzaq5yGMxLckSDBKMUHlU1it-1WPxj0o0i83hbcN9smlhSS838"/>
+<div>
+<p class="text-sm font-bold">Sasha Sloane</p>
+<p class="text-xs text-on-surface-variant">@sasha_s</p>
+</div>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed text-xs font-bold py-1.5 px-3 rounded-lg hover:bg-primary hover:text-on-primary transition-all">+ Invite</button>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Man with a confident gaze wearing a denim shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnQAus-jHzb3tAnv6kWXqr37bmyc5MAJWSwrXFSAKzVyEtFhHDupXVuQaos581zkqXoD6iDwbEMhiuWA7f_1mzbxdt5gYbLciK9iiztENwjRyyyYHem0X9AmLQXAojaQ2YIlWKovnU3pNhMyYQiCxjqF9FK4Q5HoPTZDnk1TS6mtKDMXmMRYCCN1Ut_M822GlInE82_EQ59gTMPwygjrc3xm17Vs0OiNBEkqZ3CemaAW_ndLuctxf3g19mNZzyG8487uxuTjdBgTc"/>
+<div>
+<p class="text-sm font-bold">David Miller</p>
+<p class="text-xs text-on-surface-variant">@dmiller_99</p>
+</div>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed text-xs font-bold py-1.5 px-3 rounded-lg hover:bg-primary hover:text-on-primary transition-all">+ Invite</button>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-3">Share Link</label>
+<div class="flex items-center gap-2">
+<div class="flex-1 bg-surface-container-lowest text-xs text-on-surface-variant truncate p-3 rounded-xl">curator.io/group/event_x92z...</div>
+<button class="bg-surface-container-high p-3 rounded-xl text-primary hover:bg-primary-container hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Main Content: Management -->
+<div class="lg:col-span-5 space-y-8">
+<!-- Invited Friends List -->
+<section class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-bold text-on-surface">Invited Friends</h3>
+<span class="bg-secondary-container text-on-secondary-container text-xs font-bold py-1 px-3 rounded-full">4 Confirmed</span>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between p-2 rounded-2xl hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Portrait of a young person with short hair and a neutral expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN9lIqe5BOviVqfJZnq2vYUksRZV3-wGNwlZveV1MVP9il9nCwVwpAGJfQGd11i9E6QjLpjSF2j4eUL9NqRrgi1XAovcdjNsq2zDoiHfg9POPe23pV8DHpfqPM6298xaaZzn1FN1jcjPQF9zR2PQuJYFIvMIQCmmh_TB95PiGKAWWtD2nQ9en53iNUTYUcdPSV1pLQULWLN18MwFfbCAKuey_QulD43Wvt6HEDO_q3ek_eePTvyAh3o9Z-0kw0bu3hcnKvhcKxFv8"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="font-bold">Jordan Lee</p>
+<p class="text-xs text-on-surface-variant">Accepted</p>
+</div>
+</div>
+<span class="text-xs font-bold px-3 py-1 bg-green-100 text-green-700 rounded-full">Accepted</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-2xl hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Woman with blonde hair looking thoughtful at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB97cCPOk0fOnGXqhQF15CU5egIRpMSJYMq0JBl8MJTzNI2D8IBC7Gc1UH5X6VAlJE10PhT4z0_zuCD3Jfc_6MPknEojR7eVbuOt4zaSxbf2ng7e1zsqgnTh3XrHESpawF07wnmcbi9vLT2a7sStRts_0Zn4xRloNX5OGjd02cj9yh7xLQY-KrexU-sp_V1DrznDTaLKynnMVsjp_70dStqe5wDOpFyU9ycBTgNHG4uyrGvCHwH_xwL9VTvSQbQSPUg94rrZK-OuXE"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-yellow-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="font-bold">Emma Wilson</p>
+<p class="text-xs text-on-surface-variant">Pending since Tuesday</p>
+</div>
+</div>
+<span class="text-xs font-bold px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full">Pending</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-2xl hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Young man with a beanie laughing happily" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7q8CACx1ofMBluAYe6ycRqZDyP5sym8ZeveJ7rhr2SO2qoWaTv0SzoQC0urh4DXFl11avrOdsiDy4vtVRSo9-LjFTC0cGVNvTA6A6_InUJB9eO_zJIUDeiMVv2ca8bld9O5ZyggbKWgAYe8luY035SP7s5Yksu2jHM2xd1VHl190YGzHDljGeb1hrSqci0CM9jQjJ7jvoddSzECKOMcIzuWjXOdJl1ZLZrlU0nWaZChWZjThLcwVjhARHljFSa8NWu6nTqXjIt3s"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-red-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="font-bold">Alex Rivera</p>
+<p class="text-xs text-on-surface-variant">Conflict with schedule</p>
+</div>
+</div>
+<span class="text-xs font-bold px-3 py-1 bg-red-100 text-red-700 rounded-full">Declined</span>
+</div>
+</div>
+</section>
+<!-- Split Bill Section -->
+<section class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm border border-outline-variant/10">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<h3 class="text-xl font-bold text-on-surface">Payment Distribution</h3>
+<div class="flex items-center bg-surface-container-low p-1 rounded-xl">
+<button class="px-4 py-1.5 rounded-lg text-xs font-bold bg-white shadow-sm text-primary">Equal Split</button>
+<button class="px-4 py-1.5 rounded-lg text-xs font-bold text-on-surface-variant hover:text-on-surface">Custom</button>
+</div>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-12 items-center gap-4">
+<div class="col-span-8 flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Portrait of Jordan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfdAmDLvlbUHfUPBh-H7ZQnt1Wd5xqjlcLQdqLxNWC9bN1VLxqWGkzZJG5u-9sGi9vJWr8s2QWte9p1EIU5RKa292VTLys5_wku9SPcUiokK6dDZeO7l2kOUvEwFAuagxQt2eXhsmt6T37OQlPqCLClPlkMkKTXheyDnnwsJJ-akgqhnyGJBvepdT7mCDfp3UqLDHv5e0BHCyQkrSiLebb9fJOe8-ohy7O5WIIB0h_zOe9e0tdXSUa-WUXafVZeC4aulU5zlyYaGA"/>
+<span class="text-sm font-medium">Jordan Lee</span>
+</div>
+<div class="col-span-4 relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-on-surface-variant">$</span>
+<input class="w-full bg-surface-container-low border-none pl-7 py-2 rounded-lg text-sm text-right font-mono" type="number" value="45.00"/>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-4">
+<div class="col-span-8 flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Portrait of Emma" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP_09SZNc7SfIMYIFa-PDZhDtEhvdNuUop05x-FlinezAPuf-eZc3KW_jIg4p3r6ZSlNhOtAba1YtsQCipjbnfe1M0-5oB4K-kMreSh-zoyINgUWuXrYDgG-F0wSOuvA7awtGnfXJrAN9PipyawsTgWhMBNHeeVyGsRKhXqFwVg_QQAKA4yAFG-yyxcK80rG0i500XSOKrc8YyxdcknLP-bSfQ6kzYUdnt8Tr_icH7Fh3DOp9jGtRZssJfSdvp-DXxCsd8e9aErrU"/>
+<span class="text-sm font-medium">Emma Wilson</span>
+</div>
+<div class="col-span-4 relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-on-surface-variant">$</span>
+<input class="w-full bg-surface-container-low border-none pl-7 py-2 rounded-lg text-sm text-right font-mono" type="number" value="45.00"/>
+</div>
+</div>
+<div class="grid grid-cols-12 items-center gap-4">
+<div class="col-span-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-xs font-bold text-on-tertiary-fixed">ME</div>
+<span class="text-sm font-medium">You (Organizer)</span>
+</div>
+<div class="col-span-4 relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-on-surface-variant">$</span>
+<input class="w-full bg-surface-container-low border-none pl-7 py-2 rounded-lg text-sm text-right font-mono" type="number" value="45.00"/>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Sidebar: Summary -->
+<div class="lg:col-span-3">
+<div class="sticky top-28 space-y-6">
+<div class="bg-on-secondary-fixed text-white p-8 rounded-[2rem] shadow-xl overflow-hidden relative">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary via-primary to-tertiary"></div>
+<h3 class="text-xs font-bold uppercase tracking-[0.2em] text-on-secondary-fixed-variant mb-8">Event Summary</h3>
+<div class="space-y-6 mb-8">
+<div class="flex justify-between items-end">
+<span class="text-on-secondary-fixed-variant text-sm font-medium">Total Estimate</span>
+<span class="text-3xl font-black tracking-tighter">$360.00</span>
+</div>
+<div class="flex justify-between items-end pt-4 border-t border-white/10">
+<span class="text-on-secondary-fixed-variant text-sm font-medium">Cost per person</span>
+<div class="text-right">
+<span class="text-xl font-bold text-tertiary-fixed-dim">$45.00</span>
+<p class="text-[10px] text-on-secondary-fixed-variant uppercase font-bold mt-1">Split 8 ways</p>
+</div>
+</div>
+</div>
+<div class="space-y-3 mb-10">
+<div class="flex items-center gap-3 text-sm text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Oct 24, 2024</span>
+</div>
+<div class="flex items-center gap-3 text-sm text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-sm">group</span>
+<span>8 Guests total</span>
+</div>
+</div>
+<button class="w-full py-4 bg-primary text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-surface-tint transition-all group">
+<span>Choose Venue</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="bg-surface-container-high/30 p-6 rounded-2xl border border-dashed border-outline-variant">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-tertiary">info</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">Prices are estimates until a venue is selected and booking is confirmed by all members.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-900 w-full py-16 px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 max-w-7xl mx-auto">
+<div class="col-span-2 lg:col-span-1">
+<span class="text-xl font-bold text-slate-900 dark:text-white font-headline">KINETIC CURATOR</span>
+<p class="mt-4 text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-body">Crafting bespoke group experiences with precision and ease.</p>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-slate-900 dark:text-white">Travel</h4>
+<ul class="space-y-2">
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Hotels</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Villas</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Resorts</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-slate-900 dark:text-white">Company</h4>
+<ul class="space-y-2">
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">About Us</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Careers</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Press</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-slate-900 dark:text-white">Support</h4>
+<ul class="space-y-2">
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Help Center</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Safety</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:text-blue-600 transition-colors" href="#">Terms</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 text-center">
+<p class="text-slate-400 text-xs">© 2024 Kinetic Curator. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Luxe Horizon | Loyalty Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#444655",
+                        "tertiary-container": "#ba4e00",
+                        "surface": "#f8f9fa",
+                        "primary-fixed-dim": "#bac3ff",
+                        "surface-tint": "#2e4edc",
+                        "surface-container-high": "#e7e8e9",
+                        "on-tertiary-fixed": "#341100",
+                        "on-primary-fixed-variant": "#0031c4",
+                        "on-primary-container": "#f4f2ff",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-bright": "#f8f9fa",
+                        "tertiary-fixed": "#ffdbcb",
+                        "inverse-primary": "#bac3ff",
+                        "outline-variant": "#c4c5d7",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary-container": "#63627a",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-container": "#fff1eb",
+                        "on-background": "#191c1d",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001159",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb692",
+                        "on-secondary-fixed-variant": "#45455b",
+                        "on-surface": "#191c1d",
+                        "surface-container": "#edeeef",
+                        "secondary-container": "#e2e0fc",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1a1a2e",
+                        "surface-container-highest": "#e1e3e4",
+                        "background": "#f8f9fa",
+                        "primary-container": "#4361ee",
+                        "secondary": "#5d5c74",
+                        "primary-fixed": "#dee1ff",
+                        "outline": "#747686",
+                        "on-error": "#ffffff",
+                        "tertiary": "#933c00",
+                        "secondary-fixed-dim": "#c6c4df",
+                        "on-tertiary-fixed-variant": "#793000",
+                        "primary": "#2346d5",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-fixed": "#e2e0fc",
+                        "loyalty-gold": "#f4a261"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 40px rgba(26, 26, 46, 0.08);
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="hidden md:flex flex-col h-screen py-8 px-6 bg-slate-50 dark:bg-slate-950 h-full w-72 fixed left-0 top-0 z-50">
+<div class="mb-12">
+<span class="text-2xl font-black tracking-tighter text-blue-600 dark:text-blue-400">Luxe Horizon</span>
+<div class="mt-4 flex items-center gap-3 p-3 rounded-xl bg-surface-container-low">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Close-up portrait of a sophisticated man in a charcoal suit, soft cinematic lighting, professional studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnVj6MQkyV5qUPkEPYe5qZQS9Qob0bmjYQHsYd9Sf827aLc6Q__t19SUTtwkjAZKt6CNZLqzeQmPq6nTxZjqLH0xfzNVnJI08NRwbwDeScDd68GdD5QkX5aMm8IumvHAnDMqBFV_oj0qTPWt3rLBQ2pmzvvCB7NaTdUmOuWT7t4p53SZXXo22giXy1UZmIneHlGP_hGnQJOGtm1Uwyd2LTKR0LanBYFECJvsW1WQFzHwgOMkNDpD_nCYBKM54K9keSYCL1qSO44VY"/>
+<div>
+<p class="text-sm font-bold">Elite Member</p>
+<p class="text-xs text-on-surface-variant">Premium user</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 py-3 px-4 rounded-lg transition-all duration-200 text-slate-500 hover:bg-slate-100" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 rounded-lg transition-all duration-200 text-slate-500 hover:bg-slate-100" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-medium">My Bookings</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 rounded-lg transition-all duration-200 text-blue-600 font-semibold border-r-4 border-blue-600 bg-blue-50/50" href="#">
+<span class="material-symbols-outlined" data-icon="star_rate" style="font-variation-settings: 'FILL' 1;">star_rate</span>
+<span class="font-medium">Loyalty</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 rounded-lg transition-all duration-200 text-slate-500 hover:bg-slate-100" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+<span class="font-medium">Rewards</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 rounded-lg transition-all duration-200 text-slate-500 hover:bg-slate-100" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<button class="mt-auto w-full py-4 bg-primary-container text-white rounded-xl font-bold tracking-tight hover:opacity-90 transition-opacity">
+            Book New Trip
+        </button>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-18rem)] z-40 flex justify-between items-center h-20 px-12 glass-nav">
+<div class="flex items-center bg-surface-container-low px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full ml-2" placeholder="Search experiences..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="chat_bubble">chat_bubble</span>
+</div>
+<div class="h-6 w-px bg-outline-variant"></div>
+<button class="text-sm font-bold uppercase tracking-widest text-slate-600 hover:text-primary">Support</button>
+<div class="flex items-center gap-3 cursor-pointer group">
+<img class="w-10 h-10 rounded-full object-cover group-hover:scale-105 transition-transform" data-alt="User profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANkXmL0Au0_jvxBbhQcU9NyhSR_BWuJ4kS00t4SyUXdd64bXi6zs-pXbvl098qcVasi2UXS59YhoXfvuH0K74-Ks1_Pt-xVACOLl2uanJi8LyvcceM9dYnfcuVGFHdMT_ENmHzYA_LdcIKCqhWicmO88bel82FkIGggrwsyfhh_C3RIv5Q3Aj7bHdl4ZTl3_vv2eJRODkvzU1AN29GX7mPj_zVfgnSbQnXEp7zF72L7nqLDbjR_d4OAow2LErHUyXPKARM4oSTQNg"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-72 pt-20 pb-12">
+<div class="px-12 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="mt-10 relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#001159] to-[#2346d5] p-12 text-white min-h-[360px] flex flex-col justify-center">
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-end gap-8">
+<div class="max-w-xl">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-loyalty-gold p-3 rounded-2xl shadow-lg shadow-loyalty-gold/20">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-4xl" data-icon="military_tech" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div>
+<span class="text-sm uppercase tracking-[0.2em] font-bold opacity-80">Current Status</span>
+<h1 class="text-4xl font-black tracking-tighter">Gold Member</h1>
+</div>
+</div>
+<div class="mb-8">
+<span class="text-sm font-medium opacity-70">Total Loyalty Balance</span>
+<div class="flex items-baseline gap-2">
+<span class="text-6xl font-black tracking-tighter">25,430</span>
+<span class="text-xl font-bold text-loyalty-gold">PTS</span>
+</div>
+</div>
+<div class="w-full space-y-3">
+<div class="flex justify-between text-sm font-bold uppercase tracking-wider">
+<span>Progress to Platinum</span>
+<span>4,570 pts to go</span>
+</div>
+<div class="h-3 w-full bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-loyalty-gold w-[82%] rounded-full shadow-[0_0_15px_rgba(244,162,97,0.5)]"></div>
+</div>
+</div>
+</div>
+<div class="hidden lg:block opacity-20">
+<span class="material-symbols-outlined text-[240px] leading-none" data-icon="diamond">diamond</span>
+</div>
+</div>
+<!-- Background Decorative Pattern -->
+<div class="absolute top-0 right-0 w-full h-full pointer-events-none opacity-10 mix-blend-overlay">
+<div class="absolute -right-20 -top-20 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-8 rounded-2xl flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-widest text-on-secondary-container">Points Earned</p>
+<p class="text-3xl font-black text-on-surface">42,850</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-2xl flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-red-100 flex items-center justify-center text-red-600">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-widest text-on-secondary-container">Points Redeemed</p>
+<p class="text-3xl font-black text-on-surface">17,420</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-2xl flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-widest text-on-secondary-container">Points Available</p>
+<p class="text-3xl font-black text-on-surface">25,430</p>
+</div>
+</div>
+</section>
+<!-- Layout Grid: Benefits and History -->
+<div class="mt-12 grid grid-cols-1 xl:grid-cols-3 gap-8">
+<!-- Tier Benefits Table (Col-span 2) -->
+<div class="xl:col-span-2 space-y-6">
+<div class="flex justify-between items-end">
+<h2 class="text-2xl font-black tracking-tight text-on-surface">Tier Benefits</h2>
+<span class="text-sm font-bold text-primary underline underline-offset-4 cursor-pointer">Compare all tiers</span>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low border-b-0">
+<th class="p-6 text-sm font-bold uppercase tracking-widest text-on-surface-variant">Benefit</th>
+<th class="p-6 text-sm font-bold uppercase tracking-widest text-on-surface-variant text-center">Bronze</th>
+<th class="p-6 text-sm font-bold uppercase tracking-widest text-on-surface-variant text-center">Silver</th>
+<th class="p-6 text-sm font-bold uppercase tracking-widest text-loyalty-gold text-center bg-loyalty-gold/5 border-x border-loyalty-gold/10">Gold</th>
+<th class="p-6 text-sm font-bold uppercase tracking-widest text-on-surface-variant text-center">Platinum</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<tr>
+<td class="p-6 font-medium text-on-surface">Priority Booking</td>
+<td class="p-6 text-center text-error"><span class="material-symbols-outlined" data-icon="close">close</span></td>
+<td class="p-6 text-center text-primary"><span class="material-symbols-outlined" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span></td>
+<td class="p-6 text-center text-loyalty-gold bg-loyalty-gold/5 border-x border-loyalty-gold/10"><span class="material-symbols-outlined" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span></td>
+<td class="p-6 text-center text-primary"><span class="material-symbols-outlined" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span></td>
+</tr>
+<tr>
+<td class="p-6 font-medium text-on-surface">Points Multiplier</td>
+<td class="p-6 text-center text-on-surface-variant text-sm">1.0x</td>
+<td class="p-6 text-center text-on-surface-variant text-sm">1.2x</td>
+<td class="p-6 text-center text-loyalty-gold font-bold bg-loyalty-gold/5 border-x border-loyalty-gold/10">1.5x</td>
+<td class="p-6 text-center text-on-surface-variant text-sm">2.0x</td>
+</tr>
+<tr>
+<td class="p-6 font-medium text-on-surface">Free Upgrades</td>
+<td class="p-6 text-center text-error"><span class="material-symbols-outlined" data-icon="close">close</span></td>
+<td class="p-6 text-center text-error"><span class="material-symbols-outlined" data-icon="close">close</span></td>
+<td class="p-6 text-center text-loyalty-gold bg-loyalty-gold/5 border-x border-loyalty-gold/10"><span class="material-symbols-outlined" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span></td>
+<td class="p-6 text-center text-primary"><span class="material-symbols-outlined" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span></td>
+</tr>
+<tr>
+<td class="p-6 font-medium text-on-surface">Exclusive Events</td>
+<td class="p-6 text-center text-error"><span class="material-symbols-outlined" data-icon="close">close</span></td>
+<td class="p-6 text-center text-error"><span class="material-symbols-outlined" data-icon="close">close</span></td>
+<td class="p-6 text-center text-loyalty-gold bg-loyalty-gold/5 border-x border-loyalty-gold/10"><span class="material-symbols-outlined" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span></td>
+<td class="p-6 text-center text-primary"><span class="material-symbols-outlined" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Transaction History -->
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<h2 class="text-2xl font-black tracking-tight text-on-surface">History</h2>
+<span class="material-symbols-outlined text-outline cursor-pointer" data-icon="filter_list">filter_list</span>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl p-4 space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-2xl">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-secondary-container">Oct 24, 2023</p>
+<p class="font-bold text-on-surface">The Ritz-Carlton Paris</p>
+</div>
+<div class="text-right">
+<p class="font-black text-green-600">+1,250</p>
+<p class="text-[10px] font-bold text-outline uppercase tracking-tighter">Bal: 25,430</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-low/50 transition-colors rounded-2xl">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-secondary-container">Oct 12, 2023</p>
+<p class="font-bold text-on-surface">Suite Upgrade Reward</p>
+</div>
+<div class="text-right">
+<p class="font-black text-error">-3,500</p>
+<p class="text-[10px] font-bold text-outline uppercase tracking-tighter">Bal: 24,180</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-low/50 transition-colors rounded-2xl">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-secondary-container">Sep 30, 2023</p>
+<p class="font-bold text-on-surface">Mandarin Oriental Tokyo</p>
+</div>
+<div class="text-right">
+<p class="font-black text-green-600">+2,100</p>
+<p class="text-[10px] font-bold text-outline uppercase tracking-tighter">Bal: 27,680</p>
+</div>
+</div>
+<button class="w-full py-4 text-sm font-bold text-primary hover:bg-primary-fixed rounded-xl transition-colors">
+                            View Full Activity
+                        </button>
+</div>
+</div>
+</div>
+<!-- Redeem Points Section -->
+<section class="mt-16 space-y-8">
+<div class="flex items-center gap-4">
+<h2 class="text-3xl font-black tracking-tighter text-on-surface">Redeem Your Points</h2>
+<div class="h-px flex-1 bg-outline-variant opacity-30"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Reward Card 1 -->
+<div class="group bg-surface-container-lowest rounded-3xl overflow-hidden border border-transparent hover:border-loyalty-gold/30 transition-all duration-300 flex flex-col">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Premium gold gift voucher with silk ribbon on marble surface, soft focused luxury boutique interior background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiLrV5yYLjX-f1iVin28gHBfZC1i2QqzlXNQGuBgfYziqwdBoKJymjXOrAeI1rhyhMJBVnlIRG5g9Vxap5OyzK_cWWdvJe_S0PTFrJOkLJ_va5Nllt9vgzSpzPCZiycMD8iOEV7Df7eRfmkJrZbX_zDaDtWhZuZCKw1z9ktWFCRBunPzbzMKNiY0XQu13v6CEuPT0AoaSt56g_PcL4nsSFQkwrwh1PUukEsMNTjdJA9FYmNMuvUhltqTMcRArK-n1TrrdTaqGGJ_0"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-on-surface shadow-sm">
+                                Voucher
+                            </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Luxe Boutique $100</h3>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Redeem for any participating luxury boutique across our European collection.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-outline">Cost</span>
+<p class="font-black text-loyalty-gold">5,000 PTS</p>
+</div>
+<button class="bg-loyalty-gold text-white px-5 py-2 rounded-xl text-sm font-bold hover:scale-105 active:scale-95 transition-all">Redeem</button>
+</div>
+</div>
+</div>
+<!-- Reward Card 2 -->
+<div class="group bg-surface-container-lowest rounded-3xl overflow-hidden border border-transparent hover:border-loyalty-gold/30 transition-all duration-300 flex flex-col">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Interior of a luxury hotel suite with floor-to-ceiling windows overlooking a modern skyline, warm morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb1rEOOiw66XqaGmo5y71Kfbkg_nCvf19imYhpuiWwcG37_xtxJUZKRH5mst45Vu58Bbt4lYSChK9Skg6pQqPG5WhjcaA_c3i-EnOyiHrQbUK07xAizkDCS2jd9JnDsvi2RcbmXbFBrrGzb-LA7m4NWUY-gyDEsjqx7tIAgvoZEQdYu8wYonqcIviRsfxcINxLRku0qG3YymGss5pmIVpYBJVrM6ZY8VAmnVuQrvWXfib159C0QmJY0Ykg5XiK0cVpjrdnD2bOG3Y"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-on-surface shadow-sm">
+                                Upgrade
+                            </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Ocean Suite Upgrade</h3>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Elevate your next stay to a premium suite with panoramic ocean views.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-outline">Cost</span>
+<p class="font-black text-loyalty-gold">12,500 PTS</p>
+</div>
+<button class="bg-loyalty-gold text-white px-5 py-2 rounded-xl text-sm font-bold hover:scale-105 active:scale-95 transition-all">Redeem</button>
+</div>
+</div>
+</div>
+<!-- Reward Card 3 -->
+<div class="group bg-surface-container-lowest rounded-3xl overflow-hidden border border-transparent hover:border-loyalty-gold/30 transition-all duration-300 flex flex-col">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Close-up of a vibrant cocktail being stirred with a crystal stirrer, high-end dimly lit bar ambiance, soft bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzYHwaP6VGjiOzwNfCx-iHWfIR9vzfxw7-a5HSrLwKfAmqknE7871br15fM5W0oQngLzZssUZz_Ji-LqK-aPdbceaOUgOTV7o-HM4dHccrDv8Sd4RgPp_Q7qDpmY5XBclviHICxdRWYmf2TZ7GfpIN2BPpRaWsqLrBxx4uz1NKYEUXG58HkZ48kilDttzlHGKKTvZS-mgkM60sY3d0Yy2DLqr3J6xbnoJC0q8VV7hYQGfExFJQG5ngzWDQeLE-a2yFEfGOX7UNsV0"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-on-surface shadow-sm">
+                                Event
+                            </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="text-lg font-black tracking-tight text-on-surface mb-2">VVIP Cocktail Gala</h3>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Exclusive entry to the Luxe Horizon Annual Gala in New York City.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-outline">Cost</span>
+<p class="font-black text-loyalty-gold">20,000 PTS</p>
+</div>
+<button class="bg-loyalty-gold text-white px-5 py-2 rounded-xl text-sm font-bold hover:scale-105 active:scale-95 transition-all">Redeem</button>
+</div>
+</div>
+</div>
+<!-- Reward Card 4 -->
+<div class="group bg-surface-container-lowest rounded-3xl overflow-hidden border border-transparent hover:border-loyalty-gold/30 transition-all duration-300 flex flex-col">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Overhead shot of a luxury spa treatment room with white towels, essential oils, and stones on a wooden tray" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPBS03oeqLJXvkeln0akAPJeGMGydvbMLBnqEayLcwSv7aaO1arvr4kYBO_Rpf1Fp4qDAdnBJ7d0drLyyC969QXeSXzablj72pfMUv9pkH-OiZPg3xwkZs7CIPAv1w4PcgmBi6H3YNGvpGwXxzMmrgmoYkvc0LoQfABGQ7fMIekNVGJe3mMybQDrrDY9b2fsTEWAkfbK1LEfAPdVGu8Ma56mWmFrSSbXEHkIavDHL_QmA6rKNdCkBf-P9Kz7pJ-U9nI7wFgMuxPMc"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-on-surface shadow-sm">
+                                Wellness
+                            </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="text-lg font-black tracking-tight text-on-surface mb-2">Signature Spa Day</h3>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">A full day of rejuvenation including a 90-minute massage and facial.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-outline">Cost</span>
+<p class="font-black text-loyalty-gold">8,500 PTS</p>
+</div>
+<button class="bg-loyalty-gold text-white px-5 py-2 rounded-xl text-sm font-bold hover:scale-105 active:scale-95 transition-all">Redeem</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-xl flex justify-around items-center px-6 z-50">
+<a class="flex flex-col items-center gap-1 text-slate-600" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-600" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Bookings</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-blue-600" href="#">
+<span class="material-symbols-outlined" data-icon="star_rate" style="font-variation-settings: 'FILL' 1;">star_rate</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Loyalty</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-600" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Settings</span>
+</a>
+</nav>
+</body></html>

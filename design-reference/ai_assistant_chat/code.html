@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Concierge AI | The Kinetic Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#2346d5",
+                        "surface-tint": "#2e4edc",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#341100",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#f4f2ff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#bac3ff",
+                        "surface-dim": "#d9dadb",
+                        "on-surface": "#191c1d",
+                        "tertiary": "#933c00",
+                        "secondary-fixed": "#e2e0fc",
+                        "on-tertiary-fixed-variant": "#793000",
+                        "outline": "#747686",
+                        "primary-container": "#4361ee",
+                        "tertiary-fixed": "#ffdbcb",
+                        "inverse-on-surface": "#f0f1f2",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-fixed": "#1a1a2e",
+                        "on-secondary-container": "#63627a",
+                        "on-surface-variant": "#444655",
+                        "on-tertiary-container": "#fff1eb",
+                        "tertiary-container": "#ba4e00",
+                        "surface-container": "#edeeef",
+                        "on-secondary-fixed-variant": "#45455b",
+                        "secondary": "#5d5c74",
+                        "primary-fixed": "#dee1ff",
+                        "on-background": "#191c1d",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001159",
+                        "background": "#f8f9fa",
+                        "secondary-container": "#e2e0fc",
+                        "on-primary-fixed-variant": "#0031c4",
+                        "secondary-fixed-dim": "#c6c4df",
+                        "primary-fixed-dim": "#bac3ff",
+                        "outline-variant": "#c4c5d7",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb692",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "surface": "#f8f9fa",
+                        "surface-bright": "#f8f9fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e1e3e4; border-radius: 10px; }
+        .asymmetric-hero { clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed overflow-hidden">
+<!-- Predicted Component: SideNavBar (JSON Derived) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col h-full w-72 bg-slate-50 dark:bg-slate-900 z-50">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Concierge AI</h1>
+<p class="text-[10px] uppercase tracking-widest font-bold text-primary">Premium Tier</p>
+</div>
+</div>
+<nav class="flex-1 px-4 mt-4 space-y-1 overflow-y-auto custom-scrollbar">
+<!-- Active Navigation -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-blue-700 dark:text-blue-300 font-bold border-r-2 border-blue-600 bg-slate-200/50 dark:bg-slate-800/50 transition-all duration-200 scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="add_comment">add_comment</span>
+<span class="text-sm">New Chat</span>
+</a>
+<div class="pt-6 pb-2 px-4">
+<span class="text-[11px] font-bold text-on-secondary-container/50 uppercase tracking-widest">History</span>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="confirmation_number">confirmation_number</span>
+<div class="flex flex-col">
+<span class="text-sm">Dinner in Soho</span>
+<span class="text-[10px] opacity-60">2h ago</span>
+</div>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<div class="flex flex-col">
+<span class="text-sm">Cafe with WiFi</span>
+<span class="text-[10px] opacity-60">Yesterday</span>
+</div>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<div class="flex flex-col">
+<span class="text-sm">Gym memberships</span>
+<span class="text-[10px] opacity-60">Last week</span>
+</div>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200/50 dark:border-slate-800/50">
+<button class="w-full py-3 px-4 bg-primary text-white rounded-xl text-sm font-bold shadow-md hover:opacity-90 transition-all active:scale-95 mb-4">
+                Upgrade Membership
+            </button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+                    Support
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:bg-red-50 rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+                    Sign Out
+                </a>
+</div>
+</div>
+</aside>
+<!-- Predicted Component: TopNavBar (JSON Derived) -->
+<header class="flex justify-between items-center w-full px-8 h-16 sticky top-0 z-40 ml-72 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="sparkles" style="font-variation-settings: 'FILL' 1;">colors_spark</span>
+<h2 class="text-lg font-black uppercase text-slate-900 dark:text-white tracking-tighter">AI Assistant</h2>
+</div>
+<div class="flex items-center gap-1.5 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded-full border border-green-100 dark:border-green-800">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-[10px] font-bold text-green-600 dark:text-green-400">ONLINE</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="text-blue-600 dark:text-blue-400 font-bold border-b-2 border-blue-600 pb-1 body-lg" href="#">Concierge</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-opacity body-lg" href="#">Portfolio</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-opacity body-lg" href="#">History</a>
+</nav>
+<div class="flex items-center gap-4 border-l border-slate-200 dark:border-slate-800 pl-6">
+<button class="text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center overflow-hidden cursor-pointer hover:ring-2 ring-primary transition-all">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a professional man with a friendly expression in a bright studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh-82MQfq8yua_EOXp4Ysyhd7pb-_dck7xNm0_7OCoZBlaoTU3TG6HW7qfYuXembD4m8xcu-sQD7Z1chkjulMpvj-JViGnkMxIzqaxuBceXaZkb0mKNoxNJ3jo4i6dgrAcW140FfuBwea2DhBsDBpOj-DXNRUhimCxtR_AGUq11Q-v3RS4pVVLKChV1oFvBbVT7KrOcAGIFEpoWq1DYvyv4DlkTH_xXMzFJclTEjHdeQ_kfYKeTpHdrxauuflYIkmTtXDqNHT7KDU"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-72 h-[calc(100vh-64px)] flex flex-col relative bg-surface-container-low">
+<!-- Conversation Area -->
+<section class="flex-1 overflow-y-auto px-8 py-10 space-y-8 custom-scrollbar">
+<!-- User Message -->
+<div class="flex justify-end w-full max-w-4xl mx-auto">
+<div class="flex flex-col items-end gap-2 max-w-[80%]">
+<div class="bg-primary-container text-white px-6 py-4 rounded-2xl rounded-tr-none shadow-sm">
+<p class="body-lg">I'm looking for a quiet place to work this afternoon in Manhattan. Somewhere with great coffee and strong WiFi.</p>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium">14:20 PM</span>
+</div>
+</div>
+<!-- AI Message -->
+<div class="flex justify-start w-full max-w-4xl mx-auto gap-4">
+<div class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center shrink-0 border border-slate-100">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="flex flex-col gap-4 max-w-[85%]">
+<div class="bg-white text-on-secondary-fixed px-6 py-4 rounded-2xl rounded-tl-none shadow-sm border border-slate-100/50">
+<p class="body-lg">I've analyzed 15 venues in Manhattan with high WiFi reliability scores. Based on your preference for a quiet atmosphere, I highly recommend this spot:</p>
+</div>
+<!-- Venue Recommendation Card (Bento/Premium Style) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-md border border-outline-variant/10 group transition-all hover:shadow-xl hover:-translate-y-1">
+<div class="h-48 w-full overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="modern minimalist glass-walled cafe interior with abundant natural light, indoor plants, and clean wooden furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI-cexzrpRdp0mC9A1K-5_gzRAzoaPAc_EYPKBbELQhymM94f7oGy3lsL-MYp1rPrnZHMQThgpP_FlgBsmGB6MiDSdgPDFffsAnVVJNuI4oX-N7W-x3nxv_8NkRNdx28uSZ3dGxPoyqHVkr0hQ0NIzP4DXphZM1kdmR-sZfGKpgvgd45uFREbzrGipExmoN_IIGzVCS8A_VtSa4T-Xx1KdsNzYRMfu5_hgzY32V7uX1u9yITwZtvH2rWiXmatfBEoEeZEMq15cRP8"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-yellow-500 text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.8</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="title-lg font-bold text-on-surface">The Glasshouse Cafe</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span> Chelsea, NY
+                                    </p>
+</div>
+<span class="text-primary font-bold">$$</span>
+</div>
+<div class="flex gap-4 mt-4">
+<div class="flex items-center gap-1.5 text-xs font-medium text-on-surface-variant bg-surface-container px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-sm" data-icon="wifi">wifi</span> Strong
+                                </div>
+<div class="flex items-center gap-1.5 text-xs font-medium text-on-surface-variant bg-surface-container px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-sm" data-icon="volume_off">volume_off</span> Quiet
+                                </div>
+</div>
+<button class="mt-6 w-full py-3 bg-primary-container text-white rounded-lg font-bold text-sm tracking-wide flex items-center justify-center gap-2 hover:bg-primary transition-colors">
+                                Book Now
+                                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Message - Typing -->
+<div class="flex justify-start w-full max-w-4xl mx-auto gap-4">
+<div class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center shrink-0 border border-slate-100">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="bg-white px-6 py-4 rounded-2xl rounded-tl-none shadow-sm flex items-center gap-1.5 border border-slate-100/50">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-300 animate-bounce"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-slate-300 animate-bounce" style="animation-delay: 0.2s"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-slate-300 animate-bounce" style="animation-delay: 0.4s"></span>
+</div>
+</div>
+</section>
+<!-- Bottom Input Area -->
+<footer class="p-8 bg-surface-container-low border-t border-transparent">
+<div class="max-w-4xl mx-auto">
+<!-- Suggestion Chips -->
+<div class="flex gap-3 mb-6 overflow-x-auto pb-2 no-scrollbar">
+<button class="whitespace-nowrap px-4 py-2 bg-white border border-slate-200/50 rounded-full text-xs font-semibold text-on-surface-variant hover:border-primary hover:text-primary transition-all shadow-sm">
+                        Find a restaurant nearby
+                    </button>
+<button class="whitespace-nowrap px-4 py-2 bg-white border border-slate-200/50 rounded-full text-xs font-semibold text-on-surface-variant hover:border-primary hover:text-primary transition-all shadow-sm">
+                        Show my upcoming bookings
+                    </button>
+<button class="whitespace-nowrap px-4 py-2 bg-white border border-slate-200/50 rounded-full text-xs font-semibold text-on-surface-variant hover:border-primary hover:text-primary transition-all shadow-sm">
+                        Best rated cafes
+                    </button>
+</div>
+<!-- Input Box -->
+<div class="relative group">
+<div class="absolute inset-0 bg-primary/5 blur-xl group-focus-within:bg-primary/10 transition-all rounded-2xl"></div>
+<div class="relative flex items-center bg-surface-container-lowest rounded-2xl p-2 shadow-lg border border-outline-variant/10">
+<button class="p-3 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="attach_file">attach_file</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant/50 body-lg py-3 px-2" placeholder="Ask me anything about venues..." type="text"/>
+<button class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="send" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<p class="text-center mt-4 text-[10px] text-on-surface-variant/40 uppercase tracking-widest font-medium">Powered by Kinetic Curator Engine v2.4</p>
+</div>
+</footer>
+</main>
+</body></html>

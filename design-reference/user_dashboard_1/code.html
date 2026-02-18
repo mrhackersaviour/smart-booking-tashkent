@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Curator | Premium Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#5d5c74",
+                    "primary-fixed": "#dee1ff",
+                    "outline": "#747686",
+                    "on-error": "#ffffff",
+                    "tertiary": "#933c00",
+                    "secondary-fixed-dim": "#c6c4df",
+                    "on-tertiary-fixed-variant": "#793000",
+                    "primary": "#2346d5",
+                    "surface-container-low": "#f3f4f5",
+                    "secondary-fixed": "#e2e0fc",
+                    "on-secondary-fixed-variant": "#45455b",
+                    "on-surface": "#191c1d",
+                    "surface-container": "#edeeef",
+                    "secondary-container": "#e2e0fc",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#1a1a2e",
+                    "surface-container-highest": "#e1e3e4",
+                    "background": "#f8f9fa",
+                    "primary-container": "#4361ee",
+                    "surface-bright": "#f8f9fa",
+                    "tertiary-fixed": "#ffdbcb",
+                    "inverse-primary": "#bac3ff",
+                    "outline-variant": "#c4c5d7",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-container": "#63627a",
+                    "surface-dim": "#d9dadb",
+                    "on-tertiary-container": "#fff1eb",
+                    "on-background": "#191c1d",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#001159",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb692",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#444655",
+                    "tertiary-container": "#ba4e00",
+                    "surface": "#f8f9fa",
+                    "primary-fixed-dim": "#bac3ff",
+                    "surface-tint": "#2e4edc",
+                    "surface-container-high": "#e7e8e9",
+                    "on-tertiary-fixed": "#341100",
+                    "on-primary-fixed-variant": "#0031c4",
+                    "on-primary-container": "#f4f2ff",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e1e3e4",
+                    "inverse-on-surface": "#f0f1f2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
+        .ambient-shadow { box-shadow: 0px 4px 20px rgba(26, 26, 46, 0.04), 0px 8px 40px rgba(26, 26, 46, 0.08); }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+    </style>
+</head>
+<body class="text-on-surface antialiased overflow-x-hidden">
+<!-- SideNavBar Component -->
+<nav class="hidden md:flex flex-col h-full py-8 px-4 h-screen w-64 fixed left-0 top-0 bg-on-secondary-fixed text-slate-50 z-50 overflow-y-auto">
+<div class="mb-10 px-4">
+<h1 class="text-xl font-bold tracking-tighter text-white">The Curator</h1>
+<p class="text-[10px] uppercase tracking-widest text-blue-400 mt-1 font-semibold">Premium Concierge</p>
+</div>
+<div class="space-y-2 flex-1">
+<!-- Dashboard Active -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-blue-400 font-semibold border-r-2 border-blue-400 bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="text-sm">My Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="text-sm">Favorites</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+<span class="text-sm">Loyalty</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="text-sm">AI Assistant</span>
+</a>
+</div>
+<div class="pt-8 mt-8 border-t border-white/10 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-sm">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="md:ml-64 min-h-screen pb-12">
+<!-- TopNavBar Component -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 hidden md:flex justify-between items-center px-8 h-16 bg-white/80 backdrop-blur-xl transition-all duration-300">
+<div class="flex items-center bg-surface-container-low px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-outline text-sm mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-outline" placeholder="Search venues, events, or experiences..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-slate-500 hover:text-blue-500 transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-500 hover:text-blue-500 transition-colors">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary overflow-hidden">
+<img alt="User Profile Image" class="w-full h-full object-cover" data-alt="portrait of a young professional man with a friendly expression in a modern studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSl3ktxsQj5rJaG6yEowy08fDH7FBkk_b8wU8v1qyj-cItcyGMkl6danng0G7U5_BzKLW7cgsVsw0yNmpNQ1fZbNJSJ9VF-EGhTaE1AK5gsxbDYyDJdvZ8-HAwu6zn8zMDqyyfKTl9Z2ZSKX775oBWJ3SyJMMNWJi9uhwGZ6nqfXdfa4DmSsLNIdHVb00klJdsAbBvO1ggetPLiH3v8fK4oNfAPJeJBRoD8j8a0feejveJjZ5KnHQIoeMwYcaiJYJJ2GzheqTEa4Y"/>
+</div>
+</div>
+</header>
+<div class="mt-20 px-8 max-w-7xl mx-auto space-y-12">
+<!-- Welcome Banner (Bento Style) -->
+<section class="relative rounded-2xl overflow-hidden min-h-[220px] flex items-center p-10 bg-on-secondary-fixed text-white">
+<div class="absolute inset-0 z-0 opacity-40">
+<div class="w-full h-full bg-cover bg-center" data-alt="blurred background of a high-end luxury cocktail lounge with warm golden lighting and elegant furniture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgTUOHPcfRrL_9gu_InwKCyOtgmrvK8QYYl2FN2ye1aCJOQX6t5ujnwLCf6ytK7-d1l3sh6rxWZIjobURgMwOGCuapMqWuMbIyfxG7p-T6iyQYDberx4IOvHO99lUyGgvy5eJo1P1qOy0lY3Lb5onSe9Ub5tCmR5VunAMmA_tzOJIfXGvjY4jDZn_0yQ9VNxL3iPN8iONFJ26mrchLsOhpzoTd-syrnvYC_XfSCrkuWeTA-iVoUy27hTRFU8OsocGJnfzxzhsguR8')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-on-secondary-fixed via-on-secondary-fixed/80 to-transparent"></div>
+</div>
+<div class="relative z-10 space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-container/30 border border-tertiary/50 rounded-full text-xs font-bold text-tertiary-fixed">
+<span class="material-symbols-outlined text-sm" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                        Gold Tier Member
+                    </div>
+<h2 class="text-4xl font-extrabold tracking-tight leading-tight">Welcome back, Alex!</h2>
+<p class="text-slate-300 max-w-md text-sm">Your bespoke evening awaits. We've curated 14 new venues in London that match your recent tastes.</p>
+</div>
+</section>
+<!-- Quick Stats Row -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 flex items-center justify-between">
+<div>
+<p class="text-label-sm uppercase tracking-widest text-on-surface-variant font-semibold text-[10px]">Total Bookings</p>
+<h3 class="text-3xl font-bold mt-1">12</h3>
+</div>
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="book_online">book_online</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 flex items-center justify-between">
+<div>
+<p class="text-label-sm uppercase tracking-widest text-on-surface-variant font-semibold text-[10px]">Loyalty Points</p>
+<h3 class="text-3xl font-bold mt-1">2,450</h3>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 flex items-center justify-between">
+<div>
+<p class="text-label-sm uppercase tracking-widest text-on-surface-variant font-semibold text-[10px]">Reviews Given</p>
+<h3 class="text-3xl font-bold mt-1">8</h3>
+</div>
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="rate_review">rate_review</span>
+</div>
+</div>
+</section>
+<!-- Upcoming Bookings Section -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<h3 class="text-2xl font-bold tracking-tight">Upcoming Bookings</h3>
+<button class="text-primary text-sm font-semibold hover:underline">View All</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Booking Card 1 -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden flex flex-col sm:flex-row ambient-shadow border border-outline-variant/15 transition-transform duration-300 hover:scale-[1.01]">
+<div class="w-full sm:w-48 h-48 sm:h-auto overflow-hidden">
+<img alt="Skyline Rooftop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="modern rooftop bar at dusk with panoramic city views and warm accent lighting on lounge furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_RGorKWG4WyArhTGqD-1g-qMZ_D5fzJ82_xOOlwGQKT7wRH4oC55Chl7ToXLol_lXAoXgvhXYwME8HSq_HnaKKTS8k7r12QaFgvYs_vxpPRbaUCDn3AHSs_pzcAvoNxiZ-Xn_Sbx7VBDj5mxIVwtwk52m3Vr928cJWCWOb-jea01preQOSKztDzTLJct_iExUvZUoyDQ96QlyHxe6sqVOJOymBnPwxqz5i5KnIwc8oO2Tak8-UU4VCE23lmhjU6toOKnKUizIxv8"/>
+</div>
+<div class="flex-1 p-6 flex flex-col justify-between">
+<div class="space-y-1">
+<div class="flex justify-between items-start">
+<h4 class="text-lg font-bold">Skyline Rooftop</h4>
+<span class="px-2 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded uppercase">Confirmed</span>
+</div>
+<p class="text-on-surface-variant text-sm">Saturday, Oct 24 • 8:00 PM</p>
+<div class="flex items-center gap-1 text-on-surface-variant mt-2">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+<span class="text-xs">2 Guests</span>
+</div>
+</div>
+<div class="mt-4 flex gap-3">
+<button class="flex-1 py-2 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-primary-container transition-colors">Manage</button>
+<button class="px-3 py-2 bg-surface-container rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Booking Card 2 -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden flex flex-col sm:flex-row ambient-shadow border border-outline-variant/15 transition-transform duration-300 hover:scale-[1.01]">
+<div class="w-full sm:w-48 h-48 sm:h-auto overflow-hidden">
+<img alt="The Blue Note" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="dimly lit luxury jazz club interior with blue neon lights and small tables near a stage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRkgoc_r8CHPhaPi2B4H5L4ij7WMTnoZYNnFNwZQCp-LTjm1grdT7syF412EQb7T5Wp5lQfrSPMv_8Q-IZj91AxC7Bg5sg5ZUfd3sfjp0PvuHSb10bW4v7AV44-B0g0MZDI6ln_TVR8BpBJrMwp-s3knWOrUkSi8oLDoT0cCaYYiL9uYjCYcDcqH03STIqkKLR-kQo0nbElEPBPLRxB6XAa6i5K1vLbXbk1FCwmXDnDd_t47s5vh4hFQfXNO7GBTwKpkHcVZKspxM"/>
+</div>
+<div class="flex-1 p-6 flex flex-col justify-between">
+<div class="space-y-1">
+<div class="flex justify-between items-start">
+<h4 class="text-lg font-bold">The Blue Note</h4>
+<span class="px-2 py-1 bg-amber-100 text-amber-700 text-[10px] font-bold rounded uppercase">Pending</span>
+</div>
+<p class="text-on-surface-variant text-sm">Friday, Oct 30 • 9:30 PM</p>
+<div class="flex items-center gap-1 text-on-surface-variant mt-2">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+<span class="text-xs">2 Guests</span>
+</div>
+</div>
+<div class="mt-4 flex gap-3">
+<button class="flex-1 py-2 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-primary-container transition-colors">Manage</button>
+<button class="px-3 py-2 bg-surface-container rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommended Section -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="text-2xl font-bold tracking-tight">Recommended for You</h3>
+<p class="text-on-surface-variant text-sm">Based on your love for Fine Dining and Rooftops</p>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-white border border-outline-variant/30 flex items-center justify-center hover:bg-slate-50">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-white border border-outline-variant/30 flex items-center justify-center hover:bg-slate-50">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto pb-6 scrollbar-hide -mx-8 px-8">
+<!-- Recommendation Card 1 -->
+<div class="min-w-[280px] group">
+<div class="h-64 rounded-2xl overflow-hidden relative ambient-shadow mb-4">
+<img alt="The Gilded Lily" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="extravagant restaurant interior with gold leaf detailing, velvet chairs and crystal chandeliers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD0fvKN8eRm5r8oRAbZdNdjRJWk1UhRlcXZRMr88ovRfqDD3J237W-r93FfzD0F56CWNDDrncNpDY8Up_wLj-DyY_8enJWGScx30fyAbYAZ14NiqOgmp7GsiXS3JeKOu4DCp5XhRA5-FG96G6c8bRCQyvqmuQVzWM43quYpTxJmf2SJL25svQnWdGTDFmrzp4GjhlclTh2gOOGk0t6zWlCb5b5yGk1QRU4P9-HE7kQABiSObw8-YCygadFpHETj4CK45k2ElQvnlA"/>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1 text-white text-xs font-bold">
+<span class="material-symbols-outlined text-amber-400 text-xs" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.9
+                            </div>
+<div class="absolute bottom-4 left-4">
+<span class="px-2 py-1 bg-primary text-white text-[10px] font-bold rounded uppercase">Fine Dining</span>
+</div>
+</div>
+<h4 class="font-bold text-lg">The Gilded Lily</h4>
+<p class="text-on-surface-variant text-sm">Mayfair, London</p>
+</div>
+<!-- Recommendation Card 2 -->
+<div class="min-w-[280px] group">
+<div class="h-64 rounded-2xl overflow-hidden relative ambient-shadow mb-4">
+<img alt="Eclipse Sushi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="minimalist modern sushi bar with dark stone surfaces and precision-lit food preparation area" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbux_VzrGBi_P_w3TbHlv0T7f2azoZV3MHB21W0m-VFk7ScdoDuivIM7LVgUteEQCznI7QCnhqd3FtzqrLpVM950E8ORcTb0m7zonhqTUIZSVNq9SBCQ6iVMIqKyH_x2c94Fy6bWGUylwDjsffXanec7oICnxnzSxNc2CLGkSmHWx4OM7RaQr14omC0vQxlG3SHITmCNzrBflaaQMlnhIoRxixDiFUnT9mD1VoOGgoMugwmk37pCJYSQNhc1DY37nj5tWELfxI7lk"/>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1 text-white text-xs font-bold">
+<span class="material-symbols-outlined text-amber-400 text-xs" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.8
+                            </div>
+<div class="absolute bottom-4 left-4">
+<span class="px-2 py-1 bg-primary text-white text-[10px] font-bold rounded uppercase">Japanese Omakase</span>
+</div>
+</div>
+<h4 class="font-bold text-lg">Eclipse Sushi</h4>
+<p class="text-on-surface-variant text-sm">Soho, London</p>
+</div>
+<!-- Recommendation Card 3 -->
+<div class="min-w-[280px] group">
+<div class="h-64 rounded-2xl overflow-hidden relative ambient-shadow mb-4">
+<img alt="Velvet Lounge" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="intimate cocktail bar with deep red velvet booth seating and dim moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi2Rr2jz9rIp-Dj7EZYNqvopCIhZeeVPBcKrHtRwhl-fx6YfmCS9SWucswC9jDXs35Q-_LXz3XaopYxPXfZqC4xuH_hskwWfHxJK4dnFdEszaGfr-0QdYk1I97A9CPib781hkMxFJCndhkT-nC0x6QQWHhu3iVMp_iNNsOv46Qz_IDxEjgI6fVaKbXyDrdf6nKddf6H-hRRNPfzcwDD4RLhv-5oWfJJ-cfnIPB8dYqmlKqie1KtkxQP-5XW0i-UuU0uVf8yOeSjqE"/>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1 text-white text-xs font-bold">
+<span class="material-symbols-outlined text-amber-400 text-xs" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.7
+                            </div>
+<div class="absolute bottom-4 left-4">
+<span class="px-2 py-1 bg-primary text-white text-[10px] font-bold rounded uppercase">Cocktails</span>
+</div>
+</div>
+<h4 class="font-bold text-lg">Velvet Lounge</h4>
+<p class="text-on-surface-variant text-sm">Shoreditch, London</p>
+</div>
+<!-- Recommendation Card 4 -->
+<div class="min-w-[280px] group">
+<div class="h-64 rounded-2xl overflow-hidden relative ambient-shadow mb-4">
+<img alt="The Greenhouse" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="lush glass-walled garden restaurant filled with hanging plants and natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzGKKjXkAIVbyRC3UTpVqoGu7SBzsu8m65OYe7Mqxjb_11QQxzsbu81jxDUrdjcnYlVzLKIqZPwLfcz5F2gbXL78dYtWsPrxfinw4SBDt7oyy-DQOD2K7OLurOXUI7jIzOJwI8lxIozFVvY24LDrw_n4LgV2q91-K-BTX-v5m-vynyUMb0YEQ8kJTBfc1baNg5ecIAzBQXFVBqF0Wq9oyFJYibv9kp_SMUDeuwH1flaK2bloPa5Rb4q_qTPnAZ55w_9kUSIt9H1KU"/>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1 text-white text-xs font-bold">
+<span class="material-symbols-outlined text-amber-400 text-xs" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.9
+                            </div>
+<div class="absolute bottom-4 left-4">
+<span class="px-2 py-1 bg-primary text-white text-[10px] font-bold rounded uppercase">Fine Dining</span>
+</div>
+</div>
+<h4 class="font-bold text-lg">The Greenhouse</h4>
+<p class="text-on-surface-variant text-sm">Chelsea, London</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Mobile Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white border-t border-outline-variant/15 flex justify-around items-center z-50">
+<a class="flex flex-col items-center gap-1 text-blue-600" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-semibold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="text-[10px] font-semibold">Bookings</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="text-[10px] font-semibold">AI</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-[10px] font-semibold">Profile</span>
+</a>
+</nav>
+</body></html>
