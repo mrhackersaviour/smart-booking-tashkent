@@ -78,7 +78,6 @@ Project built by a cross-functional 8-person MIX team. Roles:
 - `docs/BUSINESS_ANALYSIS.md` — Market and business model
 - `docs/ANALYTICS.md` — Admin dashboard metric definitions
 - `docs/DEPLOYMENT.md` — Production deployment playbook
-- `CLAUDE.md` — Engineering operating playbook
 - `PROGRESS.md` — Build log and sprint summary
 
 ## License
